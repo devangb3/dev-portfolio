@@ -91,7 +91,7 @@ const skills = [
   "Java", "C#", "C++", "Python3", "Javascript", 
   "SQL", "React Native", "NodeJS", "AWS", 
   "Docker", "Flask", "Machine Learning", "LLMs",
-  "ChatGPT API", "Vision Language Models(VLM)"
+  "ChatGPT API", "Vision Language Models(VLM), Vibe Coding, Github Copilot"
 ];
 function App() {
   const [isVisible, setIsVisible] = useState(false);
@@ -216,7 +216,7 @@ function App() {
               Software Engineer
             </Typography>
             <Typography variant="h6" sx={{ mb: 4, color: '#ffffff80' }}>
-              UC Davis Graduate Student | Full Stack Developer
+              UC Davis Graduate Student | Full Stack Developer | AI Enthusiast
             </Typography>
             <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', mb: 4 }}>
               <IconButton 
