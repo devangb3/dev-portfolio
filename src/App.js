@@ -316,7 +316,7 @@ function App() {
           <Container>
           <Typography variant="h3" gutterBottom sx={{ color: '#00ff88' }}>About Me</Typography>
           <Typography variant="body1" paragraph sx={{ color: 'white' }}>
-            Currently pursuing my Master's in Computer Science at UC Davis with a focus on Artificial Intelligence, Distributed Systems 
+            I am a AI Enthusiast currently pursuing my Master's in Computer Science at UC Davis with a focus on Artificial Intelligence, Distributed Systems 
             and Software Engineering. I bring over 2 years of experience as a Software Engineer, 
             where I enhanced user experience by implementing new features and improving system performance. 
             I'm passionate about building scalable solutions and optimizing system architecture.
