@@ -49,7 +49,7 @@ const projects = [
       "Improved prediction accuracy over time",
       "Integrated multiple ML frameworks"
     ],
-    demoUrl: "#",
+    demoUrl: "https://rapidapi.com/tradnomic-tradnomic-default/api/crypto-real-time-indicators-and-probabilities",
     githubUrl: "https://github.com/devangb3"
   },
   {
@@ -64,14 +64,28 @@ const projects = [
       "Built distributed system architecture"
     ],
     demoUrl: "#",
-    githubUrl: "https://github.com/devangb3"
+    githubUrl: "https://github.com/ResilientApp/ResShare-Backend"
+  },
+  {
+    id: "reschat",
+    title: "ResChat (Decentralized Chatting System)",
+    description: "Built a robust blockchain-based chatting system on top of ResilientDB using IPFS for private and high-performance messaging with file distribution capabilities, ensuring data integrity and availability; part of the Apache Software Foundation Incubator Project..",
+    technologies: ["Python", "Flask", "IPFS", "ResilientDB", "ReactJS", "GraphQL", "Distributed Systems", "C++", "Bazel"],
+    highlights: [
+      "Implemented end-to-end encryption and IPFS-based distributed storage",
+      "Built a blockchain-based chat system using ResilientDB and IPFS to ensure data integrity and censorship resistance.",
+      ": Contributed to the Apache Software Foundation Incubator Project, promoting decentralized messaging innovation."
+    ],
+    demoUrl: "#",
+    githubUrl: "https://github.com/ResilientApp/ResChat"
   }
 ];
 
 const skills = [
   "Java", "C#", "C++", "Python3", "Javascript", 
   "SQL", "React Native", "NodeJS", "AWS", 
-  "Docker", "Flask", "Machine Learning"
+  "Docker", "Flask", "Machine Learning", "LLMs",
+  "ChatGPT API", "Vision Language Models(VLM)"
 ];
 function App() {
   const [isVisible, setIsVisible] = useState(false);
