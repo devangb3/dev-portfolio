@@ -102,7 +102,8 @@ const skills = [
   "Java", "C#", "C++", "Python3", "Javascript", 
   "SQL", "React Native", "NodeJS", "AWS", 
   "Docker", "Flask", "Machine Learning", "LLMs",
-  "ChatGPT API", "Vision Language Models(VLM), Vibe Coding, Github Copilot, Cursor"
+  "ChatGPT API", "Vision Language Models(VLM)", "Vibe Coding"
+  ,"Github Copilot", "Cursor IDE"
 ];
 function App() {
   const [isVisible, setIsVisible] = useState(false);
