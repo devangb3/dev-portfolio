@@ -180,7 +180,7 @@ function App() {
                 backgroundColor: 'rgba(0, 255, 136, 0.1)'
               }
             }}
-            href={process.env.PUBLIC_URL + "/BorkarDevang.pdf"}
+            href={process.env.PUBLIC_URL + "/Devang_Resume.pdf"}
             target="_blank"
           >
             View Resume
