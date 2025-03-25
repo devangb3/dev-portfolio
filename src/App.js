@@ -84,6 +84,17 @@ const projects = [
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/ResilientApp/ResChat"
+  },
+  {
+    id: "quiz",
+    title: "LLM Quiz Generator",
+    description: "Built a Quiz Generator where learners can upload their study material and instantly get Quiz questions that would help them assess their strengths and weaknesses.",
+    technologies: ["Python", "Flask", "React", "APIs", "Deepseek", "AI Development", "Vibe Coding", "Cursor"],
+    highlights: [
+      "Leveraged Cursor to build an efficient platform that would be helpful for students."
+    ],
+    demoUrl: "#",
+    githubUrl: "https://github.com/devangb3/LLM-Quiz"
   }
 ];
 
@@ -91,7 +102,7 @@ const skills = [
   "Java", "C#", "C++", "Python3", "Javascript", 
   "SQL", "React Native", "NodeJS", "AWS", 
   "Docker", "Flask", "Machine Learning", "LLMs",
-  "ChatGPT API", "Vision Language Models(VLM), Vibe Coding, Github Copilot"
+  "ChatGPT API", "Vision Language Models(VLM), Vibe Coding, Github Copilot, Cursor"
 ];
 function App() {
   const [isVisible, setIsVisible] = useState(false);
