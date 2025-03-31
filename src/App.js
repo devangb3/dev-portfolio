@@ -80,7 +80,7 @@ const projects = [
     highlights: [
       "Implemented end-to-end encryption and IPFS-based distributed storage",
       "Built a blockchain-based chat system using ResilientDB and IPFS to ensure data integrity and censorship resistance.",
-      ": Contributed to the Apache Software Foundation Incubator Project, promoting decentralized messaging innovation."
+      "Contributed to the Apache Software Foundation Incubator Project, promoting decentralized messaging innovation."
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/ResilientApp/ResChat"
@@ -88,13 +88,28 @@ const projects = [
   {
     id: "quiz",
     title: "LLM Quiz Generator",
-    description: "Built a Quiz Generator where learners can upload their study material and instantly get Quiz questions that would help them assess their strengths and weaknesses.",
-    technologies: ["Python", "Flask", "React", "APIs", "Deepseek", "AI Development", "Vibe Coding", "Cursor"],
+    description: "Developed a full-stack web application that converts study materials into interactive quizzes.",
+    technologies: ["Python", "FastAPI", "Uvicorn", "APIs", "Deepseek", "AI Development", "Vibe Coding", "Cursor", "Vite", "Deepseek-API"],
     highlights: [
-      "Leveraged Cursor to build an efficient platform that would be helpful for students."
+      "File Upload & Processing: Supports various file formats (TXT, PDF, DOC, DOCX) with dynamic encoding detection and PDF content extraction.",
+      "Quiz Generation: Generates multiple choice questions based on user-provided study materials. Integrates with Deepseek API to create context-aware quiz questions.",
+      "Interactive Quiz Interface: Provides a dynamic quiz experience with real-time evaluation. Uses a progress indicator, immediate feedback on answers, and final score reporting."
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/devangb3/LLM-Quiz"
+  },
+  {
+    id : "rag-context",
+    title: "RAG Client",
+    description: "AI assistant designed to enable users to quickly find answers within their local documents (including PDFs, notes, and code files)",
+    technologies: ["Python", "LangChain", "FAISS", "Gemini AI API", "Vector Databases", "Tokenization", "Retrieval Augmented Generation(RAG)"],
+    highlights: [
+      "Implemented Retrieval-Augmented Generation (RAG) techniques to create a context-aware search engine for personal document collections and codebases.",
+      "Leveraged Python and LangChain to orchestrate interactions between large language models and vector databases, enhancing document retrieval and response generation.​",
+      "Integrated the Gemini 2.5 Pro model via the Gemini AI API to generate embeddings, with flexibility to substitute alternative models as needed"
+    ],
+    demoUrl: "#",
+    githubUrl: "https://github.com/devangb3/RAG-Client"
   }
 ];
 
