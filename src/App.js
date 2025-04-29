@@ -110,6 +110,20 @@ const projects = [
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/devangb3/RAG-Client"
+  },
+  {
+    id: "daily-digest",
+    title: "Daily Digest - Calendar Gmail Summary",
+    description: "A full-stack application providing smart summaries of Google Calendar events and Gmail messages using Gemini AI, featuring text/audio summaries and smart replies.",
+    technologies: ["Python", "Flask", "React", "Node.js", "MongoDB", "Google Calendar API", "Gmail API", "Gemini AI API", "OAuth2", "SSL/TLS", "Google Cloud"],
+    highlights: [
+      "Generated AI-powered daily summaries for Google Calendar events and Gmail messages.",
+      "Implemented secure Google OAuth2 authentication for Calendar and Gmail access.",
+      "Integrated Text-to-Speech functionality for accessible audio summaries.",
+      "Provided AI-driven smart reply suggestions for emails to improve productivity."
+    ],
+    demoUrl: "https://calendar-gmail-summary-frontend.onrender.com/",
+    githubUrl: "https://github.com/yourusername/Calendar-Gmail-Summary.git"
   }
 ];
 
