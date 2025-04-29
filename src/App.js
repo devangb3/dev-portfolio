@@ -123,7 +123,7 @@ const projects = [
       "Provided AI-driven smart reply suggestions for emails to improve productivity."
     ],
     demoUrl: "https://calendar-gmail-summary-frontend.onrender.com/",
-    githubUrl: "https://github.com/yourusername/Calendar-Gmail-Summary.git"
+    githubUrl: "https://github.com/devangb3/Calendar-Gmail-Summary"
   }
 ];
 
