@@ -19,7 +19,8 @@ import {
   Email, 
   Download, 
   ArrowDownward,
-  Description 
+  Description,
+  Launch 
 } from '@mui/icons-material';
 
 // Add this new component after the imports
@@ -31,20 +32,6 @@ const LeetCodeIcon = () => (
 
 const projects = [
   {
-    id: "atom",
-    title: "Atom (Portfolio Management Software)",
-    description: "Engineered scalable backend architectures for a high-traffic wealth management platform, enabling real-time trading capabilities and enhancing performance through cloud infrastructure optimization and modular system upgrades.",
-    technologies: ["Dot Net Core 6.0", "C#", "JavaScript", "Azure", "AWS", "Angular", "TypeScript", "SQL"],
-    highlights: [
-      "Reduced data retrieval times by 40%",
-      "Implemented real-time trading capabilities",
-      "Optimized cloud infrastructure",
-      "Built scalable backend architecture"
-    ],
-    demoUrl: "#",
-    githubUrl: "https://github.com/devangb3"
-  },
-  {
     id: "algotrade",
     title: "AlgoTrade (Stock Prediction Platform for HFTs)",
     description: "Developed a platform allowing end-users to view which predictive model performs best on a given asset at a specific time and implemented continuous model retraining and updating to improve prediction accuracy over time.",
@@ -55,22 +42,8 @@ const projects = [
       "Improved prediction accuracy over time",
       "Integrated multiple ML frameworks"
     ],
-    demoUrl: "https://rapidapi.com/tradnomic-tradnomic-default/api/crypto-real-time-indicators-and-probabilities",
+    demoUrl: "http://hammertrade.tradnomic.com/",
     githubUrl: "https://github.com/devangb3"
-  },
-  {
-    id: "resshare",
-    title: "ResShare (Decentralized File Sharing System)",
-    description: "Built a robust blockchain based file sharing system on top of the ResilientDB using IPFS for secure and efficient file distribution that ensures data integrity and availability.",
-    technologies: ["Python", "Flask", "IPFS", "ResilientDB", "ReactJS", "GraphQL", "Distributed Systems"],
-    highlights: [
-      "Implemented blockchain-based security",
-      "Integrated IPFS for file distribution",
-      "Ensured data integrity and availability",
-      "Built distributed system architecture"
-    ],
-    demoUrl: "#",
-    githubUrl: "https://github.com/ResilientApp/ResShare-Backend"
   },
   {
     id: "reschat",
@@ -84,6 +57,21 @@ const projects = [
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/ResilientApp/ResChat"
+  },
+  {
+    id: "dc-menu-analyzer",
+    title: "DC Menu Analyzer",
+    description: "Developed a web application that helps UC Davis students analyze Tercero Dining Commons menu items based on their dietary restrictions and preferences. The application uses AI to provide personalized menu recommendations while considering dietary restrictions, allergies, and caloric requirements.",
+    technologies: ["Web Scraping", "Python", "FastAPI", "Gemini AI API", "BeautifulSoup4", "ReactJS", "LLMs"],
+    highlights: [
+      "Built a web scraping pipeline using BeautifulSoup4 to automatically extract and parse dining commons menu data",
+      "Integrated Google's Gemini AI API for intelligent menu analysis and personalized recommendations",
+      "Implemented real-time dietary restriction validation and menu filtering system",
+      "Developed responsive React frontend with Material-UI for seamless user interaction",
+      "Created efficient data storage and caching system for quick menu retrieval and analysis"
+    ],
+    demoUrl: "#",
+    githubUrl: "https://github.com/devangb3/DC-Menu-Analyzer"
   },
   {
     id: "quiz",
@@ -124,6 +112,47 @@ const projects = [
     ],
     demoUrl: "https://calendar-gmail-summary-frontend.onrender.com/",
     githubUrl: "https://github.com/devangb3/Calendar-Gmail-Summary"
+  },
+  {
+    id: "llm-chatbot",
+    title: "LLM Self-Chat",
+    description: "A framework for LLMs to converse with themselves or other LLMs, where an auditor can assign custom system prompts to each agent. Useful for prompt engineering, behavior analysis, and multi-agent simulations.",
+    technologies: ["Python", "Websockets", "Gemini API", "Deepseek API",  "Claude API", "OpenAI API", "LLMs", "ReactJS", "Flask", "MongoDB"],
+    highlights: [
+      "Implemented a multi-agent system for LLMs to converse with each other.",
+      "Utilized websockets for real-time communication between the frontend and backend.",
+      "Implemented a custom system prompt for each agent to enable behavior analysis and prompt engineering."
+    ],
+    demoUrl: "#",
+    githubUrl: "https://github.com/devangb3/LLM-Self-Chat"
+  },
+  {
+    id: "resshare",
+    title: "ResShare (Decentralized File Sharing System)",
+    description: "Built a robust blockchain based file sharing system on top of the ResilientDB using IPFS for secure and efficient file distribution that ensures data integrity and availability.",
+    technologies: ["Python", "Flask", "IPFS", "ResilientDB", "ReactJS", "GraphQL", "Distributed Systems"],
+    highlights: [
+      "Implemented blockchain-based security",
+      "Integrated IPFS for file distribution",
+      "Ensured data integrity and availability",
+      "Built distributed system architecture"
+    ],
+    demoUrl: "#",
+    githubUrl: "https://github.com/ResilientApp/ResShare-Backend"
+  },
+  {
+    id: "atom",
+    title: "Atom (Portfolio Management Software)",
+    description: "Engineered scalable backend architectures for a high-traffic wealth management platform, enabling real-time trading capabilities and enhancing performance through cloud infrastructure optimization and modular system upgrades.",
+    technologies: ["Dot Net Core 6.0", "C#", "JavaScript", "Azure", "AWS", "Angular", "TypeScript", "SQL"],
+    highlights: [
+      "Reduced data retrieval times by 40%",
+      "Implemented real-time trading capabilities",
+      "Optimized cloud infrastructure",
+      "Built scalable backend architecture"
+    ],
+    demoUrl: "#",
+    githubUrl: "https://github.com/devangb3"
   }
 ];
 
@@ -454,6 +483,20 @@ function App() {
                   >
                     View Source
                   </Button>
+                  {project.demoUrl !== "#" && (
+                    <Button 
+                      size="small" 
+                      href={project.demoUrl} 
+                      target="_blank" 
+                      startIcon={<Launch />}
+                      sx={{ 
+                        color: '#00ff88',
+                        '&:hover': { bgcolor: 'rgba(0, 255, 136, 0.1)' }
+                      }}
+                    >
+                      Try it out
+                    </Button>
+                  )}
                 </CardActions>
               </Card>
             ))}
