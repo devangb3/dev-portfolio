@@ -563,7 +563,6 @@ const SocialLinks = ({ links, theme, isVisible }) => (
               transform: 'translateY(-4px)'
             }
           }),
-          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
         }}
       >
         {social.label}
@@ -602,7 +601,6 @@ const HeroSocialLinks = ({ links, theme, isVisible }) => (
             boxShadow: `0 10px 30px ${theme.primary}40`,
             border: `2px solid ${theme.primary}60`
           },
-          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
         }}
         href={social.url}
         target="_blank"
