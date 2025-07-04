@@ -203,6 +203,7 @@ const skills = [
   { name: "Git", category: "Tools", icon: "🌿" },
   { name: "Kubernetes", category: "Tools", icon: "⚓" },
   { name: "Linux", category: "Tools", icon: "🐧" },
+  { name: "Hugging Face", category: "Tools", icon: "🤗" },
   { name: "Machine Learning", category: "AI", icon: "🤖" },
   { name: "LLMs", category: "AI", icon: "🧠" },
   { name: "RAG", category: "AI", icon: "📚" },
