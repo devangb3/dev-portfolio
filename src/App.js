@@ -9,17 +9,13 @@ import {
   Card,
   CardContent,
   CardActions,
-  Fade,
   IconButton,
   Chip,
   Grid,
   Avatar,
   Divider,
   Paper,
-  TextField,
-  Grow,
-  Zoom,
-  Slide
+  TextField
 } from "@mui/material";
 import { 
   GitHub, 
@@ -60,7 +56,9 @@ const projects = [
       "Integrated multiple ML frameworks"
     ],
     demoUrl: "http://hammertrade.tradnomic.com/",
-    githubUrl: "https://github.com/devangb3"
+    githubUrl: "https://github.com/devangb3",
+    isOpenSource: false,
+    hasPublicRepo: false
   },
   {
     id: "reschat",
@@ -73,7 +71,9 @@ const projects = [
       "Contributed to the Apache Software Foundation Incubator Project, promoting decentralized messaging innovation."
     ],
     demoUrl: "#",
-    githubUrl: "https://github.com/ResilientApp/ResChat"
+    githubUrl: "https://github.com/ResilientApp/ResChat",
+    isOpenSource: true,
+    hasPublicRepo: true
   },
   {
     id: "dc-menu-analyzer",
@@ -88,7 +88,9 @@ const projects = [
       "Created efficient data storage and caching system for quick menu retrieval and analysis"
     ],
     demoUrl: "#",
-    githubUrl: "https://github.com/devangb3/DC-Menu-Analyzer"
+    githubUrl: "https://github.com/devangb3/DC-Menu-Analyzer",
+    isOpenSource: true,
+    hasPublicRepo: true
   },
   {
     id: "quiz",
@@ -101,7 +103,9 @@ const projects = [
       "Interactive Quiz Interface: Provides a dynamic quiz experience with real-time evaluation. Uses a progress indicator, immediate feedback on answers, and final score reporting."
     ],
     demoUrl: "#",
-    githubUrl: "https://github.com/devangb3/LLM-Quiz"
+    githubUrl: "https://github.com/devangb3/LLM-Quiz",
+    isOpenSource: true,
+    hasPublicRepo: true
   },
   {
     id : "rag-context",
@@ -114,7 +118,9 @@ const projects = [
       "Integrated the Gemini 2.5 Pro model via the Gemini AI API to generate embeddings, with flexibility to substitute alternative models as needed"
     ],
     demoUrl: "#",
-    githubUrl: "https://github.com/devangb3/RAG-Client"
+    githubUrl: "https://github.com/devangb3/RAG-Client",
+    isOpenSource: true,
+    hasPublicRepo: true
   },
   {
     id: "daily-digest",
@@ -128,7 +134,9 @@ const projects = [
       "Provided AI-driven smart reply suggestions for emails to improve productivity."
     ],
     demoUrl: "https://calendar-gmail-summary-frontend.onrender.com/",
-    githubUrl: "https://github.com/devangb3/Calendar-Gmail-Summary"
+    githubUrl: "https://github.com/devangb3/Calendar-Gmail-Summary",
+    isOpenSource: true,
+    hasPublicRepo: true
   },
   {
     id: "llm-chatbot",
@@ -141,7 +149,9 @@ const projects = [
       "Implemented a custom system prompt for each agent to enable behavior analysis and prompt engineering."
     ],
     demoUrl: "#",
-    githubUrl: "https://github.com/devangb3/LLM-Self-Chat"
+    githubUrl: "https://github.com/devangb3/LLM-Self-Chat",
+    isOpenSource: true,
+    hasPublicRepo: true
   },
   {
     id: "resshare",
@@ -155,7 +165,9 @@ const projects = [
       "Built distributed system architecture"
     ],
     demoUrl: "#",
-    githubUrl: "https://github.com/ResilientApp/ResShare-Backend"
+    githubUrl: "https://github.com/ResilientApp/ResShare-Backend",
+    isOpenSource: true,
+    hasPublicRepo: true
   },
   {
     id: "atom",
@@ -169,39 +181,41 @@ const projects = [
       "Built scalable backend architecture"
     ],
     demoUrl: "#",
-    githubUrl: "https://github.com/devangb3"
+    githubUrl: "https://github.com/devangb3",
+    isOpenSource: true,
+    hasPublicRepo: true
   }
 ];
 
 const skills = [
   { name: "Java", category: "Languages", icon: "☕" },
   { name: "Python3", category: "Languages", icon: "🐍" },
-  { name: "JavaScript", category: "Languages", icon: "🌐" },
-  { name: "C#", category: "Languages", icon: "💻" },
-  { name: "C++", category: "Languages", icon: "⚡" },
+  { name: "JavaScript", category: "Languages", icon: "⚡" },
+  { name: "C#", category: "Languages", icon: "🎯" },
+  { name: "C++", category: "Languages", icon: "⚔️" },
   { name: "React", category: "Frameworks", icon: "⚛️" },
   { name: "Node.js", category: "Frameworks", icon: "🟢" },
   { name: "Flask", category: "Frameworks", icon: "🌶️" },
-  { name: "AWS", category: "Cloud", icon: "☁️" },
-  { name: "GCP", category: "Cloud", icon: "☁️" },
-  { name: "Azure", category: "Cloud", icon: "☁️" },
-  { name: "Docker", category: "Tools", icon: "🐋" },
-  { name: "Git", category: "Tools", icon: "🐋" },
-  { name: "Kubernetes", category: "Tools", icon: "🐋" },
-  { name: "Linux", category: "Tools", icon: "🐋" },
+  { name: "AWS", category: "Cloud", icon: "🌩️" },
+  { name: "GCP", category: "Cloud", icon: "🌈" },
+  { name: "Azure", category: "Cloud", icon: "💠" },
+  { name: "Docker", category: "Tools", icon: "🐳" },
+  { name: "Git", category: "Tools", icon: "🌿" },
+  { name: "Kubernetes", category: "Tools", icon: "⚓" },
+  { name: "Linux", category: "Tools", icon: "🐧" },
   { name: "Machine Learning", category: "AI", icon: "🤖" },
   { name: "LLMs", category: "AI", icon: "🧠" },
-  { name: "RAG", category: "AI", icon: "🧠" },
-  { name: "Prompt Engineering", category: "AI", icon: "🧠" },
-  { name: "Deep Learning", category: "AI", icon: "🧠" },
-  { name: "Model Fine Tuning", category: "AI", icon: "🧠" },
-  { name: "Reinforcement Learning", category: "AI", icon: "🧠" },
-  { name: "SQL", category: "Database", icon: "🗃️" },
-  { name: "MongoDB", category: "Database", icon: "🗃️" },
-  { name: "PostgreSQL", category: "Database", icon: "🗃️" },
-  { name: "MySQL", category: "Database", icon: "🗃️" },
-  { name: "Redis", category: "Database", icon: "🗃️" },
-  { name: "Kafka", category: "Database", icon: "🗃️" },
+  { name: "RAG", category: "AI", icon: "📚" },
+  { name: "Prompt Engineering", category: "AI", icon: "⌨️" },
+  { name: "Deep Learning", category: "AI", icon: "🔮" },
+  { name: "Model Fine Tuning", category: "AI", icon: "🎯" },
+  { name: "Reinforcement Learning", category: "AI", icon: "🎮" },
+  { name: "SQL", category: "Database", icon: "📊" },
+  { name: "MongoDB", category: "Database", icon: "🍃" },
+  { name: "PostgreSQL", category: "Database", icon: "🐘" },
+  { name: "MySQL", category: "Database", icon: "🐬" },
+  { name: "Redis", category: "Database", icon: "⚡" },
+  { name: "Kafka", category: "Database", icon: "📨" },
   
   
 ];
@@ -229,62 +243,520 @@ const experiences = [
     technologies: ["Multimodal AI", "Python", "FastAPI", "React", "LLMs", "Gemini API", "React JS", "GCP"]
   }
 ];
+
+// Project Card Components
+const ProjectChips = ({ project, theme }) => (
+  <Box sx={{ display: 'flex', gap: 1, mt: 0.5 }}>
+    {project.demoUrl !== "#" && (
+      <Chip 
+        label="Live Demo" 
+        size="small" 
+        sx={{ 
+          bgcolor: `${theme.secondary}20`,
+          color: theme.secondary,
+          fontWeight: 600,
+          height: 20,
+          fontSize: '0.7rem'
+        }}
+      />
+    )}
+    {project.isOpenSource && (
+      <Chip 
+        label="Open Source" 
+        size="small" 
+        sx={{ 
+          bgcolor: `${theme.primary}20`,
+          color: theme.primary,
+          fontWeight: 600,
+          height: 20,
+          fontSize: '0.7rem'
+        }}
+      />
+    )}
+  </Box>
+);
+
+const ProjectActions = ({ project, theme }) => (
+  <CardActions sx={{ p: 3, pt: 0, gap: 1 }}>
+    {project.hasPublicRepo && (
+      <Button 
+        variant="outlined"
+        href={project.githubUrl} 
+        target="_blank" 
+        startIcon={<GitHub />}
+        sx={{ 
+          color: theme.primary,
+          borderColor: theme.primary,
+          fontWeight: 600,
+          flex: 1,
+          '&:hover': { 
+            borderColor: theme.primary,
+            bgcolor: `${theme.primary}10`,
+            transform: 'translateY(-2px)'
+          }
+        }}
+      >
+        Code
+      </Button>
+    )}
+    {project.demoUrl !== "#" && (
+      <Button 
+        variant="contained"
+        href={project.demoUrl} 
+        target="_blank" 
+        startIcon={<Launch />}
+        sx={{ 
+          bgcolor: theme.primary,
+          color: theme.background,
+          fontWeight: 600,
+          flex: 1,
+          '&:hover': { 
+            bgcolor: theme.primary,
+            transform: 'translateY(-2px)',
+            boxShadow: `0 8px 25px ${theme.primary}40`
+          }
+        }}
+      >
+        Demo
+      </Button>
+    )}
+  </CardActions>
+);
+
+// Utility Functions
+const groupSkillsByCategory = (skills) => {
+  const categories = ['Languages', 'Frameworks', 'Cloud', 'AI', 'Tools', 'Database'];
+  return categories.map(category => ({
+    name: category,
+    skills: skills.filter(skill => skill.category === category)
+  })).filter(group => group.skills.length > 0);
+};
+
+// Skills Section Component
+const SkillsSection = ({ skills, theme, isVisible }) => {
+  const skillCategories = groupSkillsByCategory(skills);
+  
+  return (
+    <Box>
+      <Typography 
+        variant="h4" 
+        gutterBottom 
+        sx={{ 
+          color: theme.primary,
+          fontWeight: 700,
+          mb: 4,
+          textAlign: 'center'
+        }}
+      >
+        Technical Skills
+      </Typography>
+      
+      {skillCategories.map((category) => (
+        <Box key={category.name} sx={{ mb: 4 }}>
+          <Typography 
+            variant="h6" 
+            sx={{ 
+              color: theme.text,
+              fontWeight: 600,
+              mb: 2,
+              display: 'flex',
+              alignItems: 'center',
+              gap: 1
+            }}
+          >
+            <Box sx={{ 
+              width: 8,
+              height: 8,
+              borderRadius: '50%',
+              bgcolor: theme.primary
+            }} />
+            {category.name}
+          </Typography>
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>
+            {category.skills.map((skill, index) => (
+              <Paper 
+                key={skill.name}
+                className="skill-card"
+                sx={{ 
+                  p: 2,
+                  bgcolor: theme.cardBg,
+                  border: `1px solid ${theme.border}`,
+                  borderRadius: 2,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 1,
+                  minWidth: 120,
+                  cursor: 'pointer',
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.95)',
+                  transition: `all 0.6s ease-in-out ${index * 0.2}s`,
+                  '&:hover': {
+                    bgcolor: `${theme.primary}10`,
+                    borderColor: theme.primary
+                  }
+                }}
+              >
+                <Typography sx={{ fontSize: '1.2rem' }}>
+                  {skill.icon}
+                </Typography>
+                <Typography 
+                  variant="body2" 
+                  sx={{ 
+                    color: theme.text,
+                    fontWeight: 500
+                  }}
+                >
+                  {skill.name}
+                </Typography>
+              </Paper>
+            ))}
+          </Box>
+        </Box>
+      ))}
+    </Box>
+  );
+};
+
+// Contact Data
+const contactInfo = [
+  { 
+    icon: <Email />, 
+    label: 'Email', 
+    value: 'devangborkar3@gmail.com', 
+    href: 'mailto:devangborkar3@gmail.com',
+    isClickable: true 
+  },
+  { 
+    icon: <Phone />, 
+    label: 'Phone', 
+    value: 'Available on request', 
+    href: '#',
+    isClickable: false 
+  },
+  { 
+    icon: <LocationOn />, 
+    label: 'Location', 
+    value: 'San Francisco Bay Area', 
+    href: '#',
+    isClickable: false 
+  }
+];
+
+const socialLinks = [
+  { 
+    icon: <Email />, 
+    label: 'Email Me', 
+    href: 'mailto:devangborkar3@gmail.com', 
+    primary: true 
+  },
+  { 
+    icon: <LinkedIn />, 
+    label: 'LinkedIn', 
+    href: 'https://linkedin.com/in/devang-borkar-710b49201', 
+    primary: false 
+  },
+  { 
+    icon: <GitHub />, 
+    label: 'GitHub', 
+    href: 'https://github.com/devangb3', 
+    primary: false 
+  }
+];
+
+// Contact Components
+const ContactInfo = ({ contacts, theme, isVisible }) => (
+  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3, mb: 6 }}>
+    {contacts.map((contact, index) => (
+      <Paper 
+        key={contact.label}
+        sx={{ 
+          p: 3,
+          bgcolor: theme.cardBg,
+          border: `1px solid ${theme.border}`,
+          borderRadius: 2,
+          display: 'flex',
+          alignItems: 'center',
+          gap: 3,
+          cursor: contact.isClickable ? 'pointer' : 'default',
+          transition: 'all 0.3s ease',
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? 'translateX(0)' : 'translateX(-30px)',
+          transitionDelay: `${index * 0.3}s`,
+          '&:hover': {
+            ...(contact.isClickable && {
+              transform: 'translateX(10px)',
+              bgcolor: `${theme.primary}10`,
+              borderColor: theme.primary
+            })
+          }
+        }}
+        onClick={() => contact.isClickable && window.open(contact.href, '_blank')}
+      >
+        <Avatar 
+          sx={{ 
+            bgcolor: `${theme.primary}20`,
+            color: theme.primary,
+            width: 50,
+            height: 50
+          }}
+        >
+          {contact.icon}
+        </Avatar>
+        <Box>
+          <Typography 
+            variant="h6" 
+            sx={{ 
+              color: theme.text,
+              fontWeight: 600
+            }}
+          >
+            {contact.label}
+          </Typography>
+          <Typography 
+            variant="body2" 
+            sx={{ 
+              color: theme.textSecondary
+            }}
+          >
+            {contact.value}
+          </Typography>
+        </Box>
+      </Paper>
+    ))}
+  </Box>
+);
+
+const SocialLinks = ({ links, theme, isVisible }) => (
+  <Box sx={{ display: 'flex', gap: 3, flexWrap: 'wrap' }}>
+    {links.map((social, index) => (
+      <Button 
+        key={social.label}
+        variant={social.primary ? 'contained' : 'outlined'}
+        startIcon={social.icon}
+        href={social.href}
+        target="_blank"
+        sx={{
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.95)',
+          transition: `all 0.6s ease-in-out ${index * 0.2}s`,
+          ...(social.primary ? {
+            bgcolor: theme.primary,
+            color: theme.background,
+            fontWeight: 600,
+            px: 4,
+            py: 1.5,
+            '&:hover': {
+              bgcolor: theme.primary,
+              transform: 'translateY(-4px)',
+              boxShadow: `0 12px 40px ${theme.primary}60`
+            }
+          } : {
+            color: theme.primary,
+            borderColor: theme.primary,
+            fontWeight: 600,
+            px: 4,
+            py: 1.5,
+            '&:hover': {
+              borderColor: theme.primary,
+              bgcolor: `${theme.primary}10`,
+              transform: 'translateY(-4px)'
+            }
+          }),
+          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
+        }}
+      >
+        {social.label}
+      </Button>
+    ))}
+  </Box>
+);
+
+// Hero Social Links Data
+const heroSocialLinks = [
+  { icon: <GitHub />, url: 'https://github.com/devangb3', label: 'GitHub' },
+  { icon: <LinkedIn />, url: 'https://linkedin.com/in/devang-borkar-710b49201', label: 'LinkedIn' },
+  { icon: <Email />, url: 'mailto:devangborkar3@gmail.com', label: 'Email' },
+  { icon: <LeetCodeIcon />, url: 'https://leetcode.com/u/devangborkar3/', label: 'LeetCode' }
+];
+
+// Hero Social Links Component
+const HeroSocialLinks = ({ links, theme, isVisible }) => (
+  <Box sx={{ display: 'flex', gap: 3, justifyContent: 'center', mb: 6 }}>
+    {links.map((social, index) => (
+      <IconButton 
+        key={social.label}
+        sx={{ 
+          width: 60,
+          height: 60,
+          color: theme.primary,
+          bgcolor: `${theme.primary}10`,
+          border: `2px solid ${theme.primary}30`,
+          backdropFilter: 'blur(10px)',
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.8)',
+          transition: `all 0.6s ease-in-out ${index * 0.2}s`,
+          '&:hover': { 
+            transform: 'translateY(-8px) scale(1.1)',
+            bgcolor: `${theme.primary}20`,
+            boxShadow: `0 10px 30px ${theme.primary}40`,
+            border: `2px solid ${theme.primary}60`
+          },
+          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
+        }}
+        href={social.url}
+        target="_blank"
+        title={social.label}
+      >
+        {social.icon}
+      </IconButton>
+    ))}
+  </Box>
+);
+
+// Footer Data
+const footerSocialLinks = [
+  { icon: <GitHub />, url: 'https://github.com/devangb3' },
+  { icon: <LinkedIn />, url: 'https://linkedin.com/in/devang-borkar-710b49201' },
+  { icon: <Email />, url: 'mailto:devangborkar3@gmail.com' }
+];
+
+// Footer Component
+const Footer = ({ theme }) => (
+  <Box sx={{ 
+    py: 6,
+    bgcolor: theme.cardBg,
+    borderTop: `1px solid ${theme.border}`,
+    textAlign: 'center'
+  }}>
+    <Container maxWidth="lg">
+      <Typography 
+        variant="body1" 
+        sx={{ 
+          color: theme.textSecondary,
+          mb: 3
+        }}
+      >
+        Built with ❤️ using React, Material-UI, and lots of coffee ☕
+      </Typography>
+      
+      <Box sx={{ display: 'flex', justifyContent: 'center', gap: 3, mb: 3 }}>
+        {footerSocialLinks.map((social, index) => (
+          <IconButton 
+            key={index}
+            href={social.url}
+            target="_blank"
+            sx={{ 
+              color: theme.textSecondary,
+              '&:hover': {
+                color: theme.primary,
+                transform: 'translateY(-2px)'
+              }
+            }}
+          >
+            {social.icon}
+          </IconButton>
+        ))}
+      </Box>
+      
+      <Divider sx={{ bgcolor: theme.border, mb: 3 }} />
+      
+      <Typography 
+        variant="body2" 
+        sx={{ 
+          color: theme.textSecondary,
+          opacity: 0.8
+        }}
+      >
+        © 2025 Devang Borkar. All rights reserved.
+      </Typography>
+    </Container>
+  </Box>
+);
+
+// Theme Configuration
+const createTheme = (darkMode) => ({
+  primary: darkMode ? '#00ff88' : '#00cc6a',
+  secondary: darkMode ? '#ff6b6b' : '#ff5252',
+  background: darkMode ? '#0a0a0a' : '#fafafa',
+  surface: darkMode ? '#121212' : '#ffffff',
+  cardBg: darkMode ? '#1a1a1a' : '#ffffff',
+  text: darkMode ? '#ffffff' : '#000000',
+  textSecondary: darkMode ? '#ffffff80' : '#666666',
+  border: darkMode ? '#333333' : '#e0e0e0'
+});
+
 function App() {
   const [isVisible, setIsVisible] = useState(false);
   const [showScroll, setShowScroll] = useState(false);
   const [darkMode, setDarkMode] = useState(true);
   const [activeSection, setActiveSection] = useState('home');
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isMounted, setIsMounted] = useState(false);
   const heroRef = useRef(null);
 
+  const theme = createTheme(darkMode);
+
   useEffect(() => {
-    setIsVisible(true);
+    // Set mounted state immediately
+    setIsMounted(true);
+    
+    // Add a small delay to ensure DOM is fully rendered
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+
     const handleScroll = () => {
-      setShowScroll(window.scrollY > 100);
-      
-      // Update active section based on scroll position
-      const sections = ['home', 'about', 'projects', 'contact'];
-      const scrollPosition = window.scrollY + 100;
-      
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const offsetTop = element.offsetTop;
-          const offsetHeight = element.offsetHeight;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section);
-            break;
+      // Add safety check for window object
+      if (typeof window !== 'undefined') {
+        setShowScroll(window.scrollY > 100);
+        
+        // Update active section based on scroll position
+        const sections = ['home', 'about', 'projects', 'contact'];
+        const scrollPosition = window.scrollY + 100;
+        
+        for (const section of sections) {
+          const element = document.getElementById(section);
+          if (element && element.offsetTop !== undefined && element.offsetHeight !== undefined) {
+            const offsetTop = element.offsetTop;
+            const offsetHeight = element.offsetHeight;
+            if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+              setActiveSection(section);
+              break;
+            }
           }
         }
       }
     };
     
     const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      if (e && typeof e.clientX !== 'undefined' && typeof e.clientY !== 'undefined') {
+        setMousePosition({ x: e.clientX, y: e.clientY });
+      }
     };
     
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('mousemove', handleMouseMove);
+    // Initial scroll check after a delay
+    const scrollTimer = setTimeout(handleScroll, 150);
+    
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', handleScroll);
+      window.addEventListener('mousemove', handleMouseMove);
+    }
+    
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('mousemove', handleMouseMove);
+      clearTimeout(timer);
+      clearTimeout(scrollTimer);
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('scroll', handleScroll);
+        window.removeEventListener('mousemove', handleMouseMove);
+      }
     };
   }, []);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
-    element?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const theme = {
-    primary: darkMode ? '#00ff88' : '#00cc6a',
-    secondary: darkMode ? '#ff6b6b' : '#ff5252',
-    background: darkMode ? '#0a0a0a' : '#fafafa',
-    surface: darkMode ? '#121212' : '#ffffff',
-    cardBg: darkMode ? '#1a1a1a' : '#ffffff',
-    text: darkMode ? '#ffffff' : '#000000',
-    textSecondary: darkMode ? '#ffffff80' : '#666666',
-    border: darkMode ? '#333333' : '#e0e0e0'
+    if (element && typeof element.scrollIntoView === 'function') {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
   
   return (
@@ -597,8 +1069,14 @@ function App() {
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
           <Grid container spacing={4} alignItems="center">
             <Grid item xs={12} md={6}>
-              <Fade in={isVisible} timeout={1000}>
-                <Box>
+              {isMounted && (
+                <Box
+                  sx={{
+                    opacity: isVisible ? 1 : 0,
+                    transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+                    transition: 'all 1s ease-in-out'
+                  }}
+                >
                   <Typography 
                     variant="h6" 
                     sx={{ 
@@ -653,7 +1131,7 @@ function App() {
                         fontSize: { xs: '1rem', md: '1.2rem' }
                       }}
                     >
-                      UC Davis Graduate Student • Full Stack Developer • AI Enthusiast
+                      UC Davis Graduate Student • Full Stack Developer • AI Engineer
                     </Typography>
                   </Box>
                   
@@ -668,15 +1146,23 @@ function App() {
                     }}
                   >
                     Passionate about creating innovative solutions with cutting-edge technology. 
-                    Specializing in AI, distributed systems, and scalable software architecture.
+                    Specializing in Generative & Multimodal AI, Distributed systems, and scalable software architecture.
                   </Typography>
                 </Box>
-              </Fade>
+              )}
             </Grid>
             
             <Grid item xs={12} md={6}>
-              <Fade in={isVisible} timeout={1500}>
-                <Box sx={{ textAlign: 'center', position: 'relative' }}>
+              {isMounted && (
+                <Box 
+                  sx={{ 
+                    textAlign: 'center', 
+                    position: 'relative',
+                    opacity: isVisible ? 1 : 0,
+                    transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+                    transition: 'all 1.5s ease-in-out'
+                  }}
+                >
                   <Box 
                     className="floating-element"
                     sx={{
@@ -739,47 +1225,22 @@ function App() {
                     <Chip icon={<Rocket />} label="Distributed Systems" size="small" sx={{ bgcolor: theme.primary, color: theme.background }} />
                   </Box>
                 </Box>
-              </Fade>
+              )}
             </Grid>
           </Grid>
         </Container>
         {/* Social Links & CTA */}
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2, mt: 6 }}>
-          <Fade in={isVisible} timeout={2000}>
-            <Box sx={{ textAlign: 'center' }}>
-              <Box sx={{ display: 'flex', gap: 3, justifyContent: 'center', mb: 6 }}>
-                {[
-                  { icon: <GitHub />, url: 'https://github.com/devangb3', label: 'GitHub' },
-                  { icon: <LinkedIn />, url: 'https://linkedin.com/in/devang-borkar-710b49201', label: 'LinkedIn' },
-                  { icon: <Email />, url: 'mailto:devangborkar3@gmail.com', label: 'Email' },
-                  { icon: <LeetCodeIcon />, url: 'https://leetcode.com/u/devangborkar3/', label: 'LeetCode' }
-                ].map((social, index) => (
-                  <Zoom in={isVisible} timeout={2000 + index * 200} key={social.label}>
-                    <IconButton 
-                      sx={{ 
-                        width: 60,
-                        height: 60,
-                        color: theme.primary,
-                        bgcolor: `${theme.primary}10`,
-                        border: `2px solid ${theme.primary}30`,
-                        backdropFilter: 'blur(10px)',
-                        '&:hover': { 
-                          transform: 'translateY(-8px) scale(1.1)',
-                          bgcolor: `${theme.primary}20`,
-                          boxShadow: `0 10px 30px ${theme.primary}40`,
-                          border: `2px solid ${theme.primary}60`
-                        },
-                        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
-                      }}
-                      href={social.url}
-                      target="_blank"
-                      title={social.label}
-                    >
-                      {social.icon}
-                    </IconButton>
-                  </Zoom>
-                ))}
-              </Box>
+          {isMounted && (
+            <Box 
+              sx={{ 
+                textAlign: 'center',
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+                transition: 'all 2s ease-in-out'
+              }}
+            >
+              <HeroSocialLinks links={heroSocialLinks} theme={theme} isVisible={isVisible} />
               
               <Box sx={{ display: 'flex', gap: 3, justifyContent: 'center', flexWrap: 'wrap' }}>
                 <Button
@@ -831,10 +1292,10 @@ function App() {
                 </Button>
               </Box>
             </Box>
-          </Fade>
+          )}
         </Container>
         {/* Scroll Indicator */}
-        <Fade in={isVisible} timeout={3000}>
+        {isMounted && showScroll && (
           <Box 
             sx={{ 
               position: 'absolute',
@@ -842,7 +1303,9 @@ function App() {
               left: '50%',
               transform: 'translateX(-50%)',
               textAlign: 'center',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              opacity: isVisible ? 1 : 0,
+              transition: 'opacity 0.3s ease-in-out'
             }}
             onClick={() => scrollToSection('about')}
           >
@@ -871,7 +1334,7 @@ function App() {
               <ArrowDownward />
             </IconButton>
           </Box>
-        </Fade>
+        )}
       </Box>
 
       {/* Revolutionary About Section */}
@@ -895,197 +1358,127 @@ function App() {
           <Grid container spacing={6} alignItems="center">
             {/* Left side - Content */}
             <Grid item xs={12} lg={6}>
-              <Fade in={isVisible} timeout={1000}>
-                <Box>
-                  <Typography 
-                    variant="h6" 
-                    sx={{ 
-                      color: theme.primary,
-                      fontWeight: 600,
-                      mb: 2,
-                      textTransform: 'uppercase',
-                      letterSpacing: 2
-                    }}
-                  >
-                    Get to know me
+              <Box
+                sx={{
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+                  transition: 'all 1s ease-in-out'
+                }}
+              >
+                <Typography 
+                  variant="h6" 
+                  sx={{ 
+                    color: theme.primary,
+                    fontWeight: 600,
+                    mb: 2,
+                    textTransform: 'uppercase',
+                    letterSpacing: 2
+                  }}
+                >
+                  Get to know me
+                </Typography>
+                
+                <Typography 
+                  variant="h2" 
+                  gutterBottom 
+                  sx={{ 
+                    fontWeight: 800,
+                    fontSize: { xs: '2rem', md: '3rem' },
+                    background: `linear-gradient(45deg, ${theme.primary}, ${theme.secondary})`,
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    mb: 4
+                  }}
+                >
+                  About Me
+                </Typography>
+                
+                <Typography 
+                  variant="body1" 
+                  paragraph 
+                  sx={{ 
+                    color: theme.textSecondary,
+                    fontSize: '1.1rem',
+                    lineHeight: 1.8,
+                    mb: 3
+                  }}
+                >
+                  I'm an AI Enthusiast currently pursuing my Master's in Computer Science at UC Davis 
+                  with a focus on Artificial Intelligence, Distributed Systems, and Software Engineering. 
+                </Typography>
+                
+                <Typography 
+                  variant="body1" 
+                  paragraph 
+                  sx={{ 
+                    color: theme.textSecondary,
+                    fontSize: '1.1rem',
+                    lineHeight: 1.8,
+                    mb: 4
+                  }}
+                >
+                  I bring over 2 years of experience as a Software Engineer, where I enhanced user experience 
+                  by implementing new features and improving system performance. I'm passionate about building 
+                  scalable solutions and optimizing system architecture.
+                </Typography>
+                
+                {/* Experience Timeline */}
+                <Box sx={{ mb: 4 }}>
+                  <Typography variant="h6" gutterBottom sx={{ color: theme.primary, fontWeight: 600 }}>
+                    Experience Timeline
                   </Typography>
-                  
-                  <Typography 
-                    variant="h2" 
-                    gutterBottom 
-                    sx={{ 
-                      fontWeight: 800,
-                      fontSize: { xs: '2rem', md: '3rem' },
-                      background: `linear-gradient(45deg, ${theme.primary}, ${theme.secondary})`,
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      mb: 4
-                    }}
-                  >
-                    About Me
-                  </Typography>
-                  
-                  <Typography 
-                    variant="body1" 
-                    paragraph 
-                    sx={{ 
-                      color: theme.textSecondary,
-                      fontSize: '1.1rem',
-                      lineHeight: 1.8,
-                      mb: 3
-                    }}
-                  >
-                    I'm an AI Enthusiast currently pursuing my Master's in Computer Science at UC Davis 
-                    with a focus on Artificial Intelligence, Distributed Systems, and Software Engineering. 
-                  </Typography>
-                  
-                  <Typography 
-                    variant="body1" 
-                    paragraph 
-                    sx={{ 
-                      color: theme.textSecondary,
-                      fontSize: '1.1rem',
-                      lineHeight: 1.8,
-                      mb: 4
-                    }}
-                  >
-                    I bring over 2 years of experience as a Software Engineer, where I enhanced user experience 
-                    by implementing new features and improving system performance. I'm passionate about building 
-                    scalable solutions and optimizing system architecture.
-                  </Typography>
-                  
-                  {/* Experience Timeline */}
-                  <Box sx={{ mb: 4 }}>
-                    <Typography variant="h6" gutterBottom sx={{ color: theme.primary, fontWeight: 600 }}>
-                      Experience Timeline
-                    </Typography>
-                    {experiences.map((exp, index) => (
-                      <Box key={index} sx={{ mb: 3, pl: 3, borderLeft: `3px solid ${theme.primary}30`, position: 'relative' }}>
-                        <Box sx={{ 
-                          position: 'absolute',
-                          left: -8,
-                          top: 8,
-                          width: 12,
-                          height: 12,
-                          borderRadius: '50%',
-                          bgcolor: theme.primary,
-                          boxShadow: `0 0 0 4px ${theme.surface}`
-                        }} />
-                        <Typography variant="h6" sx={{ color: theme.text, fontWeight: 600 }}>
-                          {exp.title}
-                        </Typography>
-                        <Typography variant="subtitle1" sx={{ color: theme.primary, fontWeight: 500 }}>
-                          {exp.company} • {exp.period}
-                        </Typography>
-                        <Typography variant="body2" sx={{ color: theme.textSecondary, mt: 1 }}>
-                          {exp.description}
-                        </Typography>
-                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 1 }}>
-                          {exp.technologies.map((tech, techIndex) => (
-                            <Chip 
-                              key={techIndex}
-                              label={tech}
-                              size="small"
-                              sx={{ 
-                                bgcolor: `${theme.primary}15`,
-                                color: theme.primary,
-                                fontWeight: 500
-                              }}
-                            />
-                          ))}
-                        </Box>
+                  {experiences.map((exp, index) => (
+                    <Box key={index} sx={{ mb: 3, pl: 3, borderLeft: `3px solid ${theme.primary}30`, position: 'relative' }}>
+                      <Box sx={{ 
+                        position: 'absolute',
+                        left: -8,
+                        top: 8,
+                        width: 12,
+                        height: 12,
+                        borderRadius: '50%',
+                        bgcolor: theme.primary,
+                        boxShadow: `0 0 0 4px ${theme.surface}`
+                      }} />
+                      <Typography variant="h6" sx={{ color: theme.text, fontWeight: 600 }}>
+                        {exp.title}
+                      </Typography>
+                      <Typography variant="subtitle1" sx={{ color: theme.primary, fontWeight: 500 }}>
+                        {exp.company} • {exp.period}
+                      </Typography>
+                      <Typography variant="body2" sx={{ color: theme.textSecondary, mt: 1 }}>
+                        {exp.description}
+                      </Typography>
+                      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 1 }}>
+                        {exp.technologies.map((tech, techIndex) => (
+                          <Chip 
+                            key={techIndex}
+                            label={tech}
+                            size="small"
+                            sx={{ 
+                              bgcolor: `${theme.primary}15`,
+                              color: theme.primary,
+                              fontWeight: 500
+                            }}
+                          />
+                        ))}
                       </Box>
-                    ))}
-                  </Box>
+                    </Box>
+                  ))}
                 </Box>
-              </Fade>
+              </Box>
             </Grid>
             
             {/* Right side - Skills */}
             <Grid item xs={12} lg={6}>
-              <Fade in={isVisible} timeout={1500}>
-                <Box>
-                  <Typography 
-                    variant="h4" 
-                    gutterBottom 
-                    sx={{ 
-                      color: theme.primary,
-                      fontWeight: 700,
-                      mb: 4,
-                      textAlign: 'center'
-                    }}
-                  >
-                    Technical Skills
-                  </Typography>
-                  
-                  {/* Skills by Category */}
-                  {['Languages', 'Frameworks', 'Cloud', 'AI', 'DevOps', 'Database', 'Mobile'].map((category) => {
-                    const categorySkills = skills.filter(skill => skill.category === category);
-                    if (categorySkills.length === 0) return null;
-                    
-                    return (
-                      <Box key={category} sx={{ mb: 4 }}>
-                        <Typography 
-                          variant="h6" 
-                          sx={{ 
-                            color: theme.text,
-                            fontWeight: 600,
-                            mb: 2,
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: 1
-                          }}
-                        >
-                          <Box sx={{ 
-                            width: 8,
-                            height: 8,
-                            borderRadius: '50%',
-                            bgcolor: theme.primary
-                          }} />
-                          {category}
-                        </Typography>
-                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>
-                          {categorySkills.map((skill, index) => (
-                            <Grow in={isVisible} timeout={2000 + index * 100} key={skill.name}>
-                              <Paper 
-                                className="skill-card"
-                                sx={{ 
-                                  p: 2,
-                                  bgcolor: theme.cardBg,
-                                  border: `1px solid ${theme.border}`,
-                                  borderRadius: 2,
-                                  display: 'flex',
-                                  alignItems: 'center',
-                                  gap: 1,
-                                  minWidth: 120,
-                                  cursor: 'pointer',
-                                  '&:hover': {
-                                    bgcolor: `${theme.primary}10`,
-                                    borderColor: theme.primary
-                                  }
-                                }}
-                              >
-                                <Typography sx={{ fontSize: '1.2rem' }}>
-                                  {skill.icon}
-                                </Typography>
-                                <Typography 
-                                  variant="body2" 
-                                  sx={{ 
-                                    color: theme.text,
-                                    fontWeight: 500
-                                  }}
-                                >
-                                  {skill.name}
-                                </Typography>
-                              </Paper>
-                            </Grow>
-                          ))}
-                        </Box>
-                      </Box>
-                    );
-                  })}
-                </Box>
-              </Fade>
+              <Box
+                sx={{
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+                  transition: 'all 1.5s ease-in-out'
+                }}
+              >
+                <SkillsSection skills={skills} theme={theme} isVisible={isVisible} />
+              </Box>
             </Grid>
           </Grid>
         </Container>
@@ -1099,54 +1492,67 @@ function App() {
         overflow: 'hidden'
       }}>
         <Container maxWidth="lg">
-          <Fade in={isVisible} timeout={1000}>
-            <Box sx={{ textAlign: 'center', mb: 8 }}>
-              <Typography 
-                variant="h6" 
-                sx={{ 
-                  color: theme.primary,
-                  fontWeight: 600,
-                  mb: 2,
-                  textTransform: 'uppercase',
-                  letterSpacing: 2
-                }}
-              >
-                My Work
-              </Typography>
-              
-              <Typography 
-                variant="h2" 
-                gutterBottom 
-                sx={{ 
-                  fontWeight: 800,
-                  fontSize: { xs: '2rem', md: '3rem' },
-                  background: `linear-gradient(45deg, ${theme.primary}, ${theme.secondary})`,
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  mb: 2
-                }}
-              >
-                Featured Projects
-              </Typography>
-              
-              <Typography 
-                variant="body1" 
-                sx={{ 
-                  color: theme.textSecondary,
-                  fontSize: '1.1rem',
-                  maxWidth: 600,
-                  mx: 'auto'
-                }}
-              >
-                Explore my latest projects showcasing cutting-edge technologies and innovative solutions
-              </Typography>
-            </Box>
-          </Fade>
+          <Box 
+            sx={{ 
+              textAlign: 'center', 
+              mb: 8,
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+              transition: 'all 1s ease-in-out'
+            }}
+          >
+            <Typography 
+              variant="h6" 
+              sx={{ 
+                color: theme.primary,
+                fontWeight: 600,
+                mb: 2,
+                textTransform: 'uppercase',
+                letterSpacing: 2
+              }}
+            >
+              My Work
+            </Typography>
+            
+            <Typography 
+              variant="h2" 
+              gutterBottom 
+              sx={{ 
+                fontWeight: 800,
+                fontSize: { xs: '2rem', md: '3rem' },
+                background: `linear-gradient(45deg, ${theme.primary}, ${theme.secondary})`,
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                mb: 2
+              }}
+            >
+              Featured Projects
+            </Typography>
+            
+            <Typography 
+              variant="body1" 
+              sx={{ 
+                color: theme.textSecondary,
+                fontSize: '1.1rem',
+                maxWidth: 600,
+                mx: 'auto'
+              }}
+            >
+              Explore my latest projects showcasing cutting-edge technologies and innovative solutions
+            </Typography>
+          </Box>
           
           <Grid container spacing={4}>
             {projects.map((project, index) => (
               <Grid item xs={12} md={6} lg={4} key={project.id}>
-                <Grow in={isVisible} timeout={1500 + index * 200}>
+                <Box
+                  sx={{
+                    opacity: isVisible ? 1 : 0,
+                    transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(30px) scale(0.95)',
+                    transition: `all 0.6s ease-in-out ${index * 0.1}s`,
+                    height: '100%'
+                  }}
+                >
                   <Card 
                     className="project-card"
                     sx={{ 
@@ -1194,32 +1600,7 @@ function App() {
                           >
                             {project.title}
                           </Typography>
-                          <Box sx={{ display: 'flex', gap: 1, mt: 0.5 }}>
-                            {project.demoUrl !== "#" && (
-                              <Chip 
-                                label="Live Demo" 
-                                size="small" 
-                                sx={{ 
-                                  bgcolor: `${theme.secondary}20`,
-                                  color: theme.secondary,
-                                  fontWeight: 600,
-                                  height: 20,
-                                  fontSize: '0.7rem'
-                                }}
-                              />
-                            )}
-                            <Chip 
-                              label="Open Source" 
-                              size="small" 
-                              sx={{ 
-                                bgcolor: `${theme.primary}20`,
-                                color: theme.primary,
-                                fontWeight: 600,
-                                height: 20,
-                                fontSize: '0.7rem'
-                              }}
-                            />
-                          </Box>
+                          <ProjectChips project={project} theme={theme} />
                         </Box>
                       </Box>
                       
@@ -1307,6 +1688,7 @@ function App() {
                           {project.highlights.slice(0, 3).map((highlight, highlightIndex) => (
                             <Typography 
                               key={highlightIndex}
+                              component="div"
                               variant="body2" 
                               sx={{ 
                                 color: theme.textSecondary,
@@ -1333,51 +1715,9 @@ function App() {
                       </Box>
                     </CardContent>
                     
-                    {/* Action Buttons */}
-                    <CardActions sx={{ p: 3, pt: 0, gap: 1 }}>
-                      <Button 
-                        variant="outlined"
-                        href={project.githubUrl} 
-                        target="_blank" 
-                        startIcon={<GitHub />}
-                        sx={{ 
-                          color: theme.primary,
-                          borderColor: theme.primary,
-                          fontWeight: 600,
-                          flex: 1,
-                          '&:hover': { 
-                            borderColor: theme.primary,
-                            bgcolor: `${theme.primary}10`,
-                            transform: 'translateY(-2px)'
-                          }
-                        }}
-                      >
-                        Code
-                      </Button>
-                      {project.demoUrl !== "#" && (
-                        <Button 
-                          variant="contained"
-                          href={project.demoUrl} 
-                          target="_blank" 
-                          startIcon={<Launch />}
-                          sx={{ 
-                            bgcolor: theme.primary,
-                            color: theme.background,
-                            fontWeight: 600,
-                            flex: 1,
-                            '&:hover': { 
-                              bgcolor: theme.primary,
-                              transform: 'translateY(-2px)',
-                              boxShadow: `0 8px 25px ${theme.primary}40`
-                            }
-                          }}
-                        >
-                          Demo
-                        </Button>
-                      )}
-                    </CardActions>
+                    <ProjectActions project={project} theme={theme} />
                   </Card>
-                </Grow>
+                </Box>
               </Grid>
             ))}
           </Grid>
@@ -1405,167 +1745,73 @@ function App() {
           <Grid container spacing={6} alignItems="center">
             {/* Left side - Contact Info */}
             <Grid item xs={12} lg={6}>
-              <Fade in={isVisible} timeout={1000}>
-                <Box>
-                  <Typography 
-                    variant="h6" 
-                    sx={{ 
-                      color: theme.primary,
-                      fontWeight: 600,
-                      mb: 2,
-                      textTransform: 'uppercase',
-                      letterSpacing: 2
-                    }}
-                  >
-                    Let's Connect
-                  </Typography>
-                  
-                  <Typography 
-                    variant="h2" 
-                    gutterBottom 
-                    sx={{ 
-                      fontWeight: 800,
-                      fontSize: { xs: '2rem', md: '3rem' },
-                      background: `linear-gradient(45deg, ${theme.primary}, ${theme.secondary})`,
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      mb: 4
-                    }}
-                  >
-                    Get in Touch
-                  </Typography>
-                  
-                  <Typography 
-                    variant="body1" 
-                    paragraph 
-                    sx={{ 
-                      color: theme.textSecondary,
-                      fontSize: '1.1rem',
-                      lineHeight: 1.8,
-                      mb: 6
-                    }}
-                  >
-                    I'm currently open to new opportunities in the Bay Area and remote positions. 
-                    Whether you have a project in mind, want to collaborate, or just want to say hi, 
-                    I'd love to hear from you!
-                  </Typography>
-                  
-                  {/* Contact Information Cards */}
-                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3, mb: 6 }}>
-                    {[
-                      { icon: <Email />, label: 'Email', value: 'devangborkar3@gmail.com', href: 'mailto:devangborkar3@gmail.com' },
-                      { icon: <Phone />, label: 'Phone', value: 'Available on request', href: '#' },
-                      { icon: <LocationOn />, label: 'Location', value: 'San Francisco Bay Area', href: '#' }
-                    ].map((contact, index) => (
-                      <Slide in={isVisible} direction="right" timeout={1500 + index * 300} key={contact.label}>
-                        <Paper 
-                          sx={{ 
-                            p: 3,
-                            bgcolor: theme.cardBg,
-                            border: `1px solid ${theme.border}`,
-                            borderRadius: 2,
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: 3,
-                            cursor: contact.href !== '#' ? 'pointer' : 'default',
-                            transition: 'all 0.3s ease',
-                            '&:hover': {
-                              ...(contact.href !== '#' && {
-                                transform: 'translateX(10px)',
-                                bgcolor: `${theme.primary}10`,
-                                borderColor: theme.primary
-                              })
-                            }
-                          }}
-                          onClick={() => contact.href !== '#' && window.open(contact.href, '_blank')}
-                        >
-                          <Avatar 
-                            sx={{ 
-                              bgcolor: `${theme.primary}20`,
-                              color: theme.primary,
-                              width: 50,
-                              height: 50
-                            }}
-                          >
-                            {contact.icon}
-                          </Avatar>
-                          <Box>
-                            <Typography 
-                              variant="h6" 
-                              sx={{ 
-                                color: theme.text,
-                                fontWeight: 600
-                              }}
-                            >
-                              {contact.label}
-                            </Typography>
-                            <Typography 
-                              variant="body2" 
-                              sx={{ 
-                                color: theme.textSecondary
-                              }}
-                            >
-                              {contact.value}
-                            </Typography>
-                          </Box>
-                        </Paper>
-                      </Slide>
-                    ))}
-                  </Box>
-                  
-                  {/* Social Links */}
-                  <Box sx={{ display: 'flex', gap: 3, flexWrap: 'wrap' }}>
-                    {[
-                      { icon: <Email />, label: 'Email Me', href: 'mailto:devangborkar3@gmail.com', primary: true },
-                      { icon: <LinkedIn />, label: 'LinkedIn', href: 'https://linkedin.com/in/devang-borkar-710b49201', primary: false },
-                      { icon: <GitHub />, label: 'GitHub', href: 'https://github.com/devangb3', primary: false }
-                    ].map((social, index) => (
-                      <Grow in={isVisible} timeout={2000 + index * 200} key={social.label}>
-                        <Button 
-                          variant={social.primary ? 'contained' : 'outlined'}
-                          startIcon={social.icon}
-                          href={social.href}
-                          target="_blank"
-                          sx={{
-                            ...(social.primary ? {
-                              bgcolor: theme.primary,
-                              color: theme.background,
-                              fontWeight: 600,
-                              px: 4,
-                              py: 1.5,
-                              '&:hover': {
-                                bgcolor: theme.primary,
-                                transform: 'translateY(-4px)',
-                                boxShadow: `0 12px 40px ${theme.primary}60`
-                              }
-                            } : {
-                              color: theme.primary,
-                              borderColor: theme.primary,
-                              fontWeight: 600,
-                              px: 4,
-                              py: 1.5,
-                              '&:hover': {
-                                borderColor: theme.primary,
-                                bgcolor: `${theme.primary}20`,
-                                transform: 'translateY(-4px)'
-                              }
-                            }),
-                            borderRadius: 2,
-                            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
-                          }}
-                        >
-                          {social.label}
-                        </Button>
-                      </Grow>
-                    ))}
-                  </Box>
-                </Box>
-              </Fade>
+              <Box
+                sx={{
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+                  transition: 'all 1s ease-in-out'
+                }}
+              >
+                <Typography 
+                  variant="h6" 
+                  sx={{ 
+                    color: theme.primary,
+                    fontWeight: 600,
+                    mb: 2,
+                    textTransform: 'uppercase',
+                    letterSpacing: 2
+                  }}
+                >
+                  Let's Connect
+                </Typography>
+                
+                <Typography 
+                  variant="h2" 
+                  gutterBottom 
+                  sx={{ 
+                    fontWeight: 800,
+                    fontSize: { xs: '2rem', md: '3rem' },
+                    background: `linear-gradient(45deg, ${theme.primary}, ${theme.secondary})`,
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    mb: 4
+                  }}
+                >
+                  Get in Touch
+                </Typography>
+                
+                <Typography 
+                  variant="body1" 
+                  paragraph 
+                  sx={{ 
+                    color: theme.textSecondary,
+                    fontSize: '1.1rem',
+                    lineHeight: 1.8,
+                    mb: 6
+                  }}
+                >
+                  I'm currently open to new opportunities in the Bay Area and remote positions. 
+                  Whether you have a project in mind, want to collaborate, or just want to say hi, 
+                  I'd love to hear from you!
+                </Typography>
+                
+                {/* Contact Information Cards */}
+                <ContactInfo contacts={contactInfo} theme={theme} isVisible={isVisible} />
+                
+                {/* Social Links */}
+                <SocialLinks links={socialLinks} theme={theme} isVisible={isVisible} />
+              </Box>
             </Grid>
             
             {/* Right side - Interactive Form */}
             <Grid item xs={12} lg={6}>
-              <Fade in={isVisible} timeout={1500}>
+              <Box
+                sx={{
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+                  transition: 'all 1.5s ease-in-out'
+                }}
+              >
                 <Paper 
                   sx={{ 
                     p: 4,
@@ -1731,95 +1977,56 @@ function App() {
                     I'll get back to you within 24 hours! 🚀
                   </Typography>
                 </Paper>
-              </Fade>
+              </Box>
             </Grid>
           </Grid>
         </Container>
       </Box>
 
       {/* Enhanced Scroll to Top Button */}
-      <Fade in={showScroll}>
-        <IconButton
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      {isMounted && showScroll && (
+        <Box
           sx={{
             position: 'fixed',
             bottom: 30,
             right: 30,
-            width: 60,
-            height: 60,
-            bgcolor: theme.primary,
-            color: theme.background,
-            boxShadow: `0 8px 25px ${theme.primary}40`,
-            border: `2px solid ${theme.primary}`,
-            backdropFilter: 'blur(10px)',
-            '&:hover': {
-              bgcolor: theme.primary,
-              transform: 'translateY(-8px) scale(1.1)',
-              boxShadow: `0 15px 40px ${theme.primary}60`
-            },
             zIndex: 1000,
+            opacity: showScroll ? 1 : 0,
+            transform: showScroll ? 'translateY(0)' : 'translateY(20px)',
             transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-            animation: 'pulse 2s infinite'
+            pointerEvents: showScroll ? 'auto' : 'none'
           }}
         >
-          <ArrowDownward sx={{ transform: 'rotate(180deg)', fontSize: 28 }} />
-        </IconButton>
-      </Fade>
+          <IconButton
+            onClick={() => {
+              if (typeof window !== 'undefined') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
+            }}
+            sx={{
+              width: 60,
+              height: 60,
+              bgcolor: theme.primary,
+              color: theme.background,
+              boxShadow: `0 8px 25px ${theme.primary}40`,
+              border: `2px solid ${theme.primary}`,
+              backdropFilter: 'blur(10px)',
+              '&:hover': {
+                bgcolor: theme.primary,
+                transform: 'translateY(-8px) scale(1.1)',
+                boxShadow: `0 15px 40px ${theme.primary}60`
+              },
+              transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+              animation: 'pulse 2s infinite'
+            }}
+          >
+            <ArrowDownward sx={{ transform: 'rotate(180deg)', fontSize: 28 }} />
+          </IconButton>
+        </Box>
+      )}
       
       {/* Footer */}
-      <Box sx={{ 
-        py: 6,
-        bgcolor: theme.cardBg,
-        borderTop: `1px solid ${theme.border}`,
-        textAlign: 'center'
-      }}>
-        <Container maxWidth="lg">
-          <Typography 
-            variant="body1" 
-            sx={{ 
-              color: theme.textSecondary,
-              mb: 3
-            }}
-          >
-            Built with ❤️ using React, Material-UI, and lots of coffee ☕
-          </Typography>
-          
-          <Box sx={{ display: 'flex', justifyContent: 'center', gap: 3, mb: 3 }}>
-            {[
-              { icon: <GitHub />, url: 'https://github.com/devangb3' },
-              { icon: <LinkedIn />, url: 'https://linkedin.com/in/devang-borkar-710b49201' },
-              { icon: <Email />, url: 'mailto:devangborkar3@gmail.com' }
-            ].map((social, index) => (
-              <IconButton 
-                key={index}
-                href={social.url}
-                target="_blank"
-                sx={{ 
-                  color: theme.textSecondary,
-                  '&:hover': {
-                    color: theme.primary,
-                    transform: 'translateY(-2px)'
-                  }
-                }}
-              >
-                {social.icon}
-              </IconButton>
-            ))}
-          </Box>
-          
-          <Divider sx={{ bgcolor: theme.border, mb: 3 }} />
-          
-          <Typography 
-            variant="body2" 
-            sx={{ 
-              color: theme.textSecondary,
-              opacity: 0.8
-            }}
-          >
-            © 2025 Devang Borkar. All rights reserved.
-          </Typography>
-        </Container>
-      </Box>
+      <Footer theme={theme} />
     </Box>
   );
 }
