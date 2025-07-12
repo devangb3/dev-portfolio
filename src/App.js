@@ -46,7 +46,7 @@ const LeetCodeIcon = () => (
 const projects = [
   {
     id: "algotrade",
-    title: "AlgoTrade (Stock Prediction Platform for HFTs)",
+    title: "HammerTrade (Stock Prediction Platform for HFTs)",
     description: "Developed a platform allowing end-users to view which predictive model performs best on a given asset at a specific time and implemented continuous model retraining and updating to improve prediction accuracy over time.",
     technologies: ["Flask", "MongoDB", "ReactJS", "Docker", "Pytorch", "Scikit-learn", "Pandas", "Deep Learning"],
     highlights: [
@@ -106,6 +106,21 @@ const projects = [
     githubUrl: "https://github.com/devangb3/LLM-Quiz",
     isOpenSource: true,
     hasPublicRepo: true
+  },
+  {
+    id: "synthetic-data-generator",
+    title: "Synthetic Data Generator",
+    description: "Developed a full-stack web application designed for financial analysts, developers, and researchers to generate high-quality, realistic synthetic stock market data.",
+    technologies: ["Python", "FastAPI", "Uvicorn", "APIs", "AI Development","AWS Amplify", "React", "Vite"],
+    highlights: [
+      "Generate synthetic financial data mimicking real-world market conditions",
+      "Fine-tune the data generation by controlling parameters like initial price, number of days, volatility, and the intensity and probability of 'black swan' events to simulate various market conditions.",
+      "Provide a user-friendly interface for visualizing and generating synthetic data"
+      ],
+    demoUrl: "https://main.d1jhxtwybbezfy.amplifyapp.com/",
+    githubUrl: "#",
+    isOpenSource: false,
+    hasPublicRepo: false
   },
   {
     id : "rag-context",
@@ -692,6 +707,35 @@ function App() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isMounted, setIsMounted] = useState(false);
   const heroRef = useRef(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+
+  const handleFormChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('/.netlify/functions/send-email', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+      });
+      if (response.ok) {
+        alert('Message sent successfully!');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        alert('Failed to send message.');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert('An error occurred while sending the message.');
+    }
+  };
 
   const theme = createTheme(darkMode);
 
@@ -1834,10 +1878,13 @@ function App() {
                     Send me a message
                   </Typography>
                   
-                  <Box component="form" sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+                  <Box component="form" onSubmit={handleFormSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
                     <TextField
                       fullWidth
                       label="Your Name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleFormChange}
                       variant="outlined"
                       sx={{
                         '& .MuiOutlinedInput-root': {
@@ -1865,6 +1912,9 @@ function App() {
                       fullWidth
                       label="Your Email"
                       type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleFormChange}
                       variant="outlined"
                       sx={{
                         '& .MuiOutlinedInput-root': {
@@ -1891,6 +1941,9 @@ function App() {
                     <TextField
                       fullWidth
                       label="Subject"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleFormChange}
                       variant="outlined"
                       sx={{
                         '& .MuiOutlinedInput-root': {
@@ -1917,6 +1970,9 @@ function App() {
                     <TextField
                       fullWidth
                       label="Your Message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleFormChange}
                       multiline
                       rows={4}
                       variant="outlined"
@@ -1943,6 +1999,7 @@ function App() {
                     />
                     
                     <Button 
+                      type="submit"
                       variant="contained"
                       size="large"
                       startIcon={<Send />}
