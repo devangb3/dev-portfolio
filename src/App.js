@@ -61,6 +61,22 @@ const projects = [
     hasPublicRepo: false
   },
   {
+    id: "75Hard",
+    title: "TTracker App for 75 Hard Challenge",
+    description: "Developed a platform allowing end-users to track their progress for the 75 Hard Challenge.",
+    technologies: ["Flask", "MongoDB", "ReactJS", "Docker", "Google Cloud Platform", "Tailwind CSS", "Python", "CI/CD"],
+    highlights: [
+      "Developed a full-stack application with a modular, service-oriented architecture.",
+      "Built an interactive and responsive UI with React and Tailwind CSS, featuring data visualizations with Recharts.",
+      "Integrated Google Cloud Platform for scalable and reliable cloud services",
+      "Containerized both frontend and backend services with Docker for consistent deployment on Google Cloud Run."
+    ],
+    demoUrl: "https://hard-tracker-frontend-75-424176252593.us-west1.run.app/",
+    githubUrl: "https://github.com/devangb3/75-Hard-Tracker",
+    isOpenSource: true,
+    hasPublicRepo: true
+  },
+  {
     id: "reschat",
     title: "ResChat (Decentralized Chatting System)",
     description: "Built a robust blockchain-based chatting system on top of ResilientDB using IPFS for private and high-performance messaging with file distribution capabilities, ensuring data integrity and availability; part of the Apache Software Foundation Incubator Project..",
