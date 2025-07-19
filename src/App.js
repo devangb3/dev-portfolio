@@ -62,7 +62,7 @@ const projects = [
   },
   {
     id: "75Hard",
-    title: "TTracker App for 75 Hard Challenge",
+    title: "Tracker App for 75 Hard Challenge",
     description: "Developed a platform allowing end-users to track their progress for the 75 Hard Challenge.",
     technologies: ["Flask", "MongoDB", "ReactJS", "Docker", "Google Cloud Platform", "Tailwind CSS", "Python", "CI/CD"],
     highlights: [
