@@ -150,7 +150,7 @@ const projects = [
       "Developed a coaching and visualization system to provide actionable feedback.",
       "Created a system for one AI to judge the responses of another, ensuring high-quality feedback."
     ],
-    "demoUrl": "#",
+    "demoUrl": "https://multimodal-svc-frontend-277660335430.us-central1.run.app/",
     "githubUrl": "#",
     "isOpenSource": false,
     "hasPublicRepo": false
