@@ -124,6 +124,38 @@ const projects = [
     hasPublicRepo: true
   },
   {
+    "id": "mm-hilton-sprint",
+    "title": "Multi-Provider AI Integration for Presentation Analysis",
+    "description": "A project focused on developing a sophisticated multimodal system for presentation skills analysis. It integrates various AI providers (OpenAI, Anthropic, Google, Perplexity) and features a dual-database architecture with a seamless migration path from Firebase to a scalable Node.js backend with PostgreSQL.",
+    "technologies": ["Python", "Node.js", "PostgreSQL", "Firebase", "REST APIs", "AI Development"],
+    "highlights": [
+      "Integrated four different AI providers for comprehensive analysis.",
+      "Implemented a Service Factory Pattern for efficient AI provider management.",
+      "Designed a dual-database system with a migration path to a more scalable solution.",
+      "Developed a robust logging and monitoring system using the Composite and Observer patterns."
+    ],
+    "demoUrl": "#",
+    "githubUrl": "#",
+    "isOpenSource": false,
+    "hasPublicRepo": false
+  },
+  {
+    "id": "lh-multimodal-svc",
+    "title": "Emotion-Aware Feedback System for Public Speaking",
+    "description": "This project involved creating a service to process and analyze multimodal data (video, audio, text) to provide feedback on presentation skills. It uses Hume AI for emotional analysis and includes a coaching and visualization system.",
+    "technologies": ["Python", "Hume AI", "Multimodal Data Processing", "AI Development", "Data Visualization"],
+    "highlights": [
+      "Engineered a pipeline for processing video, audio, and text data.",
+      "Integrated Hume AI for emotional analysis of presentations.",
+      "Developed a coaching and visualization system to provide actionable feedback.",
+      "Created a system for one AI to judge the responses of another, ensuring high-quality feedback."
+    ],
+    "demoUrl": "#",
+    "githubUrl": "#",
+    "isOpenSource": false,
+    "hasPublicRepo": false
+  },
+  {
     id: "synthetic-data-generator",
     title: "Synthetic Data Generator",
     description: "Developed a full-stack web application designed for financial analysts, developers, and researchers to generate high-quality, realistic synthetic stock market data.",
@@ -268,11 +300,23 @@ const experiences = [
     technologies: ["Python", "Machine Learning", "Distributed Systems"]
   },
   {
-    title: "Lead Software Engineering Intern - AI",
-    company: "LearnHaus AI",
-    period: "June 2025 - Present",
-    description: "Designed and developed a multimodal AI platform evaluating user presentation skills by analyzing facial expressions, vocal tonality and behavioral cues, providing feedback and a score to guide improvement.",
-    technologies: ["Multimodal AI", "Python", "FastAPI", "React", "LLMs", "Gemini API", "React JS", "GCP"]
+    "title": "Lead Software Engineering Intern - AI",
+    "company": "LearnHaus AI",
+    "period": "June 2025 - August 2025",
+    "description": [
+      "Developed a complete data processing pipeline utilizing AI Services for advanced emotional analysis and created a user-facing coaching and data visualization system to deliver insights."
+    ],
+    "technologies": [
+      "Python",
+      "FastAPI",
+      "React",
+      "GCP",
+      "REST APIs",
+      "LLMs",
+      "Emotional Analysis",
+      "Multimodal AI",
+      "LLM-as-a-Judge"
+    ]
   }
 ];
 
