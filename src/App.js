@@ -61,6 +61,22 @@ const projects = [
     hasPublicRepo: false
   },
   {
+    "id": "lh-multimodal-svc",
+    "title": "Emotion-Aware Feedback System for Public Speaking",
+    "description": "This project involved creating a service to process and analyze multimodal data (video, audio, text) to provide feedback on presentation skills. It uses Hume AI for emotional analysis and includes a coaching and visualization system.",
+    "technologies": ["Python", "Hume AI", "Multimodal Data Processing", "AI Development", "Data Visualization"],
+    "highlights": [
+      "Engineered a pipeline for processing video, audio, and text data.",
+      "Integrated Hume AI for emotional analysis of presentations.",
+      "Developed a coaching and visualization system to provide actionable feedback.",
+      "Created a system for one AI to judge the responses of another, ensuring high-quality feedback."
+    ],
+    "demoUrl": "https://multimodal-svc-frontend-277660335430.us-central1.run.app/",
+    "githubUrl": "#",
+    "isOpenSource": false,
+    "hasPublicRepo": false
+  },
+  {
     id: "75Hard",
     title: "Tracker App for 75 Hard Challenge",
     description: "Developed a platform allowing end-users to track their progress for the 75 Hard Challenge.",
@@ -135,22 +151,6 @@ const projects = [
       "Developed a robust logging and monitoring system using the Composite and Observer patterns."
     ],
     "demoUrl": "#",
-    "githubUrl": "#",
-    "isOpenSource": false,
-    "hasPublicRepo": false
-  },
-  {
-    "id": "lh-multimodal-svc",
-    "title": "Emotion-Aware Feedback System for Public Speaking",
-    "description": "This project involved creating a service to process and analyze multimodal data (video, audio, text) to provide feedback on presentation skills. It uses Hume AI for emotional analysis and includes a coaching and visualization system.",
-    "technologies": ["Python", "Hume AI", "Multimodal Data Processing", "AI Development", "Data Visualization"],
-    "highlights": [
-      "Engineered a pipeline for processing video, audio, and text data.",
-      "Integrated Hume AI for emotional analysis of presentations.",
-      "Developed a coaching and visualization system to provide actionable feedback.",
-      "Created a system for one AI to judge the responses of another, ensuring high-quality feedback."
-    ],
-    "demoUrl": "https://multimodal-svc-frontend-277660335430.us-central1.run.app/",
     "githubUrl": "#",
     "isOpenSource": false,
     "hasPublicRepo": false
