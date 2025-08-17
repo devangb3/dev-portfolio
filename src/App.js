@@ -171,6 +171,21 @@ const projects = [
     hasPublicRepo: false
   },
   {
+    id : "cover-letter-generator",
+    title : "Cover Letter Generator",
+    description : "Developed a full-stack web application that generates cover letters for job applications.",
+    technologies : ["Python", "Flask", "APIs", "AI Development", "LLMs", "Cloud Run", "React", "Vite"],
+    highlights : [
+      "Generate customized cover letters for job applications",
+      "Fine-tune the cover letter generation by controlling parameters like job title, company name, and job description",
+      "Provide a user-friendly interface for visualizing and generating cover letters"
+    ],
+    demoUrl : "https://cover-letter-generator-424176252593.us-central1.run.app",
+    githubUrl : "https://github.com/devangb3/Cover-Letter-Generator",
+    isOpenSource : true,
+    hasPublicRepo : true
+  },
+  {
     id : "rag-context",
     title: "RAG Client",
     description: "AI assistant designed to enable users to quickly find answers within their local documents (including PDFs, notes, and code files)",
