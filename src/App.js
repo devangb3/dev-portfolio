@@ -108,6 +108,22 @@ const projects = [
     hasPublicRepo: true
   },
   {
+    id: "ai-code-analyzer",
+    title: "AI-Powered Code Analysis Tool (GitHub Action)",
+    description: "Engineered a comprehensive code analysis system using a Python CLI and a GitHub Action. The tool leverages Google's Gemini AI to automatically analyze codebases, provide intelligent feedback on pull requests, and suggest architectural improvements.",
+    technologies: ["Python", "Node.js", "GitHub Actions", "Gemini AI API", "Git", "CI/CD", "REST APIs"],
+    highlights: [
+      "Built an event-driven GitHub Action that analyzes code on pull requests, pushes, and issues.",
+      "Integrated Google's Gemini AI to identify cross-file patterns, security vulnerabilities, and refactoring opportunities.",
+      "Implemented intelligent change detection using multiple git diff strategies to focus analysis on relevant code changes.",
+      "Designed a dual-system with a Python CLI for local analysis and a Node.js-based GitHub Action for CI/CD integration."
+    ],
+    demoUrl: "#",
+    githubUrl: "#",
+    isOpenSource: false,
+    hasPublicRepo: false
+  },
+  {
     id: "dc-menu-analyzer",
     title: "DC Menu Analyzer",
     description: "Developed a web application that helps UC Davis students analyze Tercero Dining Commons menu items based on their dietary restrictions and preferences. The application uses AI to provide personalized menu recommendations while considering dietary restrictions, allergies, and caloric requirements.",
