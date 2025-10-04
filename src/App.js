@@ -77,6 +77,22 @@ const projects = [
     "hasPublicRepo": false
   },
   {
+    id: "drug-condition-classifier",
+    title: "Drug Condition Classifier (BERT Fine-Tuning)",
+    description: "Developed and fine-tuned a BERT-based model for multi-class text classification to predict a patient's medical condition from drug review text. The project involved data cleaning, preprocessing, and training on over 126,000 samples.",
+    technologies: ["Python", "PyTorch", "Hugging Face Transformers", "BERT", "Scikit-learn", "W&B", "Hugging Face Hub"],
+    highlights: [
+      "Built a data preprocessing pipeline to clean and prepare a large dataset of drug reviews for training, handling HTML artifacts and noisy entries.",
+      "Fine-tuned a `bert-base-cased` model for a complex multi-class classification task with 821 unique medical conditions.",
+      "Achieved 75.9% accuracy and a weighted F1-score of 0.75 on a test set containing over 52,000 samples.",
+      "Published the final model and tokenizer to the Hugging Face Hub, making it accessible for inference via the `pipeline` API."
+    ],
+    demoUrl: "https://huggingface.co/devangb4/bert-drug-classification",
+    githubUrl: "https://github.com/devangb3/HF-Transformers/blob/main/Drug_dataset_finetuning.ipynb",
+    isOpenSource: true,
+    hasPublicRepo: true
+  },
+  {
     id: "75Hard",
     title: "Tracker App for 75 Hard Challenge",
     description: "Developed a platform allowing end-users to track their progress for the 75 Hard Challenge.",
