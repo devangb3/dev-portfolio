@@ -741,7 +741,6 @@ const Footer = ({ theme }) => (
           mb: 3
         }}
       >
-        Built with ❤️ using React, Material-UI, and lots of coffee ☕
       </Typography>
       
       <Box sx={{ display: 'flex', justifyContent: 'center', gap: 3, mb: 3 }}>
