@@ -77,6 +77,21 @@ const projects = [
     "hasPublicRepo": false
   },
   {
+    "id": "github-issue-classifier",
+    "title": "Multi-Label GitHub Issue Classifier",
+    "description": "Developed and benchmarked a transformer-based model to automatically classify GitHub issues with multiple labels, achieving a 60% performance uplift over a baseline model.",
+    "technologies": ["Python", "PyTorch", "Hugging Face Transformers", "RoBERTa", "skmultilearn", "Scikit-learn", "Pandas"],
+    "highlights": [
+      "Engineered a robust data preprocessing pipeline to handle noisy, real-world GitHub issue data, using iterative stratification to ensure balanced label distribution for reliable model evaluation.",
+      "Executed a systematic model selection process, fine-tuning RoBERTa-base to achieve a test F1 Macro score of 0.21—a 60% performance improvement over the DistilBERT baseline.",
+      "Optimized the problem space by programmatically filtering low-frequency tags, reducing the label set to the 28 most predictive classes to improve training efficiency and model focus."
+    ],
+    "demoUrl": "https://huggingface.co/devangb4/scikit-issues-multilabel-classification",
+    "githubUrl": "https://github.com/devangb3/HF-Transformers/blob/main/scikit-Issue-Classifier.ipynb",
+    "isOpenSource": true,
+    "hasPublicRepo": true
+  },
+  {
     id: "drug-condition-classifier",
     title: "Drug Condition Classifier (BERT Fine-Tuning)",
     description: "Developed and fine-tuned a BERT-based model for multi-class text classification to predict a patient's medical condition from drug review text. The project involved data cleaning, preprocessing, and training on over 126,000 samples.",
