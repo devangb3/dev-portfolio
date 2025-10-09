@@ -372,6 +372,12 @@ export const socialLinks = [
     primary: true 
   },
   { 
+    icon: <img src="/hf-logo.png" alt="Hugging Face" width="24" height="24" />, 
+    label: 'Hugging Face', 
+    href: 'https://huggingface.co/devangb4', 
+    primary: false 
+  },
+  { 
     icon: <LinkedIn />, 
     label: 'LinkedIn', 
     href: 'https://linkedin.com/in/devang-borkar-710b49201', 
@@ -387,6 +393,7 @@ export const socialLinks = [
 
 export const heroSocialLinks = [
   { icon: <GitHub />, url: 'https://github.com/devangb3', label: 'GitHub' },
+  { icon: <img src="/hf-logo.png" alt="Hugging Face" width="24" height="24" />, url: 'https://huggingface.co/devangb4', label: 'Hugging Face' },
   { icon: <LinkedIn />, url: 'https://linkedin.com/in/devang-borkar-710b49201', label: 'LinkedIn' },
   { icon: <Email />, url: 'mailto:devangborkar3@gmail.com', label: 'Email' },
   { icon: <LeetCodeIcon />, url: 'https://leetcode.com/u/devangborkar3/', label: 'LeetCode' }
