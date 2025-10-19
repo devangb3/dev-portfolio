@@ -267,6 +267,23 @@ export const projects = [
     githubUrl: "https://github.com/devangb3",
     isOpenSource: true,
     hasPublicRepo: true
+  },
+  {
+    id: "gitartha-engine",
+    title: "Gitartha Engine: A Semantic Search API for the Bhagavad Gita",
+    description: "A full-stack application that brings the ancient text of the Bhagavad Gita to life with modern technology. Features a powerful semantic search engine using vector embeddings and PostgreSQL with pgvector extension for lightning-fast similarity searches.",
+    technologies: ["Go", "Gin", "PostgreSQL", "pgvector", "React", "TypeScript", "Material-UI", "Python", "FastAPI", "Sentence-Transformers", "Vite", "Makefile", "golang-migrate"],
+    highlights: [
+      "Built a high-performance backend in Go leveraging vector embeddings for semantic search",
+      "Implemented PostgreSQL with pgvector extension for lightning-fast similarity searches",
+      "Created a clean and modern React frontend with TypeScript and Material-UI",
+      "Developed a Python FastAPI service for https://github.com/devangb3/Gitartha-Enginereal-time embedding generation",
+      "Built a complete data ingestion and processing pipeline with interactive API documentation"
+    ],
+    demoUrl: "#",
+    githubUrl: "https://github.com/devangb3/Gitartha-Engine",
+    isOpenSource: true,
+    hasPublicRepo: true
   }
 ];
 
