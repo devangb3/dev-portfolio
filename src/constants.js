@@ -284,6 +284,23 @@ export const projects = [
     githubUrl: "https://github.com/devangb3/Gitartha-Engine",
     isOpenSource: true,
     hasPublicRepo: true
+  },
+  {
+    "id": "gemini-event-creator",
+    "title": "Gemini Event Creator: AI-Powered Chrome Extension",
+    "description": "A Chrome extension that turns any highlighted text on the web into a Google Calendar event. Uses on-device AI to parse event details, authenticates with Google, and creates events in one click.",
+    "technologies": ["JavaScript", "Chrome Extension (Manifest V3)", "HTML5", "CSS3", "Google Calendar API", "Google Identity API (OAuth 2.0)", "Vite", "Gemini Nano (Prompt API)", "any-date-parser"],
+    "highlights": [
+      "Built a content script that injects a floating UI to capture selected text on any webpage",
+      "Implemented a robust Manifest V3 service worker to handle background tasks, API calls, and state management",
+      "Integrated Google's on-device Gemini Nano (Prompt API) for local, privacy-preserving extraction of event details (title, date, time)",
+      "Engineered a secure authentication flow using `chrome.identity` to obtain OAuth 2.0 tokens for the Google Calendar API",
+      "Designed a two-step UI: an instant 'Quick Create' and an 'Edit & Create' form with inputs for title, time, location, color, and reminders"
+    ],
+    "demoUrl": "https://chrome.google.com/webstore/detail/gemini-event-creator/hbbphgbndgjenboombeclnpepoiicpno",
+    "githubUrl": "https://github.com/devangb3/Event-Creator",
+    "isOpenSource": true,
+    "hasPublicRepo": true
   }
 ];
 
