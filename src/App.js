@@ -837,9 +837,28 @@ function App() {
                       <Typography variant="subtitle1" sx={{ color: theme.primary, fontWeight: 500 }}>
                         {exp.company} • {exp.period}
                       </Typography>
-                      <Typography variant="body2" sx={{ color: theme.textSecondary, mt: 1 }}>
-                        {exp.description}
-                      </Typography>
+                      {Array.isArray(exp.description) ? (
+                        <Box sx={{ mt: 1, pl: 2 }}>
+                          {exp.description.map((desc, i) => (
+                            <Typography 
+                              key={i} 
+                              variant="body2" 
+                              sx={{ 
+                                color: theme.textSecondary,
+                                display: 'list-item', 
+                                listStyleType: 'disc',
+                                mb: 0.5 
+                              }}
+                            >
+                              {desc}
+                            </Typography>
+                          ))}
+                        </Box>
+                      ) : (
+                        <Typography variant="body2" sx={{ color: theme.textSecondary, mt: 1 }}>
+                          {exp.description}
+                        </Typography>
+                      )}
                       <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 1 }}>
                         {exp.technologies.map((tech, techIndex) => (
                           <Chip 
