@@ -15,21 +15,13 @@ const Footer = ({ theme }) => (
     textAlign: 'center'
   }}>
     <Container maxWidth="lg">
-      <Typography 
-        variant="body1" 
-        sx={{ 
-          color: theme.textSecondary,
-          mb: 3
-        }}
-      >
-      </Typography>
-      
       <Box sx={{ display: 'flex', justifyContent: 'center', gap: 3, mb: 3 }}>
         {footerSocialLinks.map((social, index) => (
           <IconButton 
             key={index}
             href={social.url}
             target="_blank"
+            rel="noreferrer"
             sx={{ 
               color: theme.textSecondary,
               '&:hover': {
@@ -52,7 +44,7 @@ const Footer = ({ theme }) => (
           opacity: 0.8
         }}
       >
-        © 2025 Devang Borkar. All rights reserved.
+        © {new Date().getFullYear()} Devang Borkar. All rights reserved.
       </Typography>
     </Container>
   </Box>

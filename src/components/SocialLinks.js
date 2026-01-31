@@ -9,6 +9,7 @@ const SocialLinks = ({ links, theme, isVisible }) => (
         startIcon={social.icon}
         href={social.href}
         target="_blank"
+        rel="noreferrer"
         sx={{
           opacity: isVisible ? 1 : 0,
           transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.95)',

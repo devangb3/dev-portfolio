@@ -8,6 +8,7 @@ const ProjectActions = ({ project, theme }) => (
         variant="outlined"
         href={project.githubUrl} 
         target="_blank" 
+        rel="noreferrer"
         startIcon={<GitHub />}
         sx={{ 
           color: theme.primary,
@@ -29,6 +30,7 @@ const ProjectActions = ({ project, theme }) => (
         variant="contained"
         href={project.demoUrl} 
         target="_blank" 
+        rel="noreferrer"
         startIcon={<Launch />}
         sx={{ 
           bgcolor: theme.primary,

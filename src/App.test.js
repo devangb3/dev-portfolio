@@ -1,8 +1,16 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { act } from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test("renders without crashing", () => {
+  const container = document.createElement("div");
+  const root = createRoot(container);
+
+  act(() => {
+    root.render(<App />);
+  });
+
+  act(() => {
+    root.unmount();
+  });
 });

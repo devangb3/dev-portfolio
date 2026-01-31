@@ -2,32 +2,40 @@ import { Box, Typography, Paper, Avatar } from "@mui/material";
 
 const ContactInfo = ({ contacts, theme, isVisible }) => (
   <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3, mb: 6 }}>
-    {contacts.map((contact, index) => (
-      <Paper 
-        key={contact.label}
-        sx={{ 
-          p: 3,
-          bgcolor: theme.cardBg,
-          border: `1px solid ${theme.border}`,
-          borderRadius: 2,
-          display: 'flex',
-          alignItems: 'center',
-          gap: 3,
-          cursor: contact.isClickable ? 'pointer' : 'default',
-          transition: 'all 0.3s ease',
-          opacity: isVisible ? 1 : 0,
-          transform: isVisible ? 'translateX(0)' : 'translateX(-30px)',
-          transitionDelay: `${index * 0.3}s`,
-          '&:hover': {
-            ...(contact.isClickable && {
-              transform: 'translateX(10px)',
-              bgcolor: `${theme.primary}10`,
-              borderColor: theme.primary
-            })
-          }
-        }}
-        onClick={() => contact.isClickable && window.open(contact.href, '_blank')}
-      >
+    {contacts.map((contact, index) => {
+      const isLink = Boolean(contact.isClickable && contact.href);
+      const isExternal = isLink && /^https?:\/\//.test(contact.href);
+
+      return (
+        <Paper 
+          key={contact.label}
+          component={isLink ? 'a' : 'div'}
+          href={isLink ? contact.href : undefined}
+          target={isExternal ? '_blank' : undefined}
+          rel={isExternal ? 'noreferrer' : undefined}
+          sx={{ 
+            p: 3,
+            bgcolor: theme.cardBg,
+            border: `1px solid ${theme.border}`,
+            borderRadius: 2,
+            display: 'flex',
+            alignItems: 'center',
+            gap: 3,
+            cursor: isLink ? 'pointer' : 'default',
+            textDecoration: 'none',
+            transition: 'all 0.3s ease',
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'translateX(0)' : 'translateX(-30px)',
+            transitionDelay: `${index * 0.3}s`,
+            '&:hover': {
+              ...(isLink && {
+                transform: 'translateX(10px)',
+                bgcolor: `${theme.primary}10`,
+                borderColor: theme.primary
+              })
+            }
+          }}
+        >
         <Avatar 
           sx={{ 
             bgcolor: `${theme.primary}20`,
@@ -58,7 +66,8 @@ const ContactInfo = ({ contacts, theme, isVisible }) => (
           </Typography>
         </Box>
       </Paper>
-    ))}
+      );
+    })}
   </Box>
 );
 

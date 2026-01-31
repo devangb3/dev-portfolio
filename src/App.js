@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
   AppBar,
   Toolbar,
@@ -13,8 +13,12 @@ import {
   Grid,
   Avatar,
   Paper,
-  TextField
+  TextField,
+  Snackbar,
+  Alert,
 } from "@mui/material";
+import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider } from "@mui/material/styles";
 import {
   Download,
   ArrowDownward,
@@ -35,26 +39,13 @@ import SocialLinks from "./components/SocialLinks";
 import HeroSocialLinks from "./components/HeroSocialLinks";
 import Footer from "./components/Footer";
 import { projects, skills, experiences, contactInfo, socialLinks, heroSocialLinks } from "./constants";
-
-// Theme Configuration
-const createTheme = (darkMode) => ({
-  primary: darkMode ? '#00ff88' : '#00cc6a',
-  secondary: darkMode ? '#ff6b6b' : '#ff5252',
-  background: darkMode ? '#0a0a0a' : '#fafafa',
-  surface: darkMode ? '#121212' : '#ffffff',
-  cardBg: darkMode ? '#1a1a1a' : '#ffffff',
-  text: darkMode ? '#ffffff' : '#000000',
-  textSecondary: darkMode ? '#ffffff80' : '#666666',
-  border: darkMode ? '#333333' : '#e0e0e0'
-});
+import { applyThemeToCssVars, getMuiTheme, getThemeTokens } from "./theme";
 
 function App() {
   const [isVisible, setIsVisible] = useState(false);
-  const [showScroll, setShowScroll] = useState(false);
+  const [showScroll, setShowScroll] = useState(true);
   const [darkMode, setDarkMode] = useState(true);
   const [activeSection, setActiveSection] = useState('home');
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isMounted, setIsMounted] = useState(false);
   const heroRef = useRef(null);
   const [formData, setFormData] = useState({
     name: '',
@@ -62,85 +53,128 @@ function App() {
     subject: '',
     message: '',
   });
+  const [toast, setToast] = useState({
+    open: false,
+    message: "",
+    severity: "success",
+  });
+  const [isSending, setIsSending] = useState(false);
+
+  const theme = useMemo(() => getThemeTokens(darkMode ? "dark" : "light"), [darkMode]);
+  const muiTheme = useMemo(() => getMuiTheme(theme), [theme]);
 
   const handleFormChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const encodeForm = (data) =>
+    Object.keys(data)
+      .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+      .join("&");
+
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    if (isSending) return;
+    setIsSending(true);
     try {
-      const response = await fetch('/.netlify/functions/send-email', {
-        method: 'POST',
-        body: JSON.stringify(formData),
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encodeForm({ "form-name": "contact", ...formData }),
       });
-      if (response.ok) {
-        alert('Message sent successfully!');
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      } else {
-        alert('Failed to send message.');
+
+      if (!response.ok) {
+        throw new Error(`Request failed: ${response.status}`);
       }
+
+      setToast({
+        open: true,
+        severity: "success",
+        message: "Message sent — I'll get back to you soon.",
+      });
+        setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
       console.error('Form submission error:', error);
-      alert('An error occurred while sending the message.');
+      setToast({
+        open: true,
+        severity: "error",
+        message: "Couldn’t send right now. Please email me directly.",
+      });
+    } finally {
+      setIsSending(false);
     }
   };
 
-  const theme = createTheme(darkMode);
+  useEffect(() => {
+    applyThemeToCssVars(theme);
+  }, [theme]);
 
   useEffect(() => {
-    // Set mounted state immediately
-    setIsMounted(true);
-    
-    // Add a small delay to ensure DOM is fully rendered
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 100);
+    const timer = setTimeout(() => setIsVisible(true), 120);
 
     const handleScroll = () => {
-      // Add safety check for window object
-      if (typeof window !== 'undefined') {
-        setShowScroll(window.scrollY > 100);
-        
-        // Update active section based on scroll position
-        const sections = ['home', 'about', 'projects', 'contact'];
-        const scrollPosition = window.scrollY + 100;
-        
-        for (const section of sections) {
-          const element = document.getElementById(section);
-          if (element && element.offsetTop !== undefined && element.offsetHeight !== undefined) {
-            const offsetTop = element.offsetTop;
-            const offsetHeight = element.offsetHeight;
-            if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-              setActiveSection(section);
-              break;
-            }
-          }
+      if (typeof window === "undefined") return;
+
+      setShowScroll(window.scrollY < 120);
+
+      const sections = ["home", "about", "projects", "contact"];
+      const scrollPosition = window.scrollY + 120;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (!element) continue;
+        const offsetTop = element.offsetTop;
+        const offsetHeight = element.offsetHeight;
+        if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+          setActiveSection(section);
+          break;
         }
       }
     };
-    
-    const handleMouseMove = (e) => {
-      if (e && typeof e.clientX !== 'undefined' && typeof e.clientY !== 'undefined') {
-        setMousePosition({ x: e.clientX, y: e.clientY });
-      }
-    };
-    
-    // Initial scroll check after a delay
-    const scrollTimer = setTimeout(handleScroll, 150);
-    
-    if (typeof window !== 'undefined') {
-      window.addEventListener('scroll', handleScroll);
-      window.addEventListener('mousemove', handleMouseMove);
+
+    handleScroll();
+
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", handleScroll);
     }
-    
+
     return () => {
       clearTimeout(timer);
-      clearTimeout(scrollTimer);
-      if (typeof window !== 'undefined') {
-        window.removeEventListener('scroll', handleScroll);
-        window.removeEventListener('mousemove', handleMouseMove);
+      if (typeof window !== "undefined") {
+        window.removeEventListener("scroll", handleScroll);
       }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined" || typeof document === "undefined") return;
+
+    const raf =
+      typeof window.requestAnimationFrame === "function"
+        ? window.requestAnimationFrame.bind(window)
+        : (cb) => window.setTimeout(cb, 16);
+    const caf =
+      typeof window.cancelAnimationFrame === "function"
+        ? window.cancelAnimationFrame.bind(window)
+        : (id) => window.clearTimeout(id);
+
+    let rafId = null;
+    const handleMouseMove = (e) => {
+      if (!e) return;
+      const x = e.clientX;
+      const y = e.clientY;
+      if (rafId != null) return;
+      rafId = raf(() => {
+        document.documentElement.style.setProperty("--mx", `${x}px`);
+        document.documentElement.style.setProperty("--my", `${y}px`);
+        rafId = null;
+      });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      if (rafId != null) caf(rafId);
     };
   }, []);
 
@@ -152,184 +186,19 @@ function App() {
   };
   
   return (
-    <Box sx={{ 
-      bgcolor: theme.background,
-      margin: 0,
-      padding: 0,
-      minHeight: '100vh',
-      position: 'relative',
-      overflow: 'hidden',
-      '& *': {
-        boxSizing: 'border-box'
-      },
-      // Animated background particles
-      '&::before': {
-        content: '""',
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, ${theme.primary}15 0%, transparent 50%)`,
-        pointerEvents: 'none',
-        zIndex: 0,
-        transition: 'background 0.3s ease'
-      }
-    }}>
-      {/* Enhanced CSS with animations */}
-      <style>
-        {`
-          @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-          
-          * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-          }
-          
-          body {
-            font-family: 'Inter', sans-serif;
-            background: ${theme.background};
-            color: ${theme.text};
-            overflow-x: hidden;
-          }
-          
-          .gradient-text {
-            background: linear-gradient(45deg, ${theme.primary}, ${theme.secondary});
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradient-shift 3s ease-in-out infinite;
-          }
-          
-          @keyframes gradient-shift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-          }
-          
-          @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-          }
-          
-          @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-          }
-          
-          @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-          }
-          
-          @keyframes slideInUp {
-            from {
-              transform: translateY(100px);
-              opacity: 0;
-            }
-            to {
-              transform: translateY(0);
-              opacity: 1;
-            }
-          }
-          
-          .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
-          }
-          
-          .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
-          }
-          
-          .floating-element {
-            animation: float 6s ease-in-out infinite;
-          }
-          
-          .pulse-element {
-            animation: pulse 2s infinite;
-          }
-          
-          .skill-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            backdrop-filter: blur(10px);
-          }
-          
-          .skill-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.2);
-          }
-          
-          .project-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-          }
-          
-          .project-card:hover {
-            transform: translateY(-12px) rotateY(5deg);
-            box-shadow: 0 25px 50px rgba(0, 255, 136, 0.3);
-          }
-          
-          .typewriter {
-            overflow: hidden;
-            border-right: 0.15em solid ${theme.primary};
-            white-space: nowrap;
-            margin: 0 auto;
-            animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
-          }
-          
-          @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-          }
-          
-          @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: ${theme.primary} }
-          }
-          
-          @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-          }
-          
-          .scroll-animate {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-          }
-          
-          .scroll-animate.visible {
-            opacity: 1;
-            transform: translateY(0);
-          }
-          
-          .glass-effect {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-          }
-          
-          .neon-border {
-            border: 2px solid ${theme.primary};
-            box-shadow: 0 0 20px ${theme.primary}40;
-          }
-          
-          .sparkle {
-            animation: sparkle 1.5s infinite;
-          }
-          
-          @keyframes sparkle {
-            0%, 100% { opacity: 0; transform: scale(0); }
-            50% { opacity: 1; transform: scale(1); }
-          }
-        `}
-      </style>
+    <ThemeProvider theme={muiTheme}>
+      <CssBaseline />
+      <a className="skip-link" href="#about">
+        Skip to content
+      </a>
+      <Box sx={{ 
+        bgcolor: theme.background,
+        margin: 0,
+        padding: 0,
+        minHeight: '100vh',
+        position: 'relative',
+        overflowX: 'hidden',
+      }}>
 
       {/* Enhanced Navigation */}
       <AppBar position="fixed" sx={{ 
@@ -359,6 +228,7 @@ function App() {
               <Button 
                 key={section}
                 onClick={() => scrollToSection(section.toLowerCase())}
+                aria-current={activeSection === section.toLowerCase() ? 'location' : undefined}
                 sx={{ 
                   color: activeSection === section.toLowerCase() ? theme.primary : theme.text,
                   fontWeight: activeSection === section.toLowerCase() ? 600 : 400,
@@ -387,6 +257,8 @@ function App() {
             
             <IconButton
               onClick={() => setDarkMode(!darkMode)}
+              aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
+              title={darkMode ? "Switch to light mode" : "Switch to dark mode"}
               sx={{ 
                 color: theme.text,
                 ml: 1,
@@ -417,6 +289,7 @@ function App() {
             }}
             href={process.env.PUBLIC_URL + "/Devang_Resume.pdf"}
             target="_blank"
+            rel="noreferrer"
           >
             Resume
           </Button>
@@ -461,14 +334,13 @@ function App() {
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
           <Grid container spacing={4} alignItems="center">
             <Grid item xs={12} md={6}>
-              {isMounted && (
-                <Box
-                  sx={{
-                    opacity: isVisible ? 1 : 0,
-                    transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
-                    transition: 'all 1s ease-in-out'
-                  }}
-                >
+              <Box
+                sx={{
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+                  transition: 'all 1s ease-in-out'
+                }}
+              >
                   <Typography 
                     variant="h6" 
                     sx={{ 
@@ -491,10 +363,12 @@ function App() {
                       lineHeight: 1.1,
                       mb: 3,
                       background: `linear-gradient(45deg, ${theme.primary}, ${theme.secondary})`,
+                      backgroundSize: '200% 200%',
+                      backgroundPosition: '0% 50%',
                       WebkitBackgroundClip: 'text',
                       WebkitTextFillColor: 'transparent',
                       backgroundClip: 'text',
-                      textShadow: '0 0 30px rgba(0, 255, 136, 0.3)',
+                      textShadow: '0 0 34px var(--glow-primary)',
                       animation: 'gradient-shift 3s ease-in-out infinite'
                     }}
                   >
@@ -540,21 +414,19 @@ function App() {
                     Passionate about creating innovative solutions with cutting-edge technology. 
                     Specializing in Generative & Multimodal AI, Distributed systems, and scalable software architecture.
                   </Typography>
-                </Box>
-              )}
+              </Box>
             </Grid>
             
             <Grid item xs={12} md={6}>
-              {isMounted && (
-                <Box 
-                  sx={{ 
-                    textAlign: 'center', 
-                    position: 'relative',
-                    opacity: isVisible ? 1 : 0,
-                    transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
-                    transition: 'all 1.5s ease-in-out'
-                  }}
-                >
+              <Box 
+                sx={{ 
+                  textAlign: 'center', 
+                  position: 'relative',
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+                  transition: 'all 1.5s ease-in-out'
+                }}
+              >
                   <Box 
                     className="floating-element"
                     sx={{
@@ -617,21 +489,19 @@ function App() {
                     <Chip icon={<Rocket />} label="Distributed Systems" size="small" sx={{ bgcolor: theme.primary, color: theme.background }} />
                   </Box>
                 </Box>
-              )}
             </Grid>
           </Grid>
         </Container>
         {/* Social Links & CTA */}
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2, mt: 6 }}>
-          {isMounted && (
-            <Box 
-              sx={{ 
-                textAlign: 'center',
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
-                transition: 'all 2s ease-in-out'
-              }}
-            >
+          <Box 
+            sx={{ 
+              textAlign: 'center',
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+              transition: 'all 2s ease-in-out'
+            }}
+          >
               <HeroSocialLinks links={heroSocialLinks} theme={theme} isVisible={isVisible} />
               
               <Box sx={{ display: 'flex', gap: 3, justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -683,11 +553,10 @@ function App() {
                   Get In Touch
                 </Button>
               </Box>
-            </Box>
-          )}
+          </Box>
         </Container>
         {/* Scroll Indicator */}
-        {isMounted && showScroll && (
+        {showScroll && (
           <Box 
             sx={{ 
               position: 'absolute',
@@ -1245,13 +1114,25 @@ function App() {
                   >
                     Send me a message
                   </Typography>
-                  <form onSubmit={handleFormSubmit}>
+                  <form
+                    name="contact"
+                    data-netlify="true"
+                    netlify-honeypot="bot-field"
+                    onSubmit={handleFormSubmit}
+                  >
+                    <input type="hidden" name="form-name" value="contact" />
+                    <Box sx={{ display: "none" }}>
+                      <label>
+                        Don’t fill this out: <input name="bot-field" />
+                      </label>
+                    </Box>
                     <Grid container spacing={3}>
                       <Grid item xs={12}>
                         <TextField
                           fullWidth
                           label="Name"
                           name="name"
+                          autoComplete="name"
                           value={formData.name}
                           onChange={handleFormChange}
                           required
@@ -1271,6 +1152,7 @@ function App() {
                           label="Email"
                           name="email"
                           type="email"
+                          autoComplete="email"
                           value={formData.email}
                           onChange={handleFormChange}
                           required
@@ -1289,6 +1171,7 @@ function App() {
                           fullWidth
                           label="Subject"
                           name="subject"
+                          autoComplete="off"
                           value={formData.subject}
                           onChange={handleFormChange}
                           required
@@ -1309,6 +1192,7 @@ function App() {
                           name="message"
                           multiline
                           rows={5}
+                          autoComplete="off"
                           value={formData.message}
                           onChange={handleFormChange}
                           required
@@ -1326,6 +1210,7 @@ function App() {
                         <Button
                           type="submit"
                           fullWidth
+                          disabled={isSending}
                           variant="contained"
                           startIcon={<Send />}
                           sx={{
@@ -1342,7 +1227,7 @@ function App() {
                             }
                           }}
                         >
-                          Send Message
+                          {isSending ? "Sending…" : "Send Message"}
                         </Button>
                       </Grid>
                     </Grid>
@@ -1355,7 +1240,23 @@ function App() {
       </Box>
 
       <Footer theme={theme} />
+      <Snackbar
+        open={toast.open}
+        autoHideDuration={6000}
+        onClose={() => setToast((prev) => ({ ...prev, open: false }))}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      >
+        <Alert
+          onClose={() => setToast((prev) => ({ ...prev, open: false }))}
+          severity={toast.severity}
+          variant="filled"
+          sx={{ borderRadius: 3 }}
+        >
+          {toast.message}
+        </Alert>
+      </Snackbar>
     </Box>
+    </ThemeProvider>
   );
 }
 

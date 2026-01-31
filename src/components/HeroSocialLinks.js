@@ -24,6 +24,7 @@ const HeroSocialLinks = ({ links, theme, isVisible }) => (
         }}
         href={social.url}
         target="_blank"
+        rel="noreferrer"
         title={social.label}
       >
         {social.icon}

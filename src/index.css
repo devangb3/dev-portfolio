@@ -1,13 +1,264 @@
+:root {
+  --bg: #070a0f;
+  --surface: #0b1220;
+  --card: #0e1728;
+  --text: #f6f2e9;
+  --muted: #bdb6ad;
+  --primary: #b6ff4d;
+  --secondary: #ff4d6d;
+  --border: #26304a;
+  --grid: rgba(246, 242, 233, 0.06);
+  --glow-primary: rgba(182, 255, 77, 0.18);
+  --glow-secondary: rgba(255, 77, 109, 0.14);
+  --shadow: 0 30px 90px rgba(0, 0, 0, 0.55);
+
+  --radius: 18px;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --font-body: "Spline Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(
+      900px 650px at var(--mx, 50%) var(--my, 20%),
+      var(--glow-primary),
+      transparent 60%
+    ),
+    radial-gradient(
+      750px 560px at 15% 80%,
+      var(--glow-secondary),
+      transparent 65%
+    ),
+    radial-gradient(
+      800px 600px at 85% 20%,
+      var(--glow-primary),
+      transparent 70%
+    ),
+    repeating-linear-gradient(
+      90deg,
+      var(--grid) 0 1px,
+      transparent 1px 86px
+    ),
+    repeating-linear-gradient(0deg, var(--grid) 0 1px, transparent 1px 86px);
+  opacity: 0.95;
+  transform: translate3d(0, 0, 0);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  opacity: 0.08;
+}
+
+::selection {
+  background: rgba(182, 255, 77, 0.28);
+  color: var(--text);
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+a {
+  color: inherit;
+}
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 2000;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(14, 23, 40, 0.9);
+  border: 1px solid var(--border);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  transform: translateY(-160%);
+  transition: transform 220ms var(--ease);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.floating-element {
+  animation: float 7s var(--ease) infinite;
+}
+
+.project-card {
+  transition: transform 420ms var(--ease), box-shadow 420ms var(--ease),
+    border-color 420ms var(--ease);
+  transform-style: preserve-3d;
+}
+
+.project-card:hover {
+  transform: translateY(-10px) rotateX(1.5deg) rotateY(-2.5deg);
+  box-shadow: var(--shadow);
+}
+
+.skill-card {
+  transition: transform 320ms var(--ease), box-shadow 320ms var(--ease),
+    border-color 320ms var(--ease);
+}
+
+.skill-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.35);
+}
+
+.typewriter {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 0.14em solid var(--primary);
+  padding-right: 0.12em;
+  animation: typing 2.4s steps(24, end) 300ms both,
+    blink-caret 850ms step-end infinite;
+}
+
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--primary);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  body::before,
+  body::after {
+    opacity: 0.02;
+  }
+
+  .typewriter {
+    border-right: none;
+    animation: none;
+  }
 }
