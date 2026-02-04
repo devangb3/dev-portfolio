@@ -326,7 +326,7 @@ export const projects = [
 
 export const skills = [
   { name: "Python", category: "Languages", icon: <img src="/skills/python-icon.svg" alt="Python" width="24" height="24" /> },
-  { name: "C#", category: "Languages", icon: <img src="/skills/c%23_icon.png" alt="C#" width="24" height="24" /> },
+  { name: "C#", category: "Languages", icon: <img src="/skills/csharp_icon.png" alt="C#" width="24" height="24" /> },
   { name: "Java", category: "Languages", icon: <img src="/skills/java-icon.svg" alt="Java" width="24" height="24" /> },
   { name: "TypeScript", category: "Languages", icon: <img src="/skills/typescriptlang-icon.svg" alt="TypeScript" width="24" height="24" /> },
   { name: "JavaScript", category: "Languages", icon: <img src="/skills/javascript-icon.svg" alt="JavaScript" width="24" height="24" /> },
