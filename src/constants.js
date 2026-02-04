@@ -28,9 +28,9 @@ export const projects = [
         "Engineered deterministic synthetic environments to ground agent execution in verifiable state transitions, eliminating hallucination risks associated with LLM-based world modeling"
     ],
     demoUrl: "#",
-    githubUrl: "#",
-    isOpenSource: false,
-    hasPublicRepo: false
+    githubUrl: "https://github.com/devangb3/CausalFlow",
+    isOpenSource: true,
+    hasPublicRepo: true
   },
   {
     id: "reschat",
