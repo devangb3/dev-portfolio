@@ -499,7 +499,7 @@ function App() {
           <Box 
             sx={{ 
               position: 'absolute',
-              bottom: 40,
+              bottom: 1,
               left: '50%',
               transform: 'translateX(-50%)',
               textAlign: 'center',
