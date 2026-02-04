@@ -1,4 +1,4 @@
-import { GitHub, LinkedIn, Email, Phone, LocationOn } from '@mui/icons-material';
+import { GitHub, LinkedIn, Email, LocationOn, Twitter } from '@mui/icons-material';
 import LeetCodeIcon from './components/LeetCodeIcon';
 
 export const projects = [
@@ -325,37 +325,39 @@ export const projects = [
 ];
 
 export const skills = [
-  { name: "Java", category: "Languages", icon: "☕" },
-  { name: "Python3", category: "Languages", icon: "🐍" },
-  { name: "JavaScript", category: "Languages", icon: "⚡" },
+  { name: "Python", category: "Languages", icon: "🐍" },
   { name: "C#", category: "Languages", icon: "🎯" },
-  { name: "C++", category: "Languages", icon: "⚔️" },
+  { name: "Java", category: "Languages", icon: "☕" },
+  { name: "TypeScript", category: "Languages", icon: "🟦" },
+  { name: "JavaScript", category: "Languages", icon: "⚡" },
+  { name: "Go", category: "Languages", icon: "🧭" },
+  { name: "C++", category: "Languages", icon: "⚙️" },
+  { name: "PyTorch", category: "Frameworks", icon: "🔥" },
+  { name: "Hugging Face", category: "Frameworks", icon: "🤗" },
+  { name: "FastAPI", category: "Frameworks", icon: "⚡" },
+  { name: "LangChain", category: "Frameworks", icon: "🧵" },
   { name: "React", category: "Frameworks", icon: "⚛️" },
-  { name: "Node.js", category: "Frameworks", icon: "🟢" },
-  { name: "Flask", category: "Frameworks", icon: "🌶️" },
-  { name: "AWS", category: "Cloud", icon: "🌩️" },
   { name: "GCP", category: "Cloud", icon: "🌈" },
-  { name: "Azure", category: "Cloud", icon: "💠" },
+  { name: "AWS", category: "Cloud", icon: "🌩️" },
+  { name: "OpenAI API", category: "Cloud", icon: "🧪" },
+  { name: "Anthropic API", category: "Cloud", icon: "🧠" },
+  { name: "Gemini API", category: "Cloud", icon: "✨" },
+  { name: "OpenRouter", category: "Cloud", icon: "🛰️" },
   { name: "Docker", category: "Tools", icon: "🐳" },
-  { name: "Git", category: "Tools", icon: "🌿" },
-  { name: "Kubernetes", category: "Tools", icon: "⚓" },
-  { name: "Linux", category: "Tools", icon: "🐧" },
-  { name: "Hugging Face", category: "Tools", icon: "🤗" },
-  { name: "Machine Learning", category: "AI", icon: "🤖" },
-  { name: "LLMs", category: "AI", icon: "🧠" },
-  { name: "RAG", category: "AI", icon: "📚" },
+  { name: "CI/CD", category: "Tools", icon: "🔁" },
+  { name: "LLM Evaluations", category: "AI", icon: "🧪" },
+  { name: "Multi-Agent Systems", category: "AI", icon: "🧩" },
+  { name: "LoRA Fine-Tuning", category: "AI", icon: "🎛️" },
   { name: "Prompt Engineering", category: "AI", icon: "⌨️" },
-  { name: "Deep Learning", category: "AI", icon: "🔮" },
-  { name: "Model Fine Tuning", category: "AI", icon: "🎯" },
-  { name: "Reinforcement Learning", category: "AI", icon: "🎮" },
+  { name: "ReAct Agents", category: "AI", icon: "🔄" },
+  { name: "Tool Calling", category: "AI", icon: "🧰" },
+  { name: "RAG", category: "AI", icon: "📚" },
+  { name: "Embeddings", category: "AI", icon: "🧲" },
+  { name: "Adversarial Testing", category: "AI", icon: "🛡️" },
+  { name: "AI Red-Teaming", category: "AI", icon: "🕵️" },
   { name: "SQL", category: "Database", icon: "📊" },
   { name: "MongoDB", category: "Database", icon: "🍃" },
-  { name: "PostgreSQL", category: "Database", icon: "🐘" },
-  { name: "MySQL", category: "Database", icon: "🐬" },
   { name: "Redis", category: "Database", icon: "⚡" },
-  { name: "Kafka", category: "Database", icon: "📨" },
-  
-  
 ];
 
 export const experiences = [
@@ -417,16 +419,9 @@ export const contactInfo = [
     isClickable: true 
   },
   { 
-    icon: <Phone />, 
-    label: 'Phone', 
-    value: 'Available on request', 
-    href: '#',
-    isClickable: false 
-  },
-  { 
     icon: <LocationOn />, 
     label: 'Location', 
-    value: 'San Francisco Bay Area', 
+    value: 'Davis, CA', 
     href: '#',
     isClickable: false 
   }
@@ -452,6 +447,12 @@ export const socialLinks = [
     primary: false 
   },
   { 
+    icon: <Twitter />, 
+    label: 'X', 
+    href: 'https://x.com/DevangBorkar', 
+    primary: false 
+  },
+  { 
     icon: <GitHub />, 
     label: 'GitHub', 
     href: 'https://github.com/devangb3', 
@@ -463,6 +464,7 @@ export const heroSocialLinks = [
   { icon: <GitHub />, url: 'https://github.com/devangb3', label: 'GitHub' },
   { icon: <img src="/hf-logo.png" alt="Hugging Face" width="24" height="24" />, url: 'https://huggingface.co/devangb4', label: 'Hugging Face' },
   { icon: <LinkedIn />, url: 'https://linkedin.com/in/devang-borkar-710b49201', label: 'LinkedIn' },
+  { icon: <Twitter />, url: 'https://x.com/DevangBorkar', label: 'X' },
   { icon: <Email />, url: 'mailto:devangborkar3@gmail.com', label: 'Email' },
   { icon: <LeetCodeIcon />, url: 'https://leetcode.com/u/devangborkar3/', label: 'LeetCode' }
 ];

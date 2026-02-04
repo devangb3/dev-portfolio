@@ -12,10 +12,6 @@ import {
   Chip,
   Grid,
   Avatar,
-  Paper,
-  TextField,
-  Snackbar,
-  Alert,
 } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
@@ -27,7 +23,6 @@ import {
   Psychology,
   Rocket,
   Star,
-  Send,
   Brightness4,
   Brightness7,
 } from '@mui/icons-material';
@@ -47,63 +42,8 @@ function App() {
   const [darkMode, setDarkMode] = useState(true);
   const [activeSection, setActiveSection] = useState('home');
   const heroRef = useRef(null);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
-  const [toast, setToast] = useState({
-    open: false,
-    message: "",
-    severity: "success",
-  });
-  const [isSending, setIsSending] = useState(false);
-
   const theme = useMemo(() => getThemeTokens(darkMode ? "dark" : "light"), [darkMode]);
   const muiTheme = useMemo(() => getMuiTheme(theme), [theme]);
-
-  const handleFormChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const encodeForm = (data) =>
-    Object.keys(data)
-      .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
-      .join("&");
-
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
-    if (isSending) return;
-    setIsSending(true);
-    try {
-      const response = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encodeForm({ "form-name": "contact", ...formData }),
-      });
-
-      if (!response.ok) {
-        throw new Error(`Request failed: ${response.status}`);
-      }
-
-      setToast({
-        open: true,
-        severity: "success",
-        message: "Message sent — I'll get back to you soon.",
-      });
-        setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch (error) {
-      console.error('Form submission error:', error);
-      setToast({
-        open: true,
-        severity: "error",
-        message: "Couldn’t send right now. Please email me directly.",
-      });
-    } finally {
-      setIsSending(false);
-    }
-  };
 
   useEffect(() => {
     applyThemeToCssVars(theme);
@@ -532,7 +472,6 @@ function App() {
                 <Button
                   variant="outlined"
                   onClick={() => scrollToSection('contact')}
-                  startIcon={<Send />}
                   sx={{
                     color: theme.primary,
                     borderColor: theme.primary,
@@ -616,7 +555,7 @@ function App() {
         }
       }}>
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
-          <Grid container spacing={6} alignItems="center">
+          <Grid container spacing={6} alignItems="flex-start">
             {/* Left side - Content */}
             <Grid item xs={12} lg={6}>
               <Box
@@ -1022,7 +961,60 @@ function App() {
         }
       }}>
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
-          <Grid container spacing={6} alignItems="center">
+          <Box
+            sx={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+              transition: 'all 1s ease-in-out',
+              mb: 4
+            }}
+          >
+            <Typography 
+              variant="h6" 
+              sx={{ 
+                color: theme.primary,
+                fontWeight: 600,
+                mb: 2,
+                textTransform: 'uppercase',
+                letterSpacing: 2
+              }}
+            >
+              Let's Connect
+            </Typography>
+            
+            <Typography 
+              variant="h2" 
+              gutterBottom 
+              sx={{ 
+                fontWeight: 800,
+                fontSize: { xs: '2rem', md: '3rem' },
+                background: `linear-gradient(45deg, ${theme.primary}, ${theme.secondary})`,
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                mb: 3
+              }}
+            >
+              Get in Touch
+            </Typography>
+          </Box>
+
+          <Typography 
+            variant="body1" 
+            paragraph 
+            sx={{ 
+              color: theme.textSecondary,
+              fontSize: '1.1rem',
+              lineHeight: 1.8,
+              mb: 6,
+              maxWidth: '100%'
+            }}
+          >
+            I'm currently open to new opportunities in the Bay Area and remote positions. 
+            Whether you have a project in mind, want to collaborate, or just want to say hi, 
+            I'd love to hear from you!
+          </Typography>
+
+          <Grid container spacing={6} alignItems="flex-start">
             {/* Left side - Contact Info */}
             <Grid item xs={12} lg={6}>
               <Box
@@ -1032,207 +1024,22 @@ function App() {
                   transition: 'all 1s ease-in-out'
                 }}
               >
-                <Typography 
-                  variant="h6" 
-                  sx={{ 
-                    color: theme.primary,
-                    fontWeight: 600,
-                    mb: 2,
-                    textTransform: 'uppercase',
-                    letterSpacing: 2
-                  }}
-                >
-                  Let's Connect
-                </Typography>
-                
-                <Typography 
-                  variant="h2" 
-                  gutterBottom 
-                  sx={{ 
-                    fontWeight: 800,
-                    fontSize: { xs: '2rem', md: '3rem' },
-                    background: `linear-gradient(45deg, ${theme.primary}, ${theme.secondary})`,
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    mb: 4
-                  }}
-                >
-                  Get in Touch
-                </Typography>
-                
-                <Typography 
-                  variant="body1" 
-                  paragraph 
-                  sx={{ 
-                    color: theme.textSecondary,
-                    fontSize: '1.1rem',
-                    lineHeight: 1.8,
-                    mb: 6
-                  }}
-                >
-                  I'm currently open to new opportunities in the Bay Area and remote positions. 
-                  Whether you have a project in mind, want to collaborate, or just want to say hi, 
-                  I'd love to hear from you!
-                </Typography>
-                
                 {/* Contact Information Cards */}
                 <ContactInfo contacts={contactInfo} theme={theme} isVisible={isVisible} />
-                
-                {/* Social Links */}
-                <SocialLinks links={socialLinks} theme={theme} isVisible={isVisible} />
               </Box>
             </Grid>
-            
-            {/* Right side - Interactive Form */}
+            {/* Right side - Social Links */}
             <Grid item xs={12} lg={6}>
               <Box
                 sx={{
                   opacity: isVisible ? 1 : 0,
                   transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
-                  transition: 'all 1.5s ease-in-out'
+                  transition: 'all 1s ease-in-out',
+                  display: 'flex',
+                  justifyContent: { xs: 'flex-start', lg: 'flex-end' }
                 }}
               >
-                <Paper 
-                  sx={{ 
-                    p: 4,
-                    bgcolor: theme.cardBg,
-                    border: `1px solid ${theme.border}`,
-                    borderRadius: 3,
-                    backdropFilter: 'blur(10px)',
-                    boxShadow: `0 20px 40px ${theme.primary}10`
-                  }}
-                >
-                  <Typography 
-                    variant="h5" 
-                    gutterBottom 
-                    sx={{ 
-                      color: theme.text,
-                      fontWeight: 700,
-                      mb: 3,
-                      textAlign: 'center'
-                    }}
-                  >
-                    Send me a message
-                  </Typography>
-                  <form
-                    name="contact"
-                    data-netlify="true"
-                    netlify-honeypot="bot-field"
-                    onSubmit={handleFormSubmit}
-                  >
-                    <input type="hidden" name="form-name" value="contact" />
-                    <Box sx={{ display: "none" }}>
-                      <label>
-                        Don’t fill this out: <input name="bot-field" />
-                      </label>
-                    </Box>
-                    <Grid container spacing={3}>
-                      <Grid item xs={12}>
-                        <TextField
-                          fullWidth
-                          label="Name"
-                          name="name"
-                          autoComplete="name"
-                          value={formData.name}
-                          onChange={handleFormChange}
-                          required
-                          sx={{ 
-                            '& .MuiOutlinedInput-root': { 
-                              '&.Mui-focused fieldset': { borderColor: theme.primary },
-                              '& fieldset': { borderColor: theme.border },
-                              '&:hover fieldset': { borderColor: theme.primary },
-                            },
-                            '& .MuiInputLabel-root.Mui-focused': { color: theme.primary },
-                          }}
-                        />
-                      </Grid>
-                      <Grid item xs={12}>
-                        <TextField
-                          fullWidth
-                          label="Email"
-                          name="email"
-                          type="email"
-                          autoComplete="email"
-                          value={formData.email}
-                          onChange={handleFormChange}
-                          required
-                          sx={{ 
-                            '& .MuiOutlinedInput-root': { 
-                              '&.Mui-focused fieldset': { borderColor: theme.primary },
-                              '& fieldset': { borderColor: theme.border },
-                              '&:hover fieldset': { borderColor: theme.primary },
-                            },
-                            '& .MuiInputLabel-root.Mui-focused': { color: theme.primary },
-                          }}
-                        />
-                      </Grid>
-                      <Grid item xs={12}>
-                        <TextField
-                          fullWidth
-                          label="Subject"
-                          name="subject"
-                          autoComplete="off"
-                          value={formData.subject}
-                          onChange={handleFormChange}
-                          required
-                          sx={{ 
-                            '& .MuiOutlinedInput-root': { 
-                              '&.Mui-focused fieldset': { borderColor: theme.primary },
-                              '& fieldset': { borderColor: theme.border },
-                              '&:hover fieldset': { borderColor: theme.primary },
-                            },
-                            '& .MuiInputLabel-root.Mui-focused': { color: theme.primary },
-                          }}
-                        />
-                      </Grid>
-                      <Grid item xs={12}>
-                        <TextField
-                          fullWidth
-                          label="Message"
-                          name="message"
-                          multiline
-                          rows={5}
-                          autoComplete="off"
-                          value={formData.message}
-                          onChange={handleFormChange}
-                          required
-                          sx={{ 
-                            '& .MuiOutlinedInput-root': { 
-                              '&.Mui-focused fieldset': { borderColor: theme.primary },
-                              '& fieldset': { borderColor: theme.border },
-                              '&:hover fieldset': { borderColor: theme.primary },
-                            },
-                            '& .MuiInputLabel-root.Mui-focused': { color: theme.primary },
-                          }}
-                        />
-                      </Grid>
-                      <Grid item xs={12}>
-                        <Button
-                          type="submit"
-                          fullWidth
-                          disabled={isSending}
-                          variant="contained"
-                          startIcon={<Send />}
-                          sx={{
-                            bgcolor: theme.primary,
-                            color: theme.background,
-                            fontWeight: 600,
-                            fontSize: '1.1rem',
-                            py: 1.5,
-                            borderRadius: 2,
-                            '&:hover': {
-                              bgcolor: theme.primary,
-                              transform: 'translateY(-4px)',
-                              boxShadow: `0 12px 40px ${theme.primary}60`
-                            }
-                          }}
-                        >
-                          {isSending ? "Sending…" : "Send Message"}
-                        </Button>
-                      </Grid>
-                    </Grid>
-                  </form>
-                </Paper>
+                <SocialLinks links={socialLinks} theme={theme} isVisible={isVisible} />
               </Box>
             </Grid>
           </Grid>
@@ -1240,21 +1047,6 @@ function App() {
       </Box>
 
       <Footer theme={theme} />
-      <Snackbar
-        open={toast.open}
-        autoHideDuration={6000}
-        onClose={() => setToast((prev) => ({ ...prev, open: false }))}
-        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-      >
-        <Alert
-          onClose={() => setToast((prev) => ({ ...prev, open: false }))}
-          severity={toast.severity}
-          variant="filled"
-          sx={{ borderRadius: 3 }}
-        >
-          {toast.message}
-        </Alert>
-      </Snackbar>
     </Box>
     </ThemeProvider>
   );
