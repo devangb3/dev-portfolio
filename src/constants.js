@@ -19,6 +19,22 @@ export const projects = [
     "hasPublicRepo": false
   },
   {
+    id: "resshare",
+    title: "ResShare (Decentralized File Sharing System)",
+    description: "Built a robust blockchain based file sharing system on top of the ResilientDB using IPFS for secure and efficient file distribution that ensures data integrity and availability.",
+    technologies: ["Python", "Flask", "IPFS", "ResilientDB", "ReactJS", "Distributed Systems", "RAG"],
+    highlights: [
+      "Integrated IPFS for file distribution",
+      "Implemented AI chatbot using RAG and LLMs to provide context-aware file sharing",
+      "Ensured data integrity and availability",
+      "Built distributed system architecture"
+    ],
+    demoUrl: "https://res-share-deployable.vercel.app/",
+    githubUrl: "https://github.com/ResilientApp/ResShare-Backend",
+    isOpenSource: true,
+    hasPublicRepo: true
+  },
+  {
     id: "causalflow",
     title: "CausalFlow: Autonomous Agent Debugging Framework",
     description: "Built an interpretable agentic framework achieving 40% performance uplift over baseline to resolve failures in multi-step reasoning chains for long horizon complex tasks.",
@@ -274,18 +290,18 @@ export const projects = [
     hasPublicRepo: true
   },
   {
-    id: "resshare",
-    title: "ResShare (Decentralized File Sharing System)",
-    description: "Built a robust blockchain based file sharing system on top of the ResilientDB using IPFS for secure and efficient file distribution that ensures data integrity and availability.",
-    technologies: ["Python", "Flask", "IPFS", "ResilientDB", "ReactJS", "GraphQL", "Distributed Systems"],
+    id: "notebook-agent-eval",
+    title: "DSBench Notebook Agent",
+    description:
+      "Notebook benchmark runner for data-analysis tasks. Each task is defined in JSON (data source, problem statement, ground truth), executed in a fresh Jupyter kernel, with full run artifacts under a consistent jobs layout.",
+    technologies: ["Python", "Jupyter", "OpenRouter", "LLM Agents", "Benchmarking", "pytest"],
     highlights: [
-      "Implemented blockchain-based security",
-      "Integrated IPFS for file distribution",
-      "Ensured data integrity and availability",
-      "Built distributed system architecture"
+      "Implemented a task loader and agent loop that resolves data from tables, CSVs, images, or text and records step-by-step trajectories per task.",
+      "Added parallel execution with configurable workers and max agent steps; outputs include notebooks, transcripts, config, and structured results for evaluation.",
+      "Packaged the project with uv and pytest for reproducible local runs and testing."
     ],
     demoUrl: "#",
-    githubUrl: "https://github.com/ResilientApp/ResShare-Backend",
+    githubUrl: "https://github.com/devangb3/NotebookAgent_Eval",
     isOpenSource: true,
     hasPublicRepo: true
   },
