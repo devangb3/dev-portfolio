@@ -4,7 +4,7 @@ import LeetCodeIcon from './components/LeetCodeIcon';
 export const projects = [
   {
     id: "pilotcrew-gen-eval",
-    title: "Private Agentic Eval Platform",
+    title: "Agentic Eval Platform",
     description:
       "Built an evaluation platform for testing and improving LLM and agent reliability across structured tasks, iterative workflows, and evaluation loops.",
     technologies: ["Python", "MongoDB", "LLM Evaluations", "Prompt Optimization", "Adversarial Testing"],
