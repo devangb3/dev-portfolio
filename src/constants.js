@@ -3,88 +3,61 @@ import LeetCodeIcon from './components/LeetCodeIcon';
 
 export const projects = [
   {
-    "id": "lh-multimodal-svc",
-    "title": "Emotion-Aware Feedback System for Public Speaking",
-    "description": "This project involved creating a service to process and analyze multimodal data (video, audio, text) to provide feedback on presentation skills. It uses Hume AI for emotional analysis and includes a coaching and visualization system.",
-    "technologies": ["Python", "Hume AI", "Multimodal Data Processing", "AI Development", "Data Visualization"],
-    "highlights": [
-      "Engineered a pipeline for processing video, audio, and text data.",
-      "Integrated Hume AI for emotional analysis of presentations.",
-      "Developed a coaching and visualization system to provide actionable feedback.",
-      "Created a system for one AI to judge the responses of another, ensuring high-quality feedback."
-    ],
-    "demoUrl": "https://multimodal-svc-frontend-277660335430.us-central1.run.app/",
-    "githubUrl": "#",
-    "isOpenSource": false,
-    "hasPublicRepo": false
-  },
-  {
-    id: "resshare",
-    title: "ResShare (Decentralized File Sharing System)",
-    description: "Built a robust blockchain based file sharing system on top of the ResilientDB using IPFS for secure and efficient file distribution that ensures data integrity and availability.",
-    technologies: ["Python", "Flask", "IPFS", "ResilientDB", "ReactJS", "Distributed Systems", "RAG"],
+    id: "pilotcrew-gen-eval",
+    title: "Private Agentic Eval Platform",
+    description:
+      "Built an evaluation platform for testing and improving LLM and agent reliability across structured tasks, iterative workflows, and evaluation loops.",
+    technologies: ["Python", "MongoDB", "LLM Evaluations", "Prompt Optimization", "Adversarial Testing"],
     highlights: [
-      "Integrated IPFS for file distribution",
-      "Implemented AI chatbot using RAG and LLMs to provide context-aware file sharing",
-      "Ensured data integrity and availability",
-      "Built distributed system architecture"
+      "Built infrastructure for repeatable evaluations, structured run tracking, and comparison of prompt or system changes over time.",
+      "Designed the platform to support iterative experimentation with persistent artifacts and analysis-friendly outputs.",
+      "Focused the system on surfacing reliability gaps and making quality improvements measurable."
     ],
-    demoUrl: "https://res-share-deployable.vercel.app/",
-    githubUrl: "https://github.com/ResilientApp/ResShare-Backend",
-    isOpenSource: true,
-    hasPublicRepo: true
+    demoUrl: "https://pilotcrew.ai/autoeval/agentic-eval/about",
+    githubUrl: "#",
+    isOpenSource: false,
+    hasPublicRepo: false
   },
   {
     id: "causalflow",
-    title: "CausalFlow: Autonomous Agent Debugging Framework",
-    description: "Built an interpretable agentic framework achieving 40% performance uplift over baseline to resolve failures in multi-step reasoning chains for long horizon complex tasks.",
-    technologies: ["Python", "LLMs", "Agentic Frameworks", "Debugging"],
+    title: "CausalFlow - Autonomous Agent Debugging Framework",
+    description:
+      "Built an interpretable agentic debugging framework that improved long-horizon reasoning performance by 40% over baseline and grounded agent behavior in deterministic, verifiable environments.",
+    technologies: ["Python", "LLMs", "Agentic Frameworks", "Debugging", "Synthetic Environments"],
     highlights: [
-        "Built an interpretable agentic framework achieving 40% performance uplift over baseline to resolve failures in multi-step reasoning chains for long horizon complex tasks",
-        "Engineered deterministic synthetic environments to ground agent execution in verifiable state transitions, eliminating hallucination risks associated with LLM-based world modeling"
+      "Built an interpretable framework to localize and repair failure modes in multi-step reasoning chains for long-horizon tasks.",
+      "Engineered deterministic synthetic environments that replaced fuzzy world modeling with verifiable state transitions and measurable outcomes."
     ],
     demoUrl: "#",
-    githubUrl: "https://github.com/devangb3/CausalFlow",
+    githubUrl: "https://github.com/devangb3/CF-Implementation",
     isOpenSource: true,
     hasPublicRepo: true
   },
   {
-    id: "reschat",
-    title: "ResChat – Decentralized Platform with AI Assistant",
-    description: "Built a low latency communication platform using C++ and Python leveraging distributed storage systems for real-time messaging and large file transfers.",
-    technologies: ["C++", "Python", "RAG", "LangChain", "Distributed Systems", "FAISS"],
+    id: "lh-multimodal-svc",
+    title: "Emotion-Aware Feedback System for Public Speaking",
+    description:
+      "Built a multimodal service that processes video, audio, and transcripts to deliver presentation coaching, emotional analysis, and structured feedback for public speaking improvement.",
+    technologies: ["Python", "Hume AI", "Multimodal AI", "Async Processing", "Data Visualization"],
     highlights: [
-      "Built a low latency communication platform using C++ and Python leveraging distributed storage systems for real-time messaging and large file transfers",
-      "Implemented a RAG-based AI chatbot using LangChain for document parsing across distributed databases and reducing information retrieval time by 85%.",
-      "Developed a pipeline to generate high-quality embeddings and index documents in a FAISS vector database, optimizing for accurate embedding-based retrieval."
+      "Engineered a pipeline for processing video, audio, and text signals into coaching-oriented feedback.",
+      "Integrated Hume AI for emotional analysis and built a visualization layer for actionable presentation insights.",
+      "Designed LLM-judge style quality control so one model could evaluate another model's responses."
     ],
-    demoUrl: "https://res-share-deployable.vercel.app/",
-    githubUrl: "https://github.com/devangb3/ResShareDeployable",
-    isOpenSource: true,
-    hasPublicRepo: true
-  },
-  {
-    id: "llm-chatbot",
-    title: "LLM Self-Chat - Agentic AI Simulation Framework",
-    description: "Built an agentic framework using Python and LangChain, enabling multi-agent LLM simulations for behavior analysis and prompt engineering.",
-    technologies: ["Python", "LangChain", "Websockets", "Gemini API", "ReactJS", "Flask"],
-    highlights: [
-      "Built an agentic framework using Python and LangChain, enabling multi-agent LLM simulations for behavior analysis and prompt engineering.",
-      "Integrated WebSockets to establish a real-time, low-latency communication channel between the React front-end and Flask backend for interactive agent simulation."
-    ],
-    demoUrl: "#",
-    githubUrl: "https://github.com/devangb3/LLM-Self-Chat",
-    isOpenSource: true,
-    hasPublicRepo: true
+    demoUrl: "https://multimodal-svc-frontend-277660335430.us-central1.run.app/",
+    githubUrl: "#",
+    isOpenSource: false,
+    hasPublicRepo: false
   },
   {
     id: "gitartha-engine",
-    title: "Gitartha Engine – Semantic Search for the Bhagavad Gita",
-    description: "Architected a full-stack application using Go (Gin) for the high-concurrency REST API and FastAPI for ML model inference, achieving consistent P95 search latency of under 15ms.",
+    title: "Gitartha Engine - Semantic Search for the Bhagavad Gita",
+    description:
+      "Architected a full-stack semantic search system using Go for the high-concurrency API and Python for embedding inference, with PostgreSQL + pgvector powering low-latency retrieval across scripture content.",
     technologies: ["Go", "Gin", "PostgreSQL", "pgvector", "React", "TypeScript", "Python", "FastAPI"],
     highlights: [
-      "Architected a full-stack application using Go (Gin) for the high-concurrency REST API and FastAPI for ML model inference, achieving consistent P95 search latency of under 15ms.",
-      "Developed low latency semantic search using PostgreSQL with the pgvector extension, resulting in an average query response time of 12.7ms across a corpus of 700+ verses."
+      "Built a Go monolith for chapter, verse, and semantic-search APIs while keeping P95 search latency under 15ms.",
+      "Implemented vector search over 700+ verses with pgvector and a dedicated Python ML service for real-time embedding generation."
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/devangb3/Gitartha-Engine",
@@ -92,13 +65,268 @@ export const projects = [
     hasPublicRepo: true
   },
   {
-    id: "daily-digest",
-    title: "Daily Digest – AI-Powered Gmail/Calendar Summarizer",
-    description: "Built an AI assistant reducing the daily planning overhead by 70% using Flask and Python powered by Gemini AI via secure OAuth 2.0, providing personalized priority-based summaries and Text-To-Speech capabilities.",
-    technologies: ["Python", "Flask", "Gemini AI", "OAuth 2.0", "Google Workspace APIs"],
+    id: "gemini-hardwarebench",
+    title: "Gemini HardwareBench - Harbor EDA Benchmark",
+    description:
+      "Built a Harbor-compatible hardware benchmark for agent evaluation across digital design and EDA workflows, using deterministic verifiers, real toolchains, and pass@k style trials to measure model capability.",
+    technologies: ["Python", "Benchmarking", "Harbor", "Docker", "EDA", "Agent Evaluation"],
     highlights: [
-      "Built an AI assistant reducing the daily planning overhead by 70% using Flask and Python powered by Gemini AI via secure OAuth 2.0, providing personalized priority-based summaries and Text-To-Speech capabilities.",
-      "Generated AI-powered daily summaries for Google Calendar events and Gmail messages."
+      "Packaged a 24-task benchmark spanning synthesis, STA, RTL debugging, verification, optimization, and cryptographic IP analysis.",
+      "Used deterministic script-based verifiers rather than LLM autoraters, with real tool execution via Yosys, OpenSTA, OpenROAD, and Icarus Verilog.",
+      "Calibrated the benchmark with pass@k trials, task-level artifacts, and prompt-level feasibility analysis to expose genuine model headroom."
+    ],
+    demoUrl: "https://pilotcrew.ai/hardwarebench/harbor-dashboard",
+    githubUrl: "#",
+    isOpenSource: false,
+    hasPublicRepo: false
+  },
+  {
+    id: "notebook-agent-eval",
+    title: "Notebook Agent Eval",
+    description:
+      "Built a notebook benchmark runner for data-analysis tasks, executing each task in a fresh Jupyter kernel with structured artifacts for reproducible evaluation.",
+    technologies: ["Python", "Jupyter", "OpenRouter", "LLM Agents", "Benchmarking", "pytest"],
+    highlights: [
+      "Implemented task loading for mixed inputs including tables, CSVs, images, and text, then recorded step-by-step trajectories for each run.",
+      "Added configurable parallel execution and consistent job outputs including notebooks, transcripts, configs, and structured result files.",
+      "Packaged the harness with uv and pytest for reproducible local runs and regression testing."
+    ],
+    demoUrl: "#",
+    githubUrl: "https://github.com/devangb3/NotebookAgent_Eval",
+    isOpenSource: true,
+    hasPublicRepo: true
+  },
+  {
+    id: "llm-linter",
+    title: "LLm-Linter - AI Code Review GitHub Action",
+    description:
+      "Built a GitHub Action and CLI assistant that analyzes repositories and pull requests with Gemini, parses diffs, and posts automated review summaries directly on PRs and issues.",
+    technologies: ["JavaScript", "Node.js", "GitHub Actions", "Gemini API", "GitHub API", "CI/CD"],
+    highlights: [
+      "Implemented PR-aware diff analysis with merge-base fallbacks so the action can reliably review changed code in real repositories.",
+      "Built automated comment posting for pull requests, issues, and push-triggered issue creation using the GitHub API.",
+      "Supported multi-language code analysis across Python, JavaScript, TypeScript, Go, Java, C#, C++, Rust, Ruby, and PHP."
+    ],
+    demoUrl: "#",
+    githubUrl: "https://github.com/devangb3/LLm-Linter",
+    isOpenSource: true,
+    hasPublicRepo: true
+  },
+  {
+    id: "prm-on-device",
+    title: "Process Reward Model (PRM) for On-Device LLMs",
+    description:
+      "Architected a composite inference system coupling a lightweight generator with a heavier verifier, enabling efficient weak-to-strong reasoning for resource-constrained environments.",
+    technologies: ["Python", "Qwen", "LLMs", "On-Device AI", "Inference Optimization"],
+    highlights: [
+      "Benchmarked process supervision for constrained-compute mathematical reasoning and showed strong gains over self-consistency baselines.",
+      "Optimized search strategies to dynamically traverse and score reasoning chains during inference."
+    ],
+    demoUrl: "#",
+    githubUrl: "https://github.com/devangb3/Process-Reward-Models",
+    isOpenSource: true,
+    hasPublicRepo: true
+  },
+  {
+    id: "gemini-event-creator",
+    title: "Gemini Event Creator - AI-Powered Chrome Extension",
+    description:
+      "Built a Chrome extension that converts highlighted webpage text into Google Calendar events using on-device Gemini Nano parsing and OAuth-backed event creation.",
+    technologies: ["JavaScript", "Chrome Extension", "Google Calendar API", "OAuth 2.0", "Vite", "Gemini Nano"],
+    highlights: [
+      "Built an injected content UI that captures selected text and offers quick-create and edit-and-create flows.",
+      "Implemented a Manifest V3 service worker for state management, background tasks, and Calendar API orchestration.",
+      "Used Gemini Nano locally for privacy-preserving extraction of event metadata from natural language."
+    ],
+    demoUrl: "https://chrome.google.com/webstore/detail/gemini-event-creator/hbbphgbndgjenboombeclnpepoiicpno",
+    githubUrl: "https://github.com/devangb3/Event-Creator",
+    isOpenSource: true,
+    hasPublicRepo: true
+  },
+  {
+    id: "cover-letter-generator",
+    title: "Cover Letter Generator",
+    description:
+      "Built a full-stack application that generates tailored cover letters, answers application questions, and renders polished PDF output from a resume plus job description workflow.",
+    technologies: ["Python", "Flask", "React", "Vite", "OpenRouter", "PDF Generation", "Docker"],
+    highlights: [
+      "Implemented OpenRouter-based generation with a YAML-driven model allowlist enforced in both backend validation and frontend selection.",
+      "Built PDF rendering and download flows alongside a React frontend served through the Flask backend.",
+      "Packaged the app for deployment with Docker and cloud hosting."
+    ],
+    demoUrl: "https://cover-letter-generator-424176252593.us-central1.run.app",
+    githubUrl: "https://github.com/devangb3/Cover-Letter-Generator",
+    isOpenSource: true,
+    hasPublicRepo: true
+  },
+  {
+    id: "synthetic-data-generator",
+    title: "Synthetic Data Generator",
+    description:
+      "Built a full-stack application for generating realistic synthetic stock-market data with tunable volatility, event intensity, and black-swan scenarios for analysis and experimentation.",
+    technologies: ["Python", "FastAPI", "React", "Vite", "AWS Amplify", "Financial Modeling"],
+    highlights: [
+      "Generated configurable financial time-series data that mimics real-world market behavior under varying volatility profiles.",
+      "Exposed controls for initial price, number of days, volatility, and extreme-event frequency to support different scenario analyses.",
+      "Built a browser-based interface for interactive generation and visualization."
+    ],
+    demoUrl: "https://main.d1jhxtwybbezfy.amplifyapp.com/",
+    githubUrl: "#",
+    isOpenSource: false,
+    hasPublicRepo: false
+  },
+  {
+    id: "recipe-agent",
+    title: "Recipe Agent",
+    description:
+      "Built an agent-backed recipe API that combines large-scale recipe ingestion, MongoDB-backed retrieval, and external nutrition APIs to answer cooking and meal-planning queries.",
+    technologies: ["Python", "FastAPI", "MongoDB", "OpenRouter", "USDA API", "Agentic Workflows"],
+    highlights: [
+      "Designed the service to ingest large recipe datasets and expose them through an API-oriented agent interface.",
+      "Integrated external nutrition data and MongoDB persistence to support structured recipe and meal-query workflows.",
+      "Packaged the project as both an API service and a data-ingestion pipeline."
+    ],
+    demoUrl: "#",
+    githubUrl: "https://github.com/devangb3/Recipe-Agent",
+    isOpenSource: true,
+    hasPublicRepo: true
+  },
+  {
+    id: "resshare",
+    title: "ResShare - Decentralized File Sharing System",
+    description:
+      "Built a decentralized file-sharing platform on top of ResilientDB and IPFS, with secure document storage, sharing workflows, and a RAG-powered assistant for uploaded files.",
+    technologies: ["Python", "Flask", "IPFS", "ResilientDB", "React", "Distributed Systems", "RAG"],
+    highlights: [
+      "Integrated IPFS-backed storage and sharing workflows for secure distributed file management.",
+      "Built a document assistant that answers questions over uploaded files using RAG and source-aware retrieval.",
+      "Designed the system to preserve user-level data isolation while supporting semantic search across documents."
+    ],
+    demoUrl: "https://res-share-deployable.vercel.app/",
+    githubUrl: "https://github.com/devangb3/ResShareDeployable",
+    isOpenSource: true,
+    hasPublicRepo: true
+  },
+  {
+    id: "reschat",
+    title: "ResChat - Low-Latency Communication Platform with AI Assistant",
+    description:
+      "Built a low-latency communication system using C++ and Python for real-time messaging, large-file transfer, and retrieval-augmented document assistance over distributed data stores.",
+    technologies: ["C++", "Python", "Bazel", "LangChain", "FAISS", "Distributed Systems", "RAG"],
+    highlights: [
+      "Built the core communication platform for real-time messaging and large file transfers on top of distributed infrastructure.",
+      "Implemented a RAG assistant that parses documents, generates embeddings, and retrieves context from FAISS-backed indices.",
+      "Combined systems-level performance work in C++ with AI application logic in Python."
+    ],
+    demoUrl: "#",
+    githubUrl: "https://github.com/ResilientApp/ResChat",
+    isOpenSource: true,
+    hasPublicRepo: true
+  },
+  {
+    id: "loan-portal",
+    title: "Commercial Loan Referral Platform",
+    description:
+      "Built a full-stack commercial lending platform with partner, borrower, and admin portals, combining a modular FastAPI backend with a polished React/Vite frontend for pipeline management and commission workflows.",
+    technologies: ["Python", "FastAPI", "SQLModel", "Alembic", "PostgreSQL", "React", "Vite", "Tailwind CSS"],
+    highlights: [
+      "Implemented multi-role authentication and end-to-end workflows for partner onboarding, borrower account creation, admin approvals, and secure password reset flows.",
+      "Built an admin Kanban pipeline with stage and substage management, lender assignment, rejection flows, and forward-only commission lifecycle updates.",
+      "Added exports, notifications, and modular backend/frontend architecture that cleanly separated modules by domain responsibility."
+    ],
+    demoUrl: "https://loan-lender-portal.vercel.app/",
+    githubUrl: "https://github.com/devangb3/Loan-Lender-portal",
+    isOpenSource: true,
+    hasPublicRepo: true
+  },
+  {
+    id: "llm-chatbot",
+    title: "LLM Self-Chat - Agentic AI Simulation Framework",
+    description:
+      "Built a multi-agent simulation framework that lets users orchestrate conversations among multiple LLMs with bring-your-own-key support across providers.",
+    technologies: ["Python", "LangChain", "WebSockets", "Gemini API", "React", "Flask", "MongoDB"],
+    highlights: [
+      "Built a multi-LLM chat system with secure BYOK support and interactive agent simulation.",
+      "Integrated WebSockets to keep the React frontend and Flask backend synchronized with low latency during live conversations."
+    ],
+    demoUrl: "#",
+    githubUrl: "https://github.com/devangb3/LLM-Self-Chat",
+    isOpenSource: true,
+    hasPublicRepo: true
+  },
+  {
+    id: "nanogpt-rigveda",
+    title: "NanoGPT-RigVeda",
+    description:
+      "Implemented character-level language modeling experiments on Rig Veda text, progressing from a bigram baseline to a GPT-style decoder with masked self-attention in PyTorch.",
+    technologies: ["Python", "PyTorch", "Transformers", "Language Modeling", "Attention"],
+    highlights: [
+      "Implemented both a baseline bigram model and a decoder-only self-attention model from scratch.",
+      "Built data-preparation tooling to construct the training corpus from Sanskrit source files.",
+      "Used the project to directly work through transformer internals rather than treating them as a black-box API."
+    ],
+    demoUrl: "#",
+    githubUrl: "https://github.com/devangb3/NanoGPT-RigVeda",
+    isOpenSource: true,
+    hasPublicRepo: true
+  },
+  {
+    id: "http-server",
+    title: "HTTP Server from Scratch",
+    description:
+      "Built an HTTP server from scratch with custom request and response handling, chunked encoding support, binary payload handling, and JUnit-backed validation.",
+    technologies: ["Java", "Go", "HTTP", "JUnit", "Maven"],
+    highlights: [
+      "Implemented low-level HTTP request parsing and response handling rather than relying on a web framework.",
+      "Added chunked-transfer support, binary-data handling, and explicit error-response paths.",
+      "Backed the project with JUnit tests and a companion Go implementation module."
+    ],
+    demoUrl: "#",
+    githubUrl: "https://github.com/devangb3/http-server",
+    isOpenSource: true,
+    hasPublicRepo: true
+  },
+  {
+    id: "github-issue-classifier",
+    title: "Multi-Label GitHub Issue Classifier",
+    description:
+      "Developed and benchmarked a transformer-based model to automatically classify GitHub issues with multiple labels, achieving a 60% performance uplift over baseline.",
+    technologies: ["Python", "PyTorch", "Hugging Face Transformers", "RoBERTa", "Scikit-learn", "Pandas"],
+    highlights: [
+      "Built a robust preprocessing pipeline for noisy real-world GitHub issue data and balanced label distributions with iterative stratification.",
+      "Fine-tuned RoBERTa-base to outperform the DistilBERT baseline by 60% on F1 Macro.",
+      "Reduced the label space to the most predictive 28 classes to improve signal quality and training efficiency."
+    ],
+    demoUrl: "https://huggingface.co/devangb4/scikit-issues-multilabel-classification",
+    githubUrl: "https://github.com/devangb3/HF-Transformers/blob/main/scikit-Issue-Classifier.ipynb",
+    isOpenSource: true,
+    hasPublicRepo: true
+  },
+  {
+    id: "drug-condition-classifier",
+    title: "Drug Condition Classifier (BERT Fine-Tuning)",
+    description:
+      "Fine-tuned BERT for multi-class medical text classification over 126,000+ drug reviews to predict patient conditions across 821 labels.",
+    technologies: ["Python", "PyTorch", "Hugging Face Transformers", "BERT", "Scikit-learn", "W&B"],
+    highlights: [
+      "Built data-cleaning and preprocessing pipelines for noisy drug-review corpora.",
+      "Achieved 75.9% accuracy and a weighted F1-score of 0.75 on a 52,000+ sample test split.",
+      "Published the trained model and tokenizer to the Hugging Face Hub for downstream inference."
+    ],
+    demoUrl: "https://huggingface.co/devangb4/bert-drug-classification",
+    githubUrl: "https://github.com/devangb3/HF-Transformers/blob/main/Drug_dataset_finetuning.ipynb",
+    isOpenSource: true,
+    hasPublicRepo: true
+  },
+  {
+    id: "daily-digest",
+    title: "Daily Digest - AI-Powered Gmail/Calendar Summarizer",
+    description:
+      "Built an AI assistant that summarizes Gmail and Google Calendar activity, prioritizes daily context, and reduces planning overhead through Gemini-powered summarization.",
+    technologies: ["Python", "Flask", "Gemini API", "OAuth 2.0", "Google Workspace APIs"],
+    highlights: [
+      "Built secure OAuth-backed integrations for Gmail and Calendar data access.",
+      "Generated priority-aware daily summaries and added text-to-speech support for quick consumption."
     ],
     demoUrl: "https://calendar-gmail-summary-frontend.onrender.com/",
     githubUrl: "https://github.com/devangb3/Calendar-Gmail-Summary",
@@ -108,13 +336,13 @@ export const projects = [
   {
     id: "algotrade",
     title: "HammerTrade (Stock Prediction Platform for HFTs)",
-    description: "Developed a platform allowing end-users to view which predictive model performs best on a given asset at a specific time and implemented continuous model retraining and updating to improve prediction accuracy over time.",
-    technologies: ["Flask", "MongoDB", "ReactJS", "Docker", "Pytorch", "Scikit-learn", "Pandas", "Deep Learning"],
+    description:
+      "Built a model-comparison platform for trading workflows that continuously retrains predictive models and surfaces the best-performing model for a given asset and time horizon.",
+    technologies: ["Python", "Flask", "MongoDB", "React", "Docker", "PyTorch", "Scikit-learn", "Pandas"],
     highlights: [
-      "Implemented continuous model retraining",
-      "Built predictive model comparison system",
-      "Improved prediction accuracy over time",
-      "Integrated multiple ML frameworks"
+      "Implemented continuous model retraining and model selection over evolving market data.",
+      "Built a user-facing comparison layer for evaluating predictive models on trading assets.",
+      "Integrated multiple ML frameworks into one end-to-end forecasting platform."
     ],
     demoUrl: "http://hammertrade.tradnomic.com/",
     githubUrl: "https://github.com/devangb3",
@@ -122,60 +350,15 @@ export const projects = [
     hasPublicRepo: false
   },
   {
-    id: "prm-on-device",
-    title: "Process Reward Model (PRM) for On-Device LLMs",
-    description: "Architected a composite inference system coupling a lightweight generator (Qwen3-0.6B) with a heavy verifier (Qwen3-8B), enabling efficient 'weak-to-strong' generalization for resource-constrained environments.",
-    technologies: ["Python", "Qwen", "LLMs", "On-Device AI", "Inference Optimization"],
-    highlights: [
-        "Architected a composite inference system coupling a lightweight generator (Qwen3-0.6B) with a heavy verifier (Qwen3-8B), enabling efficient 'weak-to-strong' generalization for resource-constrained environments",
-        "Optimized Python implementations of Search strategies to dynamically traverse and score reasoning chains in real-time"
-    ],
-    demoUrl: "#",
-    githubUrl: "https://github.com/devangb3/Process-Reward-Models",
-    isOpenSource: true,
-    hasPublicRepo: true
-  },
-  {
-    "id": "github-issue-classifier",
-    "title": "Multi-Label GitHub Issue Classifier",
-    "description": "Developed and benchmarked a transformer-based model to automatically classify GitHub issues with multiple labels, achieving a 60% performance uplift over a baseline model.",
-    "technologies": ["Python", "PyTorch", "Hugging Face Transformers", "RoBERTa", "skmultilearn", "Scikit-learn", "Pandas"],
-    "highlights": [
-      "Engineered a robust data preprocessing pipeline to handle noisy, real-world GitHub issue data, using iterative stratification to ensure balanced label distribution for reliable model evaluation.",
-      "Executed a systematic model selection process, fine-tuning RoBERTa-base to achieve a test F1 Macro score of 0.21—a 60% performance improvement over the DistilBERT baseline.",
-      "Optimized the problem space by programmatically filtering low-frequency tags, reducing the label set to the 28 most predictive classes to improve training efficiency and model focus."
-    ],
-    "demoUrl": "https://huggingface.co/devangb4/scikit-issues-multilabel-classification",
-    "githubUrl": "https://github.com/devangb3/HF-Transformers/blob/main/scikit-Issue-Classifier.ipynb",
-    "isOpenSource": true,
-    "hasPublicRepo": true
-  },
-  {
-    id: "drug-condition-classifier",
-    title: "Drug Condition Classifier (BERT Fine-Tuning)",
-    description: "Developed and fine-tuned a BERT-based model for multi-class text classification to predict a patient's medical condition from drug review text. The project involved data cleaning, preprocessing, and training on over 126,000 samples.",
-    technologies: ["Python", "PyTorch", "Hugging Face Transformers", "BERT", "Scikit-learn", "W&B", "Hugging Face Hub"],
-    highlights: [
-      "Built a data preprocessing pipeline to clean and prepare a large dataset of drug reviews for training, handling HTML artifacts and noisy entries.",
-      "Fine-tuned a `bert-base-cased` model for a complex multi-class classification task with 821 unique medical conditions.",
-      "Achieved 75.9% accuracy and a weighted F1-score of 0.75 on a test set containing over 52,000 samples.",
-      "Published the final model and tokenizer to the Hugging Face Hub, making it accessible for inference via the `pipeline` API."
-    ],
-    demoUrl: "https://huggingface.co/devangb4/bert-drug-classification",
-    githubUrl: "https://github.com/devangb3/HF-Transformers/blob/main/Drug_dataset_finetuning.ipynb",
-    isOpenSource: true,
-    hasPublicRepo: true
-  },
-  {
     id: "75Hard",
     title: "Tracker App for 75 Hard Challenge",
-    description: "Developed a platform allowing end-users to track their progress for the 75 Hard Challenge.",
-    technologies: ["Flask", "MongoDB", "ReactJS", "Docker", "Google Cloud Platform", "Tailwind CSS", "Python", "CI/CD"],
+    description:
+      "Built a full-stack habit-tracking platform with cloud deployment, responsive dashboards, and data visualization for the 75 Hard challenge.",
+    technologies: ["Python", "Flask", "MongoDB", "React", "Docker", "GCP", "Tailwind CSS", "CI/CD"],
     highlights: [
-      "Developed a full-stack application with a modular, service-oriented architecture.",
-      "Built an interactive and responsive UI with React and Tailwind CSS, featuring data visualizations with Recharts.",
-      "Integrated Google Cloud Platform for scalable and reliable cloud services",
-      "Containerized both frontend and backend services with Docker for consistent deployment on Google Cloud Run."
+      "Designed a modular full-stack architecture with separate frontend and backend services.",
+      "Built responsive dashboards with interactive visualizations and progress tracking.",
+      "Containerized and deployed the stack to Google Cloud Run."
     ],
     demoUrl: "https://hard-tracker-frontend-75-424176252593.us-west1.run.app/",
     githubUrl: "https://github.com/devangb3/75-Hard-Tracker",
@@ -185,14 +368,13 @@ export const projects = [
   {
     id: "dc-menu-analyzer",
     title: "DC Menu Analyzer",
-    description: "Developed a web application that helps UC Davis students analyze Tercero Dining Commons menu items based on their dietary restrictions and preferences. The application uses AI to provide personalized menu recommendations while considering dietary restrictions, allergies, and caloric requirements.",
-    technologies: ["Web Scraping", "Python", "FastAPI", "Gemini AI API", "BeautifulSoup4", "ReactJS", "LLMs"],
+    description:
+      "Built an AI-backed dining commons assistant that scrapes menu data and recommends meals based on dietary restrictions, allergies, and caloric goals.",
+    technologies: ["Python", "FastAPI", "Gemini API", "BeautifulSoup4", "React", "Web Scraping"],
     highlights: [
-      "Built a web scraping pipeline using BeautifulSoup4 to automatically extract and parse dining commons menu data",
-      "Integrated Google's Gemini AI API for intelligent menu analysis and personalized recommendations",
-      "Implemented real-time dietary restriction validation and menu filtering system",
-      "Developed responsive React frontend with Material-UI for seamless user interaction",
-      "Created efficient data storage and caching system for quick menu retrieval and analysis"
+      "Automated menu ingestion with a BeautifulSoup-based scraping pipeline.",
+      "Integrated Gemini for personalized menu analysis and recommendation generation.",
+      "Built real-time filtering for dietary restrictions and nutritional constraints."
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/devangb3/DC-Menu-Analyzer",
@@ -200,13 +382,15 @@ export const projects = [
     hasPublicRepo: true
   },
   {
-    id: "ai-code-analyzer",
-    title: "AI CodeMentor – LLM-Powered Code Analysis",
-    description: "Developed an LLM-powered agent for automated CI/CD code reviews, using agentic tool calling (OpenAI APIs) and Node.js to analyze PRs and issues.",
-    technologies: ["Python", "Node.js", "GitHub Actions", "Gemini AI API", "Git", "CI/CD", "OpenAI API"],
+    id: "mm-hilton-sprint",
+    title: "Multi-Provider AI Integration for Presentation Analysis",
+    description:
+      "Built a multi-provider AI platform for presentation analysis that combined OpenAI, Anthropic, Google, and Perplexity with a staged migration from Firebase to a scalable PostgreSQL-backed Node.js architecture.",
+    technologies: ["Python", "Node.js", "PostgreSQL", "Firebase", "REST APIs", "AI Platforms"],
     highlights: [
-      "Developed an LLM-powered agent for automated CI/CD code reviews, using agentic tool calling (OpenAI APIs) and Node.js to analyze PRs and issues.",
-      "Engineered the agent to parse git diffs via the GitHub API and invoke external analysis functions, providing intelligent, context-aware feedback on code changes."
+      "Integrated four AI providers behind a service-factory pattern for flexible orchestration.",
+      "Designed a dual-database architecture that supported migration to a more scalable backend.",
+      "Implemented composite and observer patterns for logging and monitoring."
     ],
     demoUrl: "#",
     githubUrl: "#",
@@ -214,75 +398,15 @@ export const projects = [
     hasPublicRepo: false
   },
   {
-    id: "quiz",
-    title: "LLM Quiz Generator",
-    description: "Developed a full-stack web application that converts study materials into interactive quizzes.",
-    technologies: ["Python", "FastAPI", "Uvicorn", "APIs", "Deepseek", "AI Development", "Vibe Coding", "Cursor", "Vite", "Deepseek-API"],
-    highlights: [
-      "File Upload & Processing: Supports various file formats (TXT, PDF, DOC, DOCX) with dynamic encoding detection and PDF content extraction.",
-      "Quiz Generation: Generates multiple choice questions based on user-provided study materials. Integrates with Deepseek API to create context-aware quiz questions.",
-      "Interactive Quiz Interface: Provides a dynamic quiz experience with real-time evaluation. Uses a progress indicator, immediate feedback on answers, and final score reporting."
-    ],
-    demoUrl: "#",
-    githubUrl: "https://github.com/devangb3/LLM-Quiz",
-    isOpenSource: true,
-    hasPublicRepo: true
-  },
-  {
-    "id": "mm-hilton-sprint",
-    "title": "Multi-Provider AI Integration for Presentation Analysis",
-    "description": "A project focused on developing a sophisticated multimodal system for presentation skills analysis. It integrates various AI providers (OpenAI, Anthropic, Google, Perplexity) and features a dual-database architecture with a seamless migration path from Firebase to a scalable Node.js backend with PostgreSQL.",
-    "technologies": ["Python", "Node.js", "PostgreSQL", "Firebase", "REST APIs", "AI Development"],
-    "highlights": [
-      "Integrated four different AI providers for comprehensive analysis.",
-      "Implemented a Service Factory Pattern for efficient AI provider management.",
-      "Designed a dual-database system with a migration path to a more scalable solution.",
-      "Developed a robust logging and monitoring system using the Composite and Observer patterns."
-    ],
-    "demoUrl": "#",
-    "githubUrl": "#",
-    "isOpenSource": false,
-    "hasPublicRepo": false
-  },
-  {
-    id: "synthetic-data-generator",
-    title: "Synthetic Data Generator",
-    description: "Developed a full-stack web application designed for financial analysts, developers, and researchers to generate high-quality, realistic synthetic stock market data.",
-    technologies: ["Python", "FastAPI", "Uvicorn", "APIs", "AI Development","AWS Amplify", "React", "Vite"],
-    highlights: [
-      "Generate synthetic financial data mimicking real-world market conditions",
-      "Fine-tune the data generation by controlling parameters like initial price, number of days, volatility, and the intensity and probability of 'black swan' events to simulate various market conditions.",
-      "Provide a user-friendly interface for visualizing and generating synthetic data"
-      ],
-    demoUrl: "https://main.d1jhxtwybbezfy.amplifyapp.com/",
-    githubUrl: "#",
-    isOpenSource: false,
-    hasPublicRepo: false
-  },
-  {
-    id : "cover-letter-generator",
-    title : "Cover Letter Generator",
-    description : "Developed a full-stack web application that generates cover letters for job applications.",
-    technologies : ["Python", "Flask", "APIs", "AI Development", "LLMs", "Cloud Run", "React", "Vite"],
-    highlights : [
-      "Generate customized cover letters for job applications",
-      "Fine-tune the cover letter generation by controlling parameters like job title, company name, and job description",
-      "Provide a user-friendly interface for visualizing and generating cover letters"
-    ],
-    demoUrl : "https://cover-letter-generator-424176252593.us-central1.run.app",
-    githubUrl : "https://github.com/devangb3/Cover-Letter-Generator",
-    isOpenSource : true,
-    hasPublicRepo : true
-  },
-  {
-    id : "rag-context",
+    id: "rag-context",
     title: "RAG Client",
-    description: "AI assistant designed to enable users to quickly find answers within their local documents (including PDFs, notes, and code files)",
-    technologies: ["Python", "LangChain", "FAISS", "Gemini AI API", "Vector Databases", "Tokenization", "Retrieval Augmented Generation(RAG)"],
+    description:
+      "Built a retrieval-augmented assistant that answers questions over local documents, PDFs, notes, and source code using embeddings and vector search.",
+    technologies: ["Python", "LangChain", "FAISS", "Gemini API", "Vector Databases", "RAG"],
     highlights: [
-      "Implemented Retrieval-Augmented Generation (RAG) techniques to create a context-aware search engine for personal document collections and codebases.",
-      "Leveraged Python and LangChain to orchestrate interactions between large language models and vector databases, enhancing document retrieval and response generation.​",
-      "Integrated the Gemini 2.5 Pro model via the Gemini AI API to generate embeddings, with flexibility to substitute alternative models as needed"
+      "Implemented a context-aware retrieval engine for personal document collections and codebases.",
+      "Orchestrated LLM, embedding, and vector-store interactions through LangChain pipelines.",
+      "Integrated Gemini 2.5 Pro for embeddings while keeping the model layer swappable."
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/devangb3/RAG-Client",
@@ -290,89 +414,85 @@ export const projects = [
     hasPublicRepo: true
   },
   {
-    id: "notebook-agent-eval",
-    title: "DSBench Notebook Agent",
+    id: "quiz",
+    title: "LLM Quiz Generator",
     description:
-      "Notebook benchmark runner for data-analysis tasks. Each task is defined in JSON (data source, problem statement, ground truth), executed in a fresh Jupyter kernel, with full run artifacts under a consistent jobs layout.",
-    technologies: ["Python", "Jupyter", "OpenRouter", "LLM Agents", "Benchmarking", "pytest"],
+      "Built a full-stack application that converts study materials into interactive quizzes with file ingestion, question generation, and real-time scoring.",
+    technologies: ["Python", "FastAPI", "DeepSeek API", "Vite", "File Processing", "LLMs"],
     highlights: [
-      "Implemented a task loader and agent loop that resolves data from tables, CSVs, images, or text and records step-by-step trajectories per task.",
-      "Added parallel execution with configurable workers and max agent steps; outputs include notebooks, transcripts, config, and structured results for evaluation.",
-      "Packaged the project with uv and pytest for reproducible local runs and testing."
+      "Handled TXT, PDF, DOC, and DOCX ingestion with dynamic encoding detection and PDF extraction.",
+      "Generated context-aware multiple-choice questions from uploaded study materials.",
+      "Built an interactive quiz interface with progress tracking, feedback, and score reporting."
     ],
     demoUrl: "#",
-    githubUrl: "https://github.com/devangb3/NotebookAgent_Eval",
+    githubUrl: "https://github.com/devangb3/LLM-Quiz",
     isOpenSource: true,
     hasPublicRepo: true
   },
   {
     id: "atom",
     title: "Atom (Portfolio Management Software)",
-    description: "Engineered scalable backend architectures for a high-traffic wealth management platform, enabling real-time trading capabilities and enhancing performance through cloud infrastructure optimization and modular system upgrades.",
-    technologies: ["Dot Net Core 6.0", "C#", "JavaScript", "Azure", "AWS", "Angular", "TypeScript", "SQL"],
+    description:
+      "Engineered backend systems for a high-traffic wealth management platform, improving performance, trading workflows, and cloud-backed scalability for enterprise finance users.",
+    technologies: ["ASP.NET Core", "C#", "JavaScript", "Azure", "AWS", "Angular", "TypeScript", "SQL"],
     highlights: [
-      "Reduced data retrieval times by 40%",
-      "Implemented real-time trading capabilities",
-      "Optimized cloud infrastructure",
-      "Built scalable backend architecture"
+      "Reduced data retrieval times by 40% through backend and query-path optimization.",
+      "Implemented real-time trading capabilities and modular backend improvements.",
+      "Built scalable cloud-oriented architecture for a high-traffic financial platform."
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/devangb3",
-    isOpenSource: true,
-    hasPublicRepo: true
-  },
-  {
-    "id": "gemini-event-creator",
-    "title": "Gemini Event Creator: AI-Powered Chrome Extension",
-    "description": "A Chrome extension that turns any highlighted text on the web into a Google Calendar event. Uses on-device AI to parse event details, authenticates with Google, and creates events in one click.",
-    "technologies": ["JavaScript", "Chrome Extension (Manifest V3)", "HTML5", "CSS3", "Google Calendar API", "Google Identity API (OAuth 2.0)", "Vite", "Gemini Nano (Prompt API)", "any-date-parser"],
-    "highlights": [
-      "Built a content script that injects a floating UI to capture selected text on any webpage",
-      "Implemented a robust Manifest V3 service worker to handle background tasks, API calls, and state management",
-      "Integrated Google's on-device Gemini Nano (Prompt API) for local, privacy-preserving extraction of event details (title, date, time)",
-      "Engineered a secure authentication flow using `chrome.identity` to obtain OAuth 2.0 tokens for the Google Calendar API",
-      "Designed a two-step UI: an instant 'Quick Create' and an 'Edit & Create' form with inputs for title, time, location, color, and reminders"
-    ],
-    "demoUrl": "https://chrome.google.com/webstore/detail/gemini-event-creator/hbbphgbndgjenboombeclnpepoiicpno",
-    "githubUrl": "https://github.com/devangb3/Event-Creator",
-    "isOpenSource": true,
-    "hasPublicRepo": true
+    isOpenSource: false,
+    hasPublicRepo: false
   }
 ];
 
 export const skills = [
   { name: "Python", category: "Languages", icon: <img src="/skills/python-icon.svg" alt="Python" width="24" height="24" /> },
+  { name: "C++", category: "Languages", icon: "++" },
   { name: "C#", category: "Languages", icon: <img src="/skills/csharp_icon.png" alt="C#" width="24" height="24" /> },
   { name: "Java", category: "Languages", icon: <img src="/skills/java-icon.svg" alt="Java" width="24" height="24" /> },
   { name: "TypeScript", category: "Languages", icon: <img src="/skills/typescriptlang-icon.svg" alt="TypeScript" width="24" height="24" /> },
   { name: "JavaScript", category: "Languages", icon: <img src="/skills/javascript-icon.svg" alt="JavaScript" width="24" height="24" /> },
   { name: "Go", category: "Languages", icon: <img src="/skills/golang-icon.svg" alt="Go" width="24" height="24" /> },
+  { name: "React", category: "Frameworks", icon: <img src="/skills/reactjs-icon.svg" alt="React" width="24" height="24" /> },
+  { name: "FastAPI", category: "Frameworks", icon: "⚡" },
+  { name: "Flask", category: "Frameworks", icon: "F" },
+  { name: "Node.js", category: "Frameworks", icon: "N" },
+  { name: "ASP.NET Core", category: "Frameworks", icon: ".NET" },
+  { name: "SQLModel", category: "Frameworks", icon: "DB" },
+  { name: "Alembic", category: "Frameworks", icon: "A" },
+  { name: "LangChain", category: "Frameworks", icon: "LC" },
+  { name: "Tailwind CSS", category: "Frameworks", icon: "TW" },
+  { name: "Vite", category: "Frameworks", icon: "V" },
   { name: "PyTorch", category: "Frameworks", icon: <img src="/skills/pytorch-icon.svg" alt="PyTorch" width="24" height="24" /> },
   { name: "Hugging Face", category: "Frameworks", icon: <img src="/hf-logo.png" alt="Hugging Face" width="24" height="24" /> },
-  { name: "FastAPI", category: "Frameworks", icon: "⚡" },
-  { name: "LangChain", category: "Frameworks", icon: "🧵" },
-  { name: "React", category: "Frameworks", icon: <img src="/skills/reactjs-icon.svg" alt="React" width="24" height="24" /> },
   { name: "GCP", category: "Cloud", icon: <img src="/skills/google_cloud-icon.svg" alt="GCP" width="24" height="24" /> },
   { name: "AWS", category: "Cloud", icon: <img src="/skills/amazon_aws-icon.svg" alt="AWS" width="24" height="24" /> },
-  { name: "OpenAI API", category: "Cloud", icon: "🧪" },
-  { name: "Anthropic API", category: "Cloud", icon: "🧠" },
-  { name: "Gemini API", category: "Cloud", icon: "✨" },
-  { name: "OpenRouter", category: "Cloud", icon: "🛰️" },
+  { name: "OpenAI API", category: "Cloud", icon: "OAI" },
+  { name: "Anthropic API", category: "Cloud", icon: "ANT" },
+  { name: "Gemini API", category: "Cloud", icon: "GEM" },
+  { name: "OpenRouter", category: "Cloud", icon: "OR" },
+  { name: "OAuth 2.0", category: "Cloud", icon: "OA" },
+  { name: "LLM Evaluations", category: "AI", icon: "EVAL" },
+  { name: "Multi-Agent Systems", category: "AI", icon: "AG" },
+  { name: "Multimodal AI", category: "AI", icon: "MM" },
+  { name: "Prompt Engineering", category: "AI", icon: "PE" },
+  { name: "Tool Calling", category: "AI", icon: "TC" },
+  { name: "RAG", category: "AI", icon: "RAG" },
+  { name: "Embeddings", category: "AI", icon: "EMB" },
+  { name: "Benchmarking", category: "AI", icon: "BM" },
+  { name: "Adversarial Testing", category: "AI", icon: "ADV" },
+  { name: "AI Red-Teaming", category: "AI", icon: "RT" },
   { name: "Docker", category: "Tools", icon: <img src="/skills/docker-icon.svg" alt="Docker" width="24" height="24" /> },
-  { name: "CI/CD", category: "Tools", icon: "🔁" },
-  { name: "LLM Evaluations", category: "AI", icon: "🧪" },
-  { name: "Multi-Agent Systems", category: "AI", icon: "🧩" },
-  { name: "LoRA Fine-Tuning", category: "AI", icon: "🎛️" },
-  { name: "Prompt Engineering", category: "AI", icon: "⌨️" },
-  { name: "ReAct Agents", category: "AI", icon: "🔄" },
-  { name: "Tool Calling", category: "AI", icon: "🧰" },
-  { name: "RAG", category: "AI", icon: "📚" },
-  { name: "Embeddings", category: "AI", icon: "🧲" },
-  { name: "Adversarial Testing", category: "AI", icon: "🛡️" },
-  { name: "AI Red-Teaming", category: "AI", icon: "🕵️" },
-  { name: "SQL", category: "Database", icon: "📊" },
-  { name: "MongoDB", category: "Database", icon: "🍃" },
-  { name: "Redis", category: "Database", icon: "⚡" },
+  { name: "GitHub Actions", category: "Tools", icon: "GH" },
+  { name: "CI/CD", category: "Tools", icon: "CI" },
+  { name: "Jupyter", category: "Tools", icon: "JP" },
+  { name: "SQL", category: "Database", icon: "SQL" },
+  { name: "PostgreSQL", category: "Database", icon: "PG" },
+  { name: "pgvector", category: "Database", icon: "VEC" },
+  { name: "MongoDB", category: "Database", icon: "MDB" },
+  { name: "Redis", category: "Database", icon: "RDS" },
 ];
 
 export const experiences = [
@@ -407,11 +527,11 @@ export const experiences = [
     technologies: ["Python", "Reinforcement Learning", "Distributed Systems", "ML", "Trading Systems"]
   },
   {
-    title: "Graduate Student",
+    title: "M.S. Candidate, Computer Science",
     company: "UC Davis",
     period: "2024 - Present",
-    description: "Pursuing Master's in Computer Science with focus on AI and Distributed Systems",
-    technologies: ["Python", "Machine Learning", "Distributed Systems"]
+    description: "Focused on AI systems, distributed systems, and production software engineering while building research and product-grade systems in parallel.",
+    technologies: ["AI Systems", "Machine Learning", "Distributed Systems"]
   },
   {
     title: "Software Engineer",

@@ -327,7 +327,7 @@ function App() {
                         fontSize: { xs: '1.5rem', md: '2rem' }
                       }}
                     >
-                      Software Engineer
+                      AI Systems Engineer
                     </Typography>
                     <Typography 
                       variant="h6" 
@@ -337,7 +337,7 @@ function App() {
                         fontSize: { xs: '1rem', md: '1.2rem' }
                       }}
                     >
-                      UC Davis Graduate Student • Full Stack Developer • AI Engineer
+                      AI/ML Engineer • UC Davis M.S. Candidate • Full-Stack Developer
                     </Typography>
                   </Box>
                   
@@ -351,8 +351,8 @@ function App() {
                       maxWidth: 600
                     }}
                   >
-                    Passionate about creating innovative solutions with cutting-edge technology. 
-                    Specializing in Generative & Multimodal AI, Distributed systems, and scalable software architecture.
+                    I build agent evaluation platforms, multimodal AI systems, full-stack products,
+                    and scalable backend infrastructure across Python, Go, C#, React, and cloud-native tooling.
                   </Typography>
               </Box>
             </Grid>
@@ -603,8 +603,8 @@ function App() {
                     mb: 3
                   }}
                 >
-                  I'm an AI Enthusiast currently pursuing my Master's in Computer Science at UC Davis 
-                  with a focus on Artificial Intelligence, Distributed Systems, and Software Engineering. 
+                  I'm an AI systems engineer currently pursuing my Master's in Computer Science at UC Davis,
+                  with a focus on artificial intelligence, distributed systems, and production software engineering.
                 </Typography>
                 
                 <Typography 
@@ -617,9 +617,9 @@ function App() {
                     mb: 4
                   }}
                 >
-                  I bring over 2 years of experience as a Software Engineer, where I enhanced user experience 
-                  by implementing new features and improving system performance. I'm passionate about building 
-                  scalable solutions and optimizing system architecture.
+                  Across 3+ years spanning enterprise software, fintech, multimodal AI, and agent evaluation
+                  infrastructure, I've shipped customer-facing products, benchmark harnesses, evaluation frameworks,
+                  and backend systems that prioritize reliability, performance, and clear product outcomes.
                 </Typography>
                 
                 {/* Experience Timeline */}
@@ -757,7 +757,7 @@ function App() {
                 mx: 'auto'
               }}
             >
-              Explore my latest projects showcasing cutting-edge technologies and innovative solutions
+              Selected work across agent evaluation, multimodal AI, full-stack products, benchmarking, and distributed systems
             </Typography>
           </Box>
           
