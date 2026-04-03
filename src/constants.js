@@ -15,8 +15,7 @@ export const projects = [
     ],
     demoUrl: "https://pilotcrew.ai/autoeval/agentic-eval/about",
     githubUrl: "#",
-    isOpenSource: false,
-    hasPublicRepo: false
+    isOpenSource: false
   },
   {
     id: "causalflow",
@@ -30,8 +29,7 @@ export const projects = [
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/devangb3/CF-Implementation",
-    isOpenSource: true,
-    hasPublicRepo: true
+    isOpenSource: true
   },
   {
     id: "lh-multimodal-svc",
@@ -46,8 +44,7 @@ export const projects = [
     ],
     demoUrl: "https://multimodal-svc-frontend-277660335430.us-central1.run.app/",
     githubUrl: "#",
-    isOpenSource: false,
-    hasPublicRepo: false
+    isOpenSource: false
   },
   {
     id: "gitartha-engine",
@@ -61,8 +58,7 @@ export const projects = [
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/devangb3/Gitartha-Engine",
-    isOpenSource: true,
-    hasPublicRepo: true
+    isOpenSource: true
   },
   {
     id: "gemini-hardwarebench",
@@ -77,8 +73,7 @@ export const projects = [
     ],
     demoUrl: "https://pilotcrew.ai/hardwarebench/harbor-dashboard",
     githubUrl: "#",
-    isOpenSource: false,
-    hasPublicRepo: false
+    isOpenSource: false
   },
   {
     id: "notebook-agent-eval",
@@ -93,8 +88,7 @@ export const projects = [
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/devangb3/NotebookAgent_Eval",
-    isOpenSource: true,
-    hasPublicRepo: true
+    isOpenSource: true
   },
   {
     id: "llm-linter",
@@ -109,8 +103,7 @@ export const projects = [
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/devangb3/LLm-Linter",
-    isOpenSource: true,
-    hasPublicRepo: true
+    isOpenSource: true
   },
   {
     id: "prm-on-device",
@@ -124,8 +117,7 @@ export const projects = [
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/devangb3/Process-Reward-Models",
-    isOpenSource: true,
-    hasPublicRepo: true
+    isOpenSource: true
   },
   {
     id: "gemini-event-creator",
@@ -140,8 +132,7 @@ export const projects = [
     ],
     demoUrl: "https://chrome.google.com/webstore/detail/gemini-event-creator/hbbphgbndgjenboombeclnpepoiicpno",
     githubUrl: "https://github.com/devangb3/Event-Creator",
-    isOpenSource: true,
-    hasPublicRepo: true
+    isOpenSource: true
   },
   {
     id: "cover-letter-generator",
@@ -156,8 +147,7 @@ export const projects = [
     ],
     demoUrl: "https://cover-letter-generator-424176252593.us-central1.run.app",
     githubUrl: "https://github.com/devangb3/Cover-Letter-Generator",
-    isOpenSource: true,
-    hasPublicRepo: true
+    isOpenSource: true
   },
   {
     id: "synthetic-data-generator",
@@ -172,8 +162,7 @@ export const projects = [
     ],
     demoUrl: "https://main.d1jhxtwybbezfy.amplifyapp.com/",
     githubUrl: "#",
-    isOpenSource: false,
-    hasPublicRepo: false
+    isOpenSource: false
   },
   {
     id: "recipe-agent",
@@ -188,8 +177,7 @@ export const projects = [
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/devangb3/Recipe-Agent",
-    isOpenSource: true,
-    hasPublicRepo: true
+    isOpenSource: true
   },
   {
     id: "resshare",
@@ -204,8 +192,7 @@ export const projects = [
     ],
     demoUrl: "https://res-share-deployable.vercel.app/",
     githubUrl: "https://github.com/devangb3/ResShareDeployable",
-    isOpenSource: true,
-    hasPublicRepo: true
+    isOpenSource: true
   },
   {
     id: "reschat",
@@ -220,8 +207,7 @@ export const projects = [
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/ResilientApp/ResChat",
-    isOpenSource: true,
-    hasPublicRepo: true
+    isOpenSource: true
   },
   {
     id: "loan-portal",
@@ -236,8 +222,7 @@ export const projects = [
     ],
     demoUrl: "https://loan-lender-portal.vercel.app/",
     githubUrl: "https://github.com/devangb3/Loan-Lender-portal",
-    isOpenSource: true,
-    hasPublicRepo: true
+    isOpenSource: true
   },
   {
     id: "llm-chatbot",
@@ -251,8 +236,7 @@ export const projects = [
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/devangb3/LLM-Self-Chat",
-    isOpenSource: true,
-    hasPublicRepo: true
+    isOpenSource: true
   },
   {
     id: "nanogpt-rigveda",
@@ -267,8 +251,7 @@ export const projects = [
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/devangb3/NanoGPT-RigVeda",
-    isOpenSource: true,
-    hasPublicRepo: true
+    isOpenSource: true
   },
   {
     id: "http-server",
@@ -283,8 +266,7 @@ export const projects = [
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/devangb3/http-server",
-    isOpenSource: true,
-    hasPublicRepo: true
+    isOpenSource: true
   },
   {
     id: "github-issue-classifier",
@@ -299,8 +281,7 @@ export const projects = [
     ],
     demoUrl: "https://huggingface.co/devangb4/scikit-issues-multilabel-classification",
     githubUrl: "https://github.com/devangb3/HF-Transformers/blob/main/scikit-Issue-Classifier.ipynb",
-    isOpenSource: true,
-    hasPublicRepo: true
+    isOpenSource: true
   },
   {
     id: "drug-condition-classifier",
@@ -315,8 +296,7 @@ export const projects = [
     ],
     demoUrl: "https://huggingface.co/devangb4/bert-drug-classification",
     githubUrl: "https://github.com/devangb3/HF-Transformers/blob/main/Drug_dataset_finetuning.ipynb",
-    isOpenSource: true,
-    hasPublicRepo: true
+    isOpenSource: true
   },
   {
     id: "daily-digest",
@@ -330,8 +310,7 @@ export const projects = [
     ],
     demoUrl: "https://calendar-gmail-summary-frontend.onrender.com/",
     githubUrl: "https://github.com/devangb3/Calendar-Gmail-Summary",
-    isOpenSource: true,
-    hasPublicRepo: true
+    isOpenSource: true
   },
   {
     id: "algotrade",
@@ -346,8 +325,7 @@ export const projects = [
     ],
     demoUrl: "http://hammertrade.tradnomic.com/",
     githubUrl: "https://github.com/devangb3",
-    isOpenSource: false,
-    hasPublicRepo: false
+    isOpenSource: false
   },
   {
     id: "75Hard",
@@ -362,8 +340,7 @@ export const projects = [
     ],
     demoUrl: "https://hard-tracker-frontend-75-424176252593.us-west1.run.app/",
     githubUrl: "https://github.com/devangb3/75-Hard-Tracker",
-    isOpenSource: true,
-    hasPublicRepo: true
+    isOpenSource: true
   },
   {
     id: "dc-menu-analyzer",
@@ -378,8 +355,7 @@ export const projects = [
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/devangb3/DC-Menu-Analyzer",
-    isOpenSource: true,
-    hasPublicRepo: true
+    isOpenSource: true
   },
   {
     id: "mm-hilton-sprint",
@@ -394,8 +370,7 @@ export const projects = [
     ],
     demoUrl: "#",
     githubUrl: "#",
-    isOpenSource: false,
-    hasPublicRepo: false
+    isOpenSource: false
   },
   {
     id: "rag-context",
@@ -410,8 +385,7 @@ export const projects = [
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/devangb3/RAG-Client",
-    isOpenSource: true,
-    hasPublicRepo: true
+    isOpenSource: true
   },
   {
     id: "quiz",
@@ -426,8 +400,7 @@ export const projects = [
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/devangb3/LLM-Quiz",
-    isOpenSource: true,
-    hasPublicRepo: true
+    isOpenSource: true
   },
   {
     id: "atom",
@@ -442,8 +415,7 @@ export const projects = [
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/devangb3",
-    isOpenSource: false,
-    hasPublicRepo: false
+    isOpenSource: false
   }
 ];
 

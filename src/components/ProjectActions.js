@@ -3,7 +3,7 @@ import { GitHub, Launch } from '@mui/icons-material';
 
 const ProjectActions = ({ project, theme }) => (
   <CardActions sx={{ p: 3, pt: 0, gap: 1 }}>
-    {project.hasPublicRepo && (
+    {project.isOpenSource && (
       <Button 
         variant="outlined"
         href={project.githubUrl} 
