@@ -6,8 +6,8 @@ export const projects = [
     id: "pilotcrew-gen-eval",
     title: "Agentic Eval Platform",
     description:
-      "Built an evaluation platform for testing and improving LLM and agent reliability across structured tasks, iterative workflows, and evaluation loops.",
-    technologies: ["Python", "MongoDB", "LLM Evaluations", "Prompt Optimization", "Adversarial Testing"],
+      "Built an evaluation platform for testing and improving LLM and agent reliability across structured tasks, coding agents, RAG workflows, tool use, and iterative prompt-optimization loops.",
+    technologies: ["Python", "MongoDB", "LLM Evaluations", "Prompt Optimization", "OpenRouter", "Observability"],
     highlights: [
       "Built infrastructure for repeatable evaluations, structured run tracking, and comparison of prompt or system changes over time.",
       "Designed the platform to support iterative experimentation with persistent artifacts and analysis-friendly outputs.",
@@ -22,10 +22,11 @@ export const projects = [
     title: "CausalFlow - Autonomous Agent Debugging Framework",
     description:
       "Built an interpretable agentic debugging framework that improved long-horizon reasoning performance by 40% over baseline and grounded agent behavior in deterministic, verifiable environments.",
-    technologies: ["Python", "LLMs", "Agentic Frameworks", "Debugging", "Synthetic Environments"],
+    technologies: ["Python", "LLMs", "Agentic Frameworks", "Debugging", "Synthetic Environments", "Ablation Studies"],
     highlights: [
       "Built an interpretable framework to localize and repair failure modes in multi-step reasoning chains for long-horizon tasks.",
-      "Engineered deterministic synthetic environments that replaced fuzzy world modeling with verifiable state transitions and measurable outcomes."
+      "Engineered deterministic synthetic environments that replaced fuzzy world modeling with verifiable state transitions and measurable outcomes.",
+      "Added baseline comparisons plus judge, minimality, and no-gold repair-prompt ablations to stress-test which parts of the debugging loop actually mattered."
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/devangb3/CF-Implementation",
@@ -67,13 +68,43 @@ export const projects = [
       "Built a Harbor-compatible hardware benchmark for agent evaluation across digital design and EDA workflows, using deterministic verifiers, real toolchains, and pass@k style trials to measure model capability.",
     technologies: ["Python", "Benchmarking", "Harbor", "Docker", "EDA", "Agent Evaluation"],
     highlights: [
-      "Packaged a 24-task benchmark spanning synthesis, STA, RTL debugging, verification, optimization, and cryptographic IP analysis.",
+      "Packaged a 34-task benchmark spanning synthesis, STA, RTL debugging, verification, optimization, cryptographic IP analysis, and Hack@CHES security-patch tasks.",
       "Used deterministic script-based verifiers rather than LLM autoraters, with real tool execution via Yosys, OpenSTA, OpenROAD, and Icarus Verilog.",
       "Calibrated the benchmark with pass@k trials, task-level artifacts, and prompt-level feasibility analysis to expose genuine model headroom."
     ],
     demoUrl: "https://pilotcrew.ai/hardwarebench/harbor-dashboard",
     githubUrl: "#",
     isOpenSource: false
+  },
+  {
+    id: "cyber-bench",
+    title: "Cyber-Bench - Web CTF and Memory Vulnerability Benchmark",
+    description:
+      "Built a cybersecurity benchmark suite for evaluating agents on multi-service web CTF environments and memory-vulnerability patch resilience with deterministic scoring and inspectable run artifacts.",
+    technologies: ["Python", "Docker", "OpenRouter", "OpenCode", "Cybersecurity", "Benchmarking"],
+    highlights: [
+      "Implemented a CyberExplorer-style runner with fixed curated bundles, isolated Docker target networks, shell execution inside attacker containers, and structured flag submission.",
+      "Added OpenCode backend support with isolated workspaces, guarded helper commands, transcript export, and a browser-based transcript viewer for run inspection.",
+      "Built a memory-vuln-bench pipeline over ARVO/CyberGym-style tasks that records SQLite runs, verifies ground-truth PoCs, and scores whether patched binaries resist generated exploits."
+    ],
+    demoUrl: "#",
+    githubUrl: "https://github.com/PilotcrewAI/Cyber-Bench",
+    isOpenSource: false
+  },
+  {
+    id: "data-science-bench",
+    title: "Data Science Bench - Harbor Agent Harness",
+    description:
+      "Built a Harbor-compatible terminal benchmark for data-science agents, packaging self-contained analysis tasks with Docker environments, deterministic verification, OpenRouter model runs, and traceable artifacts.",
+    technologies: ["Python", "Harbor", "Docker", "OpenRouter", "Data Science", "Benchmarking"],
+    highlights: [
+      "Packaged runnable data-analysis tasks with task-local Dockerfiles, instructions, datasets, tests, solutions, and Harbor metadata.",
+      "Added OpenRouter-backed Terminus runs, concurrent execution controls, job artifacts, and structured result files for model comparison.",
+      "Built trace-viewing and task-hardening workflows to inspect failures, retire weak tasks, and make benchmark results reproducible."
+    ],
+    demoUrl: "#",
+    githubUrl: "https://github.com/devangb3/DataScience-Bench",
+    isOpenSource: true
   },
   {
     id: "notebook-agent-eval",
@@ -138,12 +169,12 @@ export const projects = [
     id: "cover-letter-generator",
     title: "Cover Letter Generator",
     description:
-      "Built a full-stack application that generates tailored cover letters, answers application questions, and renders polished PDF output from a resume plus job description workflow.",
-    technologies: ["Python", "Flask", "React", "Vite", "OpenRouter", "PDF Generation", "Docker"],
+      "Built a full-stack application that generates tailored cover letters, answers application questions, performs company-aware research, and renders editable PDF/resume outputs from a resume plus job description workflow.",
+    technologies: ["Python", "Flask", "React", "Vite", "OpenRouter", "Web Search", "PDF Generation", "Docker"],
     highlights: [
       "Implemented OpenRouter-based generation with a YAML-driven model allowlist enforced in both backend validation and frontend selection.",
-      "Built PDF rendering and download flows alongside a React frontend served through the Flask backend.",
-      "Packaged the app for deployment with Docker and cloud hosting."
+      "Added company-context web search, application-question answering, and prompt rules that ground responses in resume and project evidence.",
+      "Built editable cover-letter text before PDF download plus tailored resume PDF generation from structured resume YAML, including company-specific filenames."
     ],
     demoUrl: "https://cover-letter-generator-424176252593.us-central1.run.app",
     githubUrl: "https://github.com/devangb3/Cover-Letter-Generator",
