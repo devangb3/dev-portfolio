@@ -13,7 +13,7 @@ export const projects = [
       "Designed the platform to support iterative experimentation with persistent artifacts and analysis-friendly outputs.",
       "Focused the system on surfacing reliability gaps and making quality improvements measurable."
     ],
-    demoUrl: "https://pilotcrew.ai/autoeval/agentic-eval/about",
+    demoUrl: "https://pilotcrew.ai/agent-optimizer",
     githubUrl: "#",
     isOpenSource: false
   },
