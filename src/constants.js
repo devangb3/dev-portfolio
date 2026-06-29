@@ -9,11 +9,26 @@ export const projects = [
       "Built an evaluation platform for testing and improving LLM and agent reliability across structured tasks, coding agents, RAG workflows, tool use, and iterative prompt-optimization loops.",
     technologies: ["Python", "MongoDB", "LLM Evaluations", "Prompt Optimization", "OpenRouter", "Observability"],
     highlights: [
-      "Built infrastructure for repeatable evaluations, structured run tracking, and comparison of prompt or system changes over time.",
-      "Designed the platform to support iterative experimentation with persistent artifacts and analysis-friendly outputs.",
-      "Focused the system on surfacing reliability gaps and making quality improvements measurable."
+      "Built repeatable evaluation infrastructure with structured run tracking, artifact export, and failure-mode reporting across agent runs.",
+      "Added runner support across duel, RAG, interactive tool-use, BrowseComp, MultiChallenge, tau2, coding-agent, and SWE-bench style workflows.",
+      "Implemented deterministic gates, tool traces, prompt acceptance checks, and diagnostics that make model-quality regressions inspectable."
     ],
     demoUrl: "https://pilotcrew.ai/agent-optimizer",
+    githubUrl: "#",
+    isOpenSource: false
+  },
+  {
+    id: "pilotcrew-observability",
+    title: "PilotCrew Observability - Agent Telemetry Platform",
+    description:
+      "Built observability infrastructure for production agent behavior, including a FastAPI telemetry service that ingests OTLP/OpenInference traces, normalizes spans, aggregates cost and usage, and exposes query APIs for trace and session dashboards.",
+    technologies: ["Python", "FastAPI", "OpenTelemetry", "OpenInference", "MongoDB", "Redis", "Trace APIs"],
+    highlights: [
+      "Built ingestion and normalization paths that map OTLP/OpenInference payloads into trace, span, session, cost, and agent-level records.",
+      "Implemented owner-scoped query surfaces for traces, spans, sessions, agent metrics, fleet dashboards, and feedback workflows.",
+      "Integrated backend ingest-key verification and frontend Observability routes so external apps and Builder-managed agents can send telemetry into PilotCrew."
+    ],
+    demoUrl: "https://pilotcrew.ai/llmObservability",
     githubUrl: "#",
     isOpenSource: false
   },
@@ -25,8 +40,8 @@ export const projects = [
     technologies: ["Python", "LLMs", "Agentic Frameworks", "Debugging", "Synthetic Environments", "Ablation Studies"],
     highlights: [
       "Built an interpretable framework to localize and repair failure modes in multi-step reasoning chains for long-horizon tasks.",
-      "Engineered deterministic synthetic environments that replaced fuzzy world modeling with verifiable state transitions and measurable outcomes.",
-      "Added baseline comparisons plus judge, minimality, and no-gold repair-prompt ablations to stress-test which parts of the debugging loop actually mattered."
+      "Evaluated across 3,000+ math, code generation, web QA, and medical browsing tasks; repaired 42.7% of failed traces and improved post-repair accuracy by a median +16.9% over baseline.",
+      "Generated localized repair pairs from failure-inducing reasoning and tool steps that can be used as DPO post-training data."
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/devangb3/CF-Implementation",
@@ -122,6 +137,21 @@ export const projects = [
     isOpenSource: true
   },
   {
+    id: "open-agent-loop",
+    title: "OpenAgentLoop - Local Prompt and Work-Order CLI",
+    description:
+      "Built a local-first CLI that turns messy issue notes, diffs, and failure logs into structured work orders, prompt bundles, repair prompts, review prompts, lint reports, and trace artifacts for coding agents.",
+    technologies: ["Python", "Typer", "CLI Tools", "Prompt Engineering", "Agent Workflows", "pytest"],
+    highlights: [
+      "Implemented draft, lint, repair, and review commands that compile target-specific prompts for Codex, Claude Code, and OpenCode.",
+      "Added deterministic local trace writing under .openloop/runs so prompt bundles, work orders, lint reports, and run metadata stay inspectable.",
+      "Built tests around CLI behavior, prompt compilation, work-order generation, linting, repair prompts, review prompts, and trace output."
+    ],
+    demoUrl: "#",
+    githubUrl: "https://github.com/devangb3/OpenAgentLoop",
+    isOpenSource: true
+  },
+  {
     id: "llm-linter",
     title: "LLm-Linter - AI Code Review GitHub Action",
     description:
@@ -143,8 +173,9 @@ export const projects = [
       "Architected a composite inference system coupling a lightweight generator with a heavier verifier, enabling efficient weak-to-strong reasoning for resource-constrained environments.",
     technologies: ["Python", "Qwen", "LLMs", "On-Device AI", "Inference Optimization"],
     highlights: [
-      "Benchmarked process supervision for constrained-compute mathematical reasoning and showed strong gains over self-consistency baselines.",
-      "Optimized search strategies to dynamically traverse and score reasoning chains during inference."
+      "Fine-tuned Qwen3-8B on 563K PRM800K-style process-supervision labels and achieved 94.54% validation accuracy.",
+      "Built weak-to-strong inference where a smaller generator proposes reasoning paths and a verifier scores intermediate steps.",
+      "Reduced inference cost by 12.8x compared with self-consistency while preserving strong math-reasoning performance."
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/devangb3/Process-Reward-Models",
@@ -173,8 +204,8 @@ export const projects = [
     technologies: ["Python", "Flask", "React", "Vite", "OpenRouter", "Web Search", "PDF Generation", "Docker"],
     highlights: [
       "Implemented OpenRouter-based generation with a YAML-driven model allowlist enforced in both backend validation and frontend selection.",
-      "Added company-context web search, application-question answering, and prompt rules that ground responses in resume and project evidence.",
-      "Built editable cover-letter text before PDF download plus tailored resume PDF generation from structured resume YAML, including company-specific filenames."
+      "Added application-question answering and prompt rules that ground responses in resume, project, and company evidence.",
+      "Built editable cover-letter text before PDF download plus tailored resume PDF generation from structured resume YAML."
     ],
     demoUrl: "https://cover-letter-generator-424176252593.us-central1.run.app",
     githubUrl: "https://github.com/devangb3/Cover-Letter-Generator",
@@ -218,8 +249,8 @@ export const projects = [
     technologies: ["Python", "Flask", "IPFS", "ResilientDB", "React", "Distributed Systems", "RAG"],
     highlights: [
       "Integrated IPFS-backed storage and sharing workflows for secure distributed file management.",
-      "Built a document assistant that answers questions over uploaded files using RAG and source-aware retrieval.",
-      "Designed the system to preserve user-level data isolation while supporting semantic search across documents."
+      "Built a document assistant that answers questions over uploaded files using source-attributed RAG and per-user retrieval.",
+      "Added MCP tooling around login, upload, share, and chat workflows so external agents can operate on ResShare through a structured tool surface."
     ],
     demoUrl: "https://res-share-deployable.vercel.app/",
     githubUrl: "https://github.com/devangb3/ResShareDeployable",
@@ -262,8 +293,9 @@ export const projects = [
       "Built a multi-agent simulation framework that lets users orchestrate conversations among multiple LLMs with bring-your-own-key support across providers.",
     technologies: ["Python", "LangChain", "WebSockets", "Gemini API", "React", "Flask", "MongoDB"],
     highlights: [
-      "Built a multi-LLM chat system with secure BYOK support and interactive agent simulation.",
-      "Integrated WebSockets to keep the React frontend and Flask backend synchronized with low latency during live conversations."
+      "Built a multi-LLM chat system with secure BYOK support, encrypted key storage, and interactive agent simulation.",
+      "Integrated WebSockets to keep the React frontend and Flask backend synchronized with low latency during live conversations.",
+      "Supported multiple model providers through one conversation orchestration layer."
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/devangb3/LLM-Self-Chat",
@@ -504,8 +536,9 @@ export const experiences = [
     company: "PilotCrew AI",
     period: "October 2025 - Present",
     description: [
-      "Architected an autonomous evaluation engine that recursively generates adversarial synthetic prompts to expose agentic failure modes and hallucination patterns.",
-      "Built a self-correcting optimization loop that iteratively refines agent instructions based on error traces, boosting pass rates and ensuring deterministic behavior in production."
+      "Built agent-evaluation infrastructure spanning duel, RAG, tool-use, coding-agent, and prompt-optimization workflows with structured run artifacts, deterministic gates, and failure-mode analysis.",
+      "Built PilotCrew observability infrastructure for OTLP/OpenInference trace ingestion, span/session normalization, cost aggregation, ingest-key verification, and trace dashboard query APIs.",
+      "Implemented self-correcting optimization loops that refine agent instructions from error traces and make model-quality regressions measurable across runs."
     ],
     technologies: ["Python", "LLMs", "Agentic Workflows", "Adversarial Testing", "Prompt Engineering"]
   },
@@ -514,8 +547,9 @@ export const experiences = [
     company: "LearnHaus AI",
     period: "June 2025 - August 2025",
     description: [
-      "Developed a multimodal analysis service from 0-to-1 using Python with async processing that orchestrated video/audio analysis speech-to-text transcription, and multi-provider integration to deliver automated coaching.",
-      "Designed a distributed consensus protocol among LLM judges to automate ground-truth generation ensuring evaluation reliability without manual labeling and deployed the platform to GCP."
+      "Developed a multimodal analysis service from 0-to-1 using Python async processing to orchestrate video, audio, transcript, and multi-provider AI analysis for automated coaching.",
+      "Designed an LLM-as-Judge consensus workflow to automate ground-truth generation, improve evaluation reliability, and reduce manual labeling burden.",
+      "Deployed the platform to GCP and integrated feedback visualization for presentation-coaching workflows."
     ],
     technologies: ["Python", "AsyncIO", "Multimodal AI", "GCP", "LLMs", "Distributed Systems"]
   },
@@ -541,8 +575,9 @@ export const experiences = [
     company: "Hexaview Technologies",
     period: "August 2022 - September 2024",
     description: [
-      "Shipped 20+ features for a Fortune 500 wealth management platform, developing a scalable backend using ASP.NET Core with AWS Lambda-based microservice architecture.",
-      "Optimized a legacy C# backend servicing over 1 million monthly requests, applying key design patterns to reduce code complexity & successfully redesigning 50+ REST APIs."
+      "Shipped 20+ features for a Fortune 500 wealth-management platform, developing scalable ASP.NET Core backend services with AWS Lambda-based microservice architecture.",
+      "Optimized a legacy C# backend servicing 1M+ monthly requests, reducing query and retrieval bottlenecks while simplifying critical service paths.",
+      "Redesigned 50+ REST APIs with clearer contracts, modular backend structure, and production-grade maintainability."
     ],
     technologies: ["C#", "ASP.NET Core", "AWS Lambda", "Microservices", "REST APIs"]
   }
