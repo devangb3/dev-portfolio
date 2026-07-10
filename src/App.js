@@ -337,7 +337,7 @@ function App() {
                         fontSize: { xs: '1rem', md: '1.2rem' }
                       }}
                     >
-                      AI/ML Engineer • UC Davis M.S. Candidate • Full-Stack Developer
+                      AI/ML Engineer • UC Davis M.S. C.S • Full-Stack Developer
                     </Typography>
                   </Box>
                   
@@ -603,8 +603,8 @@ function App() {
                     mb: 3
                   }}
                 >
-                  I'm an AI systems engineer currently pursuing my Master's in Computer Science at UC Davis,
-                  with a focus on artificial intelligence, distributed systems, and production software engineering.
+                  I'm an AI systems engineer who has a Master's in Computer Science
+                  at UC Davis, with a focus on LLM evals, distributed systems and multimodal AI.
                 </Typography>
                 
                 <Typography 

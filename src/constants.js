@@ -34,7 +34,7 @@ export const projects = [
   },
   {
     id: "causalflow",
-    title: "CausalFlow - Autonomous Agent Debugging Framework",
+    title: "CausalFlow - Causal Attribution and Repair for LLM Agents",
     description:
       "Built an interpretable agentic debugging framework that improved long-horizon reasoning performance by 40% over baseline and grounded agent behavior in deterministic, verifiable environments.",
     technologies: ["Python", "LLMs", "Agentic Frameworks", "Debugging", "Synthetic Environments", "Ablation Studies"],
@@ -51,12 +51,12 @@ export const projects = [
     id: "lh-multimodal-svc",
     title: "Emotion-Aware Feedback System for Public Speaking",
     description:
-      "Built a multimodal service that processes video, audio, and transcripts to deliver presentation coaching, emotional analysis, and structured feedback for public speaking improvement.",
-    technologies: ["Python", "Hume AI", "Multimodal AI", "Async Processing", "Data Visualization"],
+      "Built and deployed a full-stack multimodal coaching application that processes video, audio, transcripts, and multi-provider model outputs into structured presentation feedback.",
+    technologies: ["React", "Python", "Hume AI", "Multimodal AI", "Async Processing", "GCP Cloud Run"],
     highlights: [
-      "Engineered a pipeline for processing video, audio, and text signals into coaching-oriented feedback.",
-      "Integrated Hume AI for emotional analysis and built a visualization layer for actionable presentation insights.",
-      "Designed LLM-judge style quality control so one model could evaluate another model's responses."
+      "Orchestrated asynchronous video, audio, transcript, and emotional-signal processing through a React frontend and Python services.",
+      "Integrated Hume AI and multi-provider model analysis into a visualization layer for actionable presentation feedback.",
+      "Developed an LLM-as-Judge workflow for cross-provider response evaluation and deployed the services on GCP Cloud Run."
     ],
     demoUrl: "https://multimodal-svc-frontend-277660335430.us-central1.run.app/",
     githubUrl: "#",
@@ -168,14 +168,14 @@ export const projects = [
   },
   {
     id: "prm-on-device",
-    title: "Process Reward Model (PRM) for On-Device LLMs",
+    title: "Process Reward Model for Compute-Constrained Reasoning",
     description:
-      "Architected a composite inference system coupling a lightweight generator with a heavier verifier, enabling efficient weak-to-strong reasoning for resource-constrained environments.",
+      "Benchmarked process-reward-guided candidate selection under constrained inference budgets by pairing a Qwen3-0.6B generator with a LoRA-fine-tuned Qwen3-8B step verifier.",
     technologies: ["Python", "Qwen", "LLMs", "On-Device AI", "Inference Optimization"],
     highlights: [
-      "Fine-tuned Qwen3-8B on 563K PRM800K-style process-supervision labels and achieved 94.54% validation accuracy.",
-      "Built weak-to-strong inference where a smaller generator proposes reasoning paths and a verifier scores intermediate steps.",
-      "Reduced inference cost by 12.8x compared with self-consistency while preserving strong math-reasoning performance."
+      "Fine-tuned Qwen3-8B with LoRA on 563K RM800K reasoning steps and achieved 94.54% step-verification accuracy.",
+      "At N=5 generations, PRM-guided selection reached 60.0% GSM8K accuracy vs. 50.8% for self-consistency.",
+      "Matched N=64 self-consistency with 12.8x fewer candidate generations."
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/devangb3/Process-Reward-Models",
@@ -212,15 +212,30 @@ export const projects = [
     isOpenSource: true
   },
   {
-    id: "synthetic-data-generator",
-    title: "Synthetic Data Generator",
+    id: "algotrade",
+    title: "HammerTrade - Algorithmic Strategy Execution Platform",
     description:
-      "Built a full-stack application for generating realistic synthetic stock-market data with tunable volatility, event intensity, and black-swan scenarios for analysis and experimentation.",
-    technologies: ["Python", "FastAPI", "React", "Vite", "AWS Amplify", "Financial Modeling"],
+      "Built core backend and execution infrastructure for a multi-user algorithmic-strategy platform, covering project and strategy-file management, parameter sweeps, historical-data ingestion, isolated code execution, and live run monitoring.",
+    technologies: ["Python", "Flask", "MongoDB", "MongoEngine", "Kafka", "Docker", "WebSockets", "React"],
     highlights: [
-      "Generated configurable financial time-series data that mimics real-world market behavior under varying volatility profiles.",
-      "Exposed controls for initial price, number of days, volatility, and extreme-event frequency to support different scenario analyses.",
-      "Built a browser-based interface for interactive generation and visualization."
+      "Designed MongoEngine schemas and CRUD services for users, projects, strategy files, optimizers, and parameters, including compute-unit accounting for strategy runs.",
+      "Built parameter-grid generation, historical market-data retrieval, and Docker/subprocess execution paths for running strategy variants and collecting their logs and results.",
+      "Implemented Kafka producer/consumer paths and a threaded parallel-execution prototype, plus a React monitoring workflow for live run updates over WebSockets."
+    ],
+    demoUrl: "#",
+    githubUrl: "#",
+    isOpenSource: false
+  },
+  {
+    id: "synthetic-data-generator",
+    title: "Synthetic Market Simulator and Trading Environment",
+    description:
+      "Built a full-stack synthetic-market simulator that matches agent-generated orders in an order book, streams prices over Socket.IO, and exposes a Gymnasium environment for training and evaluating trading agents across normal, crash, and recovery regimes.",
+    technologies: ["Python", "Flask", "Socket.IO", "Gymnasium", "React", "AWS Amplify", "Market Simulation"],
+    highlights: [
+      "Implemented order-book matching, risk-profiled market agents, configurable crash and recovery dynamics, and time-series features including volume, SMA, RSI, volatility, and market state.",
+      "Built a Gymnasium-compatible environment with buy, sell, and hold actions, transaction costs, portfolio-state observations, rewards, and episode termination rules.",
+      "Added per-session Socket.IO simulation streaming, React controls and charts, and an offline generator for producing training datasets."
     ],
     demoUrl: "https://main.d1jhxtwybbezfy.amplifyapp.com/",
     githubUrl: "#",
@@ -376,21 +391,6 @@ export const projects = [
     isOpenSource: true
   },
   {
-    id: "algotrade",
-    title: "HammerTrade (Stock Prediction Platform for HFTs)",
-    description:
-      "Built a model-comparison platform for trading workflows that continuously retrains predictive models and surfaces the best-performing model for a given asset and time horizon.",
-    technologies: ["Python", "Flask", "MongoDB", "React", "Docker", "PyTorch", "Scikit-learn", "Pandas"],
-    highlights: [
-      "Implemented continuous model retraining and model selection over evolving market data.",
-      "Built a user-facing comparison layer for evaluating predictive models on trading assets.",
-      "Integrated multiple ML frameworks into one end-to-end forecasting platform."
-    ],
-    demoUrl: "http://hammertrade.tradnomic.com/",
-    githubUrl: "https://github.com/devangb3",
-    isOpenSource: false
-  },
-  {
     id: "75Hard",
     title: "Tracker App for 75 Hard Challenge",
     description:
@@ -532,42 +532,32 @@ export const skills = [
 
 export const experiences = [
   {
-    title: "Senior AI Engineer",
+    title: "Software Engineer",
     company: "PilotCrew AI",
     period: "October 2025 - Present",
     description: [
-      "Built agent-evaluation infrastructure spanning duel, RAG, tool-use, coding-agent, and prompt-optimization workflows with structured run artifacts, deterministic gates, and failure-mode analysis.",
+      "Built LLM-agent evaluation infrastructure spanning coding, RAG, interactive tool-use, deep-research, conversational, and prompt-optimization workflows.",
       "Built PilotCrew observability infrastructure for OTLP/OpenInference trace ingestion, span/session normalization, cost aggregation, ingest-key verification, and trace dashboard query APIs.",
-      "Implemented self-correcting optimization loops that refine agent instructions from error traces and make model-quality regressions measurable across runs."
+      "Engineered agent runners, client-side tool traces, prompt/version tracking, deterministic graders, regression gates, and trace-driven instruction optimization."
     ],
     technologies: ["Python", "LLMs", "Agentic Workflows", "Adversarial Testing", "Prompt Engineering"]
   },
   {
-    title: "SWE Intern",
+    title: "Software Engineer Intern",
     company: "LearnHaus AI",
     period: "June 2025 - August 2025",
     description: [
-      "Developed a multimodal analysis service from 0-to-1 using Python async processing to orchestrate video, audio, transcript, and multi-provider AI analysis for automated coaching.",
-      "Designed an LLM-as-Judge consensus workflow to automate ground-truth generation, improve evaluation reliability, and reduce manual labeling burden.",
-      "Deployed the platform to GCP and integrated feedback visualization for presentation-coaching workflows."
+      "Built a full-stack multimodal coaching application in React and Python, orchestrating video, audio, transcript, and multi-provider model analysis through asynchronous workflows.",
+      "Developed an LLM-as-Judge workflow for cross-provider response evaluation and deployed the services on GCP Cloud Run.",
+      "Integrated emotional analysis and feedback visualization for presentation-coaching workflows."
     ],
-    technologies: ["Python", "AsyncIO", "Multimodal AI", "GCP", "LLMs", "Distributed Systems"]
+    technologies: ["React", "Python", "AsyncIO", "Multimodal AI", "GCP Cloud Run", "LLM Evaluation"]
   },
   {
-    title: "Founding Engineer",
-    company: "HammerTrade (Stealth Startup)",
-    period: "October 2024 - June 2025",
-    description: [
-      "Developed a high-throughput, distributed data processing service in Python to manage ML workloads for high-frequency trading simulations, ensuring performance & scalability.",
-      "Engineered a complex market simulation environment to train autonomous reinforcement learning (RL) agents, modeling extreme volatility with over 10 configurable parameters."
-    ],
-    technologies: ["Python", "Reinforcement Learning", "Distributed Systems", "ML", "Trading Systems"]
-  },
-  {
-    title: "M.S. Candidate, Computer Science",
+    title: "M.S. Computer Science (Coursework Completed)",
     company: "UC Davis",
-    period: "2024 - Present",
-    description: "Focused on AI systems, distributed systems, and production software engineering while building research and product-grade systems in parallel.",
+    period: "September 2024 - September 2026 (expected)",
+    description: "Completed all degree coursework; degree conferral is expected in September 2026. Focused on AI systems, distributed systems, and production software engineering.",
     technologies: ["AI Systems", "Machine Learning", "Distributed Systems"]
   },
   {
@@ -575,11 +565,11 @@ export const experiences = [
     company: "Hexaview Technologies",
     period: "August 2022 - September 2024",
     description: [
-      "Shipped 20+ features for a Fortune 500 wealth-management platform, developing scalable ASP.NET Core backend services with AWS Lambda-based microservice architecture.",
-      "Optimized a legacy C# backend servicing 1M+ monthly requests, reducing query and retrieval bottlenecks while simplifying critical service paths.",
-      "Redesigned 50+ REST APIs with clearer contracts, modular backend structure, and production-grade maintainability."
+      "Shipped 30 production features for a Fortune 500 wealth-management platform, building C#/.NET and SQL services in a cross-functional Agile team.",
+      "Optimized a legacy backend serving 1M+ monthly requests and simplified critical service paths.",
+      "Redesigned 50+ REST APIs with clearer contracts, modular service boundaries, and production-grade maintainability."
     ],
-    technologies: ["C#", "ASP.NET Core", "AWS Lambda", "Microservices", "REST APIs"]
+    technologies: ["C#", ".NET", "SQL", "REST APIs", "Microservices"]
   }
 ];
 
