@@ -2,7 +2,7 @@ import { Box, Typography, Paper } from "@mui/material";
 
 // Utility Functions
 const groupSkillsByCategory = (skills) => {
-  const categories = ['Languages', 'Frameworks', 'Cloud', 'AI', 'Tools', 'Database'];
+  const categories = ['Languages', 'Frameworks', 'Cloud', 'Tools', 'Database'];
   return categories.map(category => ({
     name: category,
     skills: skills.filter(skill => skill.category === category)
@@ -72,7 +72,20 @@ const SkillsSection = ({ skills, theme, isVisible }) => {
                   }
                 }}
               >
-                <Typography sx={{ fontSize: '1.2rem' }}>
+                <Typography
+                  component="span"
+                  sx={{
+                    fontSize: '1.2rem',
+                    lineHeight: 0,
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    '& img': {
+                      display: 'block',
+                      objectFit: 'contain'
+                    }
+                  }}
+                >
                   {skill.icon}
                 </Typography>
                 <Typography 

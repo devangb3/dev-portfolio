@@ -1,10 +1,10 @@
-import { GitHub, LinkedIn, Email, LocationOn, Twitter } from '@mui/icons-material';
+import { GitHub, LinkedIn, Email, Twitter } from '@mui/icons-material';
 import LeetCodeIcon from './components/LeetCodeIcon';
 
 export const projects = [
   {
     id: "pilotcrew-gen-eval",
-    title: "Agentic Eval Platform",
+    title: "Agent Optimizer - Evaluation Platform for LLM Agents",
     description:
       "Built an evaluation platform for testing and improving LLM and agent reliability across structured tasks, coding agents, RAG workflows, tool use, and iterative prompt-optimization loops.",
     technologies: ["Python", "MongoDB", "LLM Evaluations", "Prompt Optimization", "OpenRouter", "Observability"],
@@ -19,7 +19,7 @@ export const projects = [
   },
   {
     id: "pilotcrew-observability",
-    title: "PilotCrew Observability - Agent Telemetry Platform",
+    title: "Agent Observability - Telemetry Platform",
     description:
       "Built observability infrastructure for production agent behavior, including a FastAPI telemetry service that ingests OTLP/OpenInference traces, normalizes spans, aggregates cost and usage, and exposes query APIs for trace and session dashboards.",
     technologies: ["Python", "FastAPI", "OpenTelemetry", "OpenInference", "MongoDB", "Redis", "Trace APIs"],
@@ -44,7 +44,7 @@ export const projects = [
       "Generated localized repair pairs from failure-inducing reasoning and tool steps that can be used as DPO post-training data."
     ],
     demoUrl: "#",
-    githubUrl: "https://github.com/devangb3/CF-Implementation",
+    githubUrl: "https://github.com/devangb3/CausalFlow",
     isOpenSource: true
   },
   {
@@ -267,8 +267,8 @@ export const projects = [
       "Built a document assistant that answers questions over uploaded files using source-attributed RAG and per-user retrieval.",
       "Added MCP tooling around login, upload, share, and chat workflows so external agents can operate on ResShare through a structured tool surface."
     ],
-    demoUrl: "https://res-share-deployable.vercel.app/",
-    githubUrl: "https://github.com/devangb3/ResShareDeployable",
+    demoUrl: "https://res-share.resilientdb.com/",
+    githubUrl: "https://github.com/ExpoLab-App/ResShare",
     isOpenSource: true
   },
   {
@@ -482,33 +482,148 @@ export const projects = [
   }
 ];
 
+export const projectCategories = [
+  "AI Systems",
+  "Evaluation & Benchmarks",
+  "Backend & Distributed Systems",
+  "Research",
+  "Full-Stack Products"
+];
+
+export const featuredProjectIds = [
+  "pilotcrew-gen-eval",
+  "pilotcrew-observability",
+  "causalflow",
+  "prm-on-device",
+  "algotrade",
+  "resshare"
+];
+
+export const projectCategoryById = {
+  "pilotcrew-gen-eval": "Evaluation & Benchmarks",
+  "pilotcrew-observability": "AI Systems",
+  causalflow: "Research",
+  "lh-multimodal-svc": "AI Systems",
+  "gitartha-engine": "Backend & Distributed Systems",
+  "gemini-hardwarebench": "Evaluation & Benchmarks",
+  "cyber-bench": "Evaluation & Benchmarks",
+  "data-science-bench": "Evaluation & Benchmarks",
+  "notebook-agent-eval": "Evaluation & Benchmarks",
+  "open-agent-loop": "AI Systems",
+  "llm-linter": "AI Systems",
+  "prm-on-device": "Research",
+  "gemini-event-creator": "Full-Stack Products",
+  "cover-letter-generator": "Full-Stack Products",
+  algotrade: "Backend & Distributed Systems",
+  "synthetic-data-generator": "Full-Stack Products",
+  "recipe-agent": "AI Systems",
+  resshare: "Backend & Distributed Systems",
+  reschat: "Backend & Distributed Systems",
+  "loan-portal": "Full-Stack Products",
+  "llm-chatbot": "AI Systems",
+  "nanogpt-rigveda": "Research",
+  "http-server": "Backend & Distributed Systems",
+  "github-issue-classifier": "AI Systems",
+  "drug-condition-classifier": "Research",
+  "daily-digest": "AI Systems",
+  "75Hard": "Full-Stack Products",
+  "dc-menu-analyzer": "AI Systems",
+  "mm-hilton-sprint": "AI Systems",
+  "rag-context": "AI Systems",
+  quiz: "AI Systems",
+  atom: "Backend & Distributed Systems"
+};
+
+export const featuredProjectDetails = {
+  "pilotcrew-gen-eval": {
+    problem: "Agent changes are difficult to compare when tasks, graders, traces, and run artifacts live in separate workflows.",
+    ownership: "Evaluation infrastructure, agent runners, deterministic gates, trace analysis, and prompt-optimization workflows.",
+    proofPoints: [
+      "Unified coding, RAG, tool-use, deep-research, conversational, and goal-state evaluation paths.",
+      "Made regressions inspectable through structured runs, prompt/version tracking, gates, costs, and failure artifacts."
+    ],
+    caseStudyUrl: "",
+    videoUrl: ""
+  },
+  "pilotcrew-observability": {
+    problem: "Production agent failures are hard to diagnose when telemetry arrives as vendor-specific, disconnected spans.",
+    ownership: "OTLP/OpenInference ingestion, span normalization, cost aggregation, scoped query APIs, and product integration.",
+    proofPoints: [
+      "Normalized traces into span, session, cost, feedback, and agent-level records.",
+      "Connected external application ingest to owner-scoped trace and fleet dashboards."
+    ],
+    caseStudyUrl: "",
+    videoUrl: ""
+  },
+  causalflow: {
+    problem: "A failed agent answer does not reveal which reasoning or tool step actually caused the outcome.",
+    ownership: "Causal attribution framework, counterfactual repair pipeline, benchmark experiments, and result auditing.",
+    proofPoints: [
+      "Models execution as a dependency DAG and tests candidate causes through downstream re-execution or outcome prediction.",
+      "Generates localized, minimal repair pairs and evaluates them across math, code, and browsing tasks."
+    ],
+    caseStudyUrl: "",
+    videoUrl: ""
+  },
+  "prm-on-device": {
+    problem: "Self-consistency spends many generations without directly scoring whether intermediate reasoning steps are sound.",
+    ownership: "LoRA fine-tuning, step-verifier evaluation, weak-to-strong inference, and GSM8K efficiency experiments.",
+    proofPoints: [
+      "Fine-tuned Qwen3-8B on 563,181 labeled reasoning steps with 94.54% step-verification accuracy.",
+      "At N=5, reached 60.0% GSM8K accuracy and matched N=64 self-consistency with 12.8x fewer generations."
+    ],
+    caseStudyUrl: "",
+    videoUrl: ""
+  },
+  algotrade: {
+    problem: "Strategy teams need to manage, sweep, and execute user-authored trading code without coupling every run to one process.",
+    ownership: "MongoEngine domain models, strategy-file workflows, parameter sweeps, execution workers, and live monitoring.",
+    proofPoints: [
+      "Built historical-data ingestion and isolated Docker/subprocess execution for parameterized strategy variants.",
+      "Prototyped Kafka and threaded parallel execution with WebSocket updates for live run inspection."
+    ],
+    caseStudyUrl: "",
+    videoUrl: ""
+  },
+  resshare: {
+    problem: "Document sharing and retrieval need access isolation, provenance, and durable storage across user workflows.",
+    ownership: "File and sharing APIs, document ingestion, per-user retrieval, source-attributed RAG, and agent tooling.",
+    proofPoints: [
+      "Combined ResilientDB/IPFS-backed sharing with document parsing, embeddings, FAISS retrieval, and cited answers.",
+      "Added structured MCP tools for authentication, upload, sharing, and document chat workflows."
+    ],
+    caseStudyUrl: "",
+    videoUrl: "https://www.youtube.com/watch?v=DPMwRavPYkQ"
+  }
+};
+
 export const skills = [
   { name: "Python", category: "Languages", icon: <img src="/skills/python-icon.svg" alt="Python" width="24" height="24" /> },
-  { name: "C++", category: "Languages", icon: "++" },
+  { name: "C++", category: "Languages", icon: <img src="/skills/cplusplus-icon.svg" alt="C++" width="24" height="24" /> },
   { name: "C#", category: "Languages", icon: <img src="/skills/csharp_icon.png" alt="C#" width="24" height="24" /> },
   { name: "Java", category: "Languages", icon: <img src="/skills/java-icon.svg" alt="Java" width="24" height="24" /> },
   { name: "TypeScript", category: "Languages", icon: <img src="/skills/typescriptlang-icon.svg" alt="TypeScript" width="24" height="24" /> },
   { name: "JavaScript", category: "Languages", icon: <img src="/skills/javascript-icon.svg" alt="JavaScript" width="24" height="24" /> },
   { name: "Go", category: "Languages", icon: <img src="/skills/golang-icon.svg" alt="Go" width="24" height="24" /> },
   { name: "React", category: "Frameworks", icon: <img src="/skills/reactjs-icon.svg" alt="React" width="24" height="24" /> },
-  { name: "FastAPI", category: "Frameworks", icon: "⚡" },
-  { name: "Flask", category: "Frameworks", icon: "F" },
-  { name: "Node.js", category: "Frameworks", icon: "N" },
-  { name: "ASP.NET Core", category: "Frameworks", icon: ".NET" },
-  { name: "SQLModel", category: "Frameworks", icon: "DB" },
-  { name: "Alembic", category: "Frameworks", icon: "A" },
-  { name: "LangChain", category: "Frameworks", icon: "LC" },
-  { name: "Tailwind CSS", category: "Frameworks", icon: "TW" },
-  { name: "Vite", category: "Frameworks", icon: "V" },
+  { name: "FastAPI", category: "Frameworks", icon: <img src="/skills/fastapi-icon.svg" alt="FastAPI" width="24" height="24" /> },
+  { name: "Flask", category: "Frameworks", icon: <img src="/skills/flask-icon.svg" alt="Flask" width="24" height="24" style={{ filter: "invert(1)" }} /> },
+  { name: "Node.js", category: "Frameworks", icon: <img src="/skills/nodejs-icon.svg" alt="Node.js" width="24" height="24" /> },
+  { name: "ASP.NET Core", category: "Frameworks", icon: <img src="/skills/dotnet-icon.svg" alt=".NET" width="24" height="24" /> },
+  { name: "SQLModel", category: "Frameworks", icon: <img src="/skills/sqlalchemy-icon.svg" alt="SQLModel" width="24" height="24" /> },
+  { name: "Alembic", category: "Frameworks", icon: <img src="/skills/sqlalchemy-icon.svg" alt="Alembic" width="24" height="24" /> },
+  { name: "LangChain", category: "Frameworks", icon: <img src="/skills/langchain-icon.svg" alt="LangChain" width="24" height="24" /> },
+  { name: "Tailwind CSS", category: "Frameworks", icon: <img src="/skills/tailwind-icon.svg" alt="Tailwind CSS" width="24" height="24" /> },
+  { name: "Vite", category: "Frameworks", icon: <img src="/skills/vite-icon.svg" alt="Vite" width="24" height="24" /> },
   { name: "PyTorch", category: "Frameworks", icon: <img src="/skills/pytorch-icon.svg" alt="PyTorch" width="24" height="24" /> },
   { name: "Hugging Face", category: "Frameworks", icon: <img src="/hf-logo.png" alt="Hugging Face" width="24" height="24" /> },
   { name: "GCP", category: "Cloud", icon: <img src="/skills/google_cloud-icon.svg" alt="GCP" width="24" height="24" /> },
   { name: "AWS", category: "Cloud", icon: <img src="/skills/amazon_aws-icon.svg" alt="AWS" width="24" height="24" /> },
-  { name: "OpenAI API", category: "Cloud", icon: "OAI" },
-  { name: "Anthropic API", category: "Cloud", icon: "ANT" },
-  { name: "Gemini API", category: "Cloud", icon: "GEM" },
-  { name: "OpenRouter", category: "Cloud", icon: "OR" },
-  { name: "OAuth 2.0", category: "Cloud", icon: "OA" },
+  { name: "OpenAI API", category: "Cloud", icon: <img src="/skills/openai-icon.svg" alt="OpenAI" width="24" height="24" style={{ filter: "invert(1)" }} /> },
+  { name: "Anthropic API", category: "Cloud", icon: <img src="/skills/anthropic-icon.svg" alt="Anthropic" width="24" height="24" style={{ filter: "invert(1)" }} /> },
+  { name: "Gemini API", category: "Cloud", icon: <img src="/skills/gemini-icon.svg" alt="Google Gemini" width="24" height="24" /> },
+  { name: "OpenRouter", category: "Cloud", icon: <img src="/skills/openrouter-icon.svg" alt="OpenRouter" width="24" height="24" /> },
+  { name: "OAuth 2.0", category: "Cloud", icon: <img src="/skills/oauth-icon.svg" alt="OAuth 2.0" width="24" height="24" /> },
   { name: "LLM Evaluations", category: "AI", icon: "EVAL" },
   { name: "Multi-Agent Systems", category: "AI", icon: "AG" },
   { name: "Multimodal AI", category: "AI", icon: "MM" },
@@ -520,32 +635,40 @@ export const skills = [
   { name: "Adversarial Testing", category: "AI", icon: "ADV" },
   { name: "AI Red-Teaming", category: "AI", icon: "RT" },
   { name: "Docker", category: "Tools", icon: <img src="/skills/docker-icon.svg" alt="Docker" width="24" height="24" /> },
-  { name: "GitHub Actions", category: "Tools", icon: "GH" },
+  { name: "GitHub Actions", category: "Tools", icon: <img src="/skills/github-actions-icon.svg" alt="GitHub Actions" width="24" height="24" /> },
   { name: "CI/CD", category: "Tools", icon: "CI" },
-  { name: "Jupyter", category: "Tools", icon: "JP" },
+  { name: "Jupyter", category: "Tools", icon: <img src="/skills/jupyter-icon.svg" alt="Jupyter" width="24" height="24" /> },
   { name: "SQL", category: "Database", icon: "SQL" },
-  { name: "PostgreSQL", category: "Database", icon: "PG" },
-  { name: "pgvector", category: "Database", icon: "VEC" },
-  { name: "MongoDB", category: "Database", icon: "MDB" },
-  { name: "Redis", category: "Database", icon: "RDS" },
+  { name: "PostgreSQL", category: "Database", icon: <img src="/skills/postgresql-icon.svg" alt="PostgreSQL" width="24" height="24" /> },
+  { name: "pgvector", category: "Database", icon: <img src="/skills/postgresql-icon.svg" alt="pgvector, a PostgreSQL extension" width="24" height="24" /> },
+  { name: "MongoDB", category: "Database", icon: <img src="/skills/mongodb-icon.svg" alt="MongoDB" width="24" height="24" /> },
+  { name: "Redis", category: "Database", icon: <img src="/skills/redis-icon.svg" alt="Redis" width="24" height="24" /> },
 ];
 
 export const experiences = [
   {
+    id: "pilotcrew",
     title: "Software Engineer",
     company: "PilotCrew AI",
     period: "October 2025 - Present",
+    logo: "/experience/pilotcrew.png",
+    logoAlt: "PilotCrew AI logo",
+    logoPadding: 8,
     description: [
       "Built LLM-agent evaluation infrastructure spanning coding, RAG, interactive tool-use, deep-research, conversational, and prompt-optimization workflows.",
-      "Built PilotCrew observability infrastructure for OTLP/OpenInference trace ingestion, span/session normalization, cost aggregation, ingest-key verification, and trace dashboard query APIs.",
+      "Built observability infrastructure for trace ingestion, span/session normalization, cost aggregation, ingest-key verification, and trace dashboard query APIs.",
       "Engineered agent runners, client-side tool traces, prompt/version tracking, deterministic graders, regression gates, and trace-driven instruction optimization."
     ],
     technologies: ["Python", "LLMs", "Agentic Workflows", "Adversarial Testing", "Prompt Engineering"]
   },
   {
+    id: "learnhaus",
     title: "Software Engineer Intern",
     company: "LearnHaus AI",
     period: "June 2025 - August 2025",
+    logo: "/experience/learnhaus.png",
+    logoAlt: "LearnHaus AI logo",
+    logoPadding: 8,
     description: [
       "Built a full-stack multimodal coaching application in React and Python, orchestrating video, audio, transcript, and multi-provider model analysis through asynchronous workflows.",
       "Developed an LLM-as-Judge workflow for cross-provider response evaluation and deployed the services on GCP Cloud Run.",
@@ -554,39 +677,50 @@ export const experiences = [
     technologies: ["React", "Python", "AsyncIO", "Multimodal AI", "GCP Cloud Run", "LLM Evaluation"]
   },
   {
-    title: "M.S. Computer Science (Coursework Completed)",
+    id: "uc-davis",
+    title: "M.S. Computer Science",
     company: "UC Davis",
-    period: "September 2024 - September 2026 (expected)",
-    description: "Completed all degree coursework; degree conferral is expected in September 2026. Focused on AI systems, distributed systems, and production software engineering.",
-    technologies: ["AI Systems", "Machine Learning", "Distributed Systems"]
+    period: "September 2024 - September 2026",
+    logo: "/experience/uc-davis.svg",
+    logoAlt: "UC Davis logo",
+    logoBackground: "#022851",
+    logoPadding: 7,
+    description: [
+      "Completed all degree coursework with a 3.91 graduate GPA; graduating in September 2026.",
+      "Advanced coursework spans distributed databases, artificial intelligence, algorithms, numerical linear algebra, computer and information security, computer science theory, software engineering, and computer graphics.",
+      "Conducted multi-quarter graduate research in computer science and published papers in top-tier conferences and journals."
+    ],
+    technologies: ["Distributed Databases", "Artificial Intelligence", "Algorithms", "Computer Security", "Graduate Research"]
   },
   {
+    id: "hexaview",
     title: "Software Engineer",
     company: "Hexaview Technologies",
     period: "August 2022 - September 2024",
+    logo: "/experience/hexaview.svg",
+    logoAlt: "Hexaview Technologies logo",
+    logoPadding: 9,
     description: [
       "Shipped 30 production features for a Fortune 500 wealth-management platform, building C#/.NET and SQL services in a cross-functional Agile team.",
       "Optimized a legacy backend serving 1M+ monthly requests and simplified critical service paths.",
       "Redesigned 50+ REST APIs with clearer contracts, modular service boundaries, and production-grade maintainability."
     ],
     technologies: ["C#", ".NET", "SQL", "REST APIs", "Microservices"]
-  }
-];
-
-export const contactInfo = [
-  { 
-    icon: <Email />, 
-    label: 'Email', 
-    value: 'devangborkar3@gmail.com', 
-    href: 'mailto:devangborkar3@gmail.com',
-    isClickable: true 
   },
-  { 
-    icon: <LocationOn />, 
-    label: 'Location', 
-    value: 'Davis, CA', 
-    href: '#',
-    isClickable: false 
+  {
+    id: "sppu",
+    title: "B.E. Computer Engineering",
+    company: "Savitribai Phule Pune University (SPPU)",
+    period: "August 2019 - June 2023",
+    logo: "/experience/sppu.jpg",
+    logoAlt: "Savitribai Phule Pune University emblem",
+    logoPadding: 4,
+    description: [
+      "Graduated First Class with Distinction with a 9.13/10 CGPA.",
+      "Completed an additional 20-credit Honors track in AIML.",
+      "Coursework included data structures and algorithms, database systems, operating systems, computer networks and security, machine learning, deep learning, cloud computing, and software-defined networks."
+    ],
+    technologies: ["Computer Engineering", "AI/ML Honors", "Data Structures", "Database Systems", "Operating Systems"]
   }
 ];
 

@@ -6,12 +6,9 @@ import {
   Container,
   Typography,
   Box,
-  Card,
-  CardContent,
   IconButton,
   Chip,
   Grid,
-  Avatar,
 } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
@@ -19,22 +16,87 @@ import {
   Download,
   ArrowDownward,
   Description,
-  Code,
-  Psychology,
-  Rocket,
-  Star,
   Brightness4,
   Brightness7,
 } from '@mui/icons-material';
-import ProjectChips from "./components/ProjectChips";
-import ProjectActions from "./components/ProjectActions";
 import SkillsSection from "./components/SkillsSection";
-import ContactInfo from "./components/ContactInfo";
 import SocialLinks from "./components/SocialLinks";
 import HeroSocialLinks from "./components/HeroSocialLinks";
 import Footer from "./components/Footer";
-import { projects, skills, experiences, contactInfo, socialLinks, heroSocialLinks } from "./constants";
+import FeaturedProjectCard from "./components/FeaturedProjectCard";
+import ProjectArchive from "./components/ProjectArchive";
+import {
+  projects,
+  skills,
+  experiences,
+  socialLinks,
+  heroSocialLinks,
+  featuredProjectIds,
+  featuredProjectDetails,
+  projectCategories,
+  projectCategoryById,
+} from "./constants";
 import { applyThemeToCssVars, getMuiTheme, getThemeTokens } from "./theme";
+
+const projectById = new Map(projects.map((project) => [project.id, project]));
+const featuredProjects = featuredProjectIds.map((projectId) => projectById.get(projectId)).filter(Boolean);
+const featuredProjectIdSet = new Set(featuredProjectIds);
+const archivedProjects = projects.filter((project) => !featuredProjectIdSet.has(project.id));
+
+function ExperienceLogo({ experience, theme }) {
+  const [imageFailed, setImageFailed] = useState(false);
+  const fallback = experience.company
+    .replace(/\([^)]*\)/g, "")
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((word) => word[0])
+    .join("")
+    .toUpperCase();
+
+  return (
+    <Box
+      sx={{
+        width: { xs: 52, sm: 72 },
+        height: { xs: 52, sm: 54 },
+        borderRadius: 2,
+        border: `1px solid ${theme.primary}45`,
+        bgcolor: experience.logoBackground || "#ffffff",
+        boxShadow: `0 8px 24px ${theme.background}66`,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        overflow: "hidden",
+        position: "relative",
+        zIndex: 1,
+        p: `${experience.logoPadding ?? 7}px`,
+      }}
+    >
+      {!imageFailed && experience.logo ? (
+        <Box
+          component="img"
+          src={experience.logo}
+          alt={experience.logoAlt || `${experience.company} logo`}
+          onError={() => setImageFailed(true)}
+          sx={{
+            width: "100%",
+            height: "100%",
+            objectFit: "contain",
+            display: "block",
+          }}
+        />
+      ) : (
+        <Typography
+          component="span"
+          aria-label={experience.company}
+          sx={{ color: theme.primary, fontWeight: 800, letterSpacing: "0.08em" }}
+        >
+          {fallback}
+        </Typography>
+      )}
+    </Box>
+  );
+}
 
 function App() {
   const [isVisible, setIsVisible] = useState(false);
@@ -351,8 +413,8 @@ function App() {
                       maxWidth: 600
                     }}
                   >
-                    I build agent evaluation platforms, multimodal AI systems, full-stack products,
-                    and scalable backend infrastructure across Python, Go, C#, React, and cloud-native tooling.
+                    I build agentic evals, multimodal AI systems, full-stack products,
+                    and scalable backend infrastructure across Python, JS and use cloud-native tooling.
                   </Typography>
               </Box>
             </Grid>
@@ -380,6 +442,8 @@ function App() {
                       margin: '0 auto',
                       position: 'relative',
                       overflow: 'hidden',
+                      boxSizing: 'border-box',
+                      p: '10px',
                       '&::before': {
                         content: '""',
                         position: 'absolute',
@@ -390,43 +454,31 @@ function App() {
                         background: `conic-gradient(from 0deg, ${theme.primary}40, ${theme.secondary}40, ${theme.primary}40)`,
                         animation: 'spin 10s linear infinite'
                       },
-                      '&::after': {
-                        content: '""',
-                        position: 'absolute',
-                        top: 10,
-                        left: 10,
-                        right: 10,
-                        bottom: 10,
-                        background: theme.surface,
-                        borderRadius: '50%',
-                        zIndex: 1
-                      }
                     }}
                   >
-                    <Avatar
+                    <Box
                       sx={{
-                        width: { xs: 200, md: 280 },
-                        height: { xs: 200, md: 280 },
-                        fontSize: { xs: '4rem', md: '6rem' },
-                        background: `linear-gradient(45deg, ${theme.primary}, ${theme.secondary})`,
+                        width: '100%',
+                        height: '100%',
+                        borderRadius: '50%',
+                        overflow: 'hidden',
                         zIndex: 2,
                         position: 'relative',
-                        fontWeight: 800
                       }}
                     >
-                      DB
-                    </Avatar>
-                  </Box>
-                  
-                  {/* Floating Tech Icons */}
-                  <Box sx={{ position: 'absolute', top: '10%', left: '10%', animation: 'float 6s ease-in-out infinite' }}>
-                    <Chip icon={<Code />} label="Agentic AI" size="small" sx={{ bgcolor: theme.primary, color: theme.background }} />
-                  </Box>
-                  <Box sx={{ position: 'absolute', top: '20%', right: '10%', animation: 'float 6s ease-in-out infinite 2s' }}>
-                    <Chip icon={<Psychology />} label="Machine Learning" size="small" sx={{ bgcolor: theme.secondary, color: theme.background }} />
-                  </Box>
-                  <Box sx={{ position: 'absolute', bottom: '20%', left: '20%', animation: 'float 6s ease-in-out infinite 4s' }}>
-                    <Chip icon={<Rocket />} label="Distributed Systems" size="small" sx={{ bgcolor: theme.primary, color: theme.background }} />
+                      <Box
+                        component="img"
+                        src="/YoU8_Zaa_400x400.jpg"
+                        alt="Devang Borkar"
+                        sx={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          transform: 'scale(1.7) translate(-39%, -43%)',
+                          transformOrigin: 'top left',
+                        }}
+                      />
+                    </Box>
                   </Box>
                 </Box>
             </Grid>
@@ -603,8 +655,8 @@ function App() {
                     mb: 3
                   }}
                 >
-                  I'm an AI systems engineer who has a Master's in Computer Science
-                  at UC Davis, with a focus on LLM evals, distributed systems and multimodal AI.
+                  I'm an AI systems engineer with a Master's in Computer Science
+                  at UC Davis, focusing on evals, distributed systems and multimodal AI.
                 </Typography>
                 
                 <Typography 
@@ -617,7 +669,7 @@ function App() {
                     mb: 4
                   }}
                 >
-                  Across 3+ years spanning enterprise software, fintech, multimodal AI, and agent evaluation
+                  With 3+ YOE across enterprise software, fintech, multimodal AI, and agent evaluation
                   infrastructure, I've shipped customer-facing products, benchmark harnesses, evaluation frameworks,
                   and backend systems that prioritize reliability, performance, and clear product outcomes.
                 </Typography>
@@ -625,61 +677,75 @@ function App() {
                 {/* Experience Timeline */}
                 <Box sx={{ mb: 4 }}>
                   <Typography variant="h6" gutterBottom sx={{ color: theme.primary, fontWeight: 600 }}>
-                    Experience Timeline
+                    
                   </Typography>
                   {experiences.map((exp, index) => (
-                    <Box key={index} sx={{ mb: 3, pl: 3, borderLeft: `3px solid ${theme.primary}30`, position: 'relative' }}>
-                      <Box sx={{ 
-                        position: 'absolute',
-                        left: -8,
-                        top: 8,
-                        width: 12,
-                        height: 12,
-                        borderRadius: '50%',
-                        bgcolor: theme.primary,
-                        boxShadow: `0 0 0 4px ${theme.surface}`
-                      }} />
-                      <Typography variant="h6" sx={{ color: theme.text, fontWeight: 600 }}>
-                        {exp.title}
-                      </Typography>
-                      <Typography variant="subtitle1" sx={{ color: theme.primary, fontWeight: 500 }}>
-                        {exp.company} • {exp.period}
-                      </Typography>
-                      {Array.isArray(exp.description) ? (
-                        <Box sx={{ mt: 1, pl: 2 }}>
-                          {exp.description.map((desc, i) => (
-                            <Typography 
-                              key={i} 
-                              variant="body2" 
-                              sx={{ 
-                                color: theme.textSecondary,
-                                display: 'list-item', 
-                                listStyleType: 'disc',
-                                mb: 0.5 
+                    <Box
+                      key={exp.id || exp.company}
+                      sx={{
+                        mb: 3.5,
+                        display: "grid",
+                        gridTemplateColumns: { xs: "58px minmax(0, 1fr)", sm: "78px minmax(0, 1fr)" },
+                        columnGap: { xs: 1.5, sm: 2 },
+                        position: "relative",
+                        "&::after": index < experiences.length - 1 ? {
+                          content: '""',
+                          position: "absolute",
+                          left: { xs: 28, sm: 38 },
+                          top: 27,
+                          bottom: -28,
+                          width: 2,
+                          bgcolor: `${theme.primary}35`,
+                        } : undefined,
+                      }}
+                    >
+                      <Box sx={{ display: "flex", justifyContent: "center" }}>
+                        <ExperienceLogo experience={exp} theme={theme} />
+                      </Box>
+
+                      <Box sx={{ minWidth: 0 }}>
+                        <Typography variant="h6" sx={{ color: theme.text, fontWeight: 600 }}>
+                          {exp.title}
+                        </Typography>
+                        <Typography variant="subtitle1" sx={{ color: theme.primary, fontWeight: 500 }}>
+                          {exp.company} • {exp.period}
+                        </Typography>
+                        {Array.isArray(exp.description) ? (
+                          <Box component="ul" sx={{ mt: 1, mb: 0, pl: 2.25 }}>
+                            {exp.description.map((desc, i) => (
+                              <Typography
+                                component="li"
+                                key={i}
+                                variant="body2"
+                                sx={{
+                                  color: theme.textSecondary,
+                                  mb: 0.65,
+                                  pl: 0.25,
+                                }}
+                              >
+                                {desc}
+                              </Typography>
+                            ))}
+                          </Box>
+                        ) : (
+                          <Typography variant="body2" sx={{ color: theme.textSecondary, mt: 1 }}>
+                            {exp.description}
+                          </Typography>
+                        )}
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 1.25 }}>
+                          {exp.technologies.map((tech) => (
+                            <Chip
+                              key={tech}
+                              label={tech}
+                              size="small"
+                              sx={{
+                                bgcolor: `${theme.primary}15`,
+                                color: theme.primary,
+                                fontWeight: 500
                               }}
-                            >
-                              {desc}
-                            </Typography>
+                            />
                           ))}
                         </Box>
-                      ) : (
-                        <Typography variant="body2" sx={{ color: theme.textSecondary, mt: 1 }}>
-                          {exp.description}
-                        </Typography>
-                      )}
-                      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 1 }}>
-                        {exp.technologies.map((tech, techIndex) => (
-                          <Chip 
-                            key={techIndex}
-                            label={tech}
-                            size="small"
-                            sx={{ 
-                              bgcolor: `${theme.primary}15`,
-                              color: theme.primary,
-                              fontWeight: 500
-                            }}
-                          />
-                        ))}
                       </Box>
                     </Box>
                   ))}
@@ -703,18 +769,27 @@ function App() {
         </Container>
       </Box>
 
-      {/* Spectacular Projects Section */}
+      {/* Featured work and project archive */}
       <Box id="projects" sx={{ 
         py: 12, 
         bgcolor: theme.background,
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: `linear-gradient(${theme.grid} 1px, transparent 1px), linear-gradient(90deg, ${theme.grid} 1px, transparent 1px)`,
+          backgroundSize: '48px 48px',
+          maskImage: 'linear-gradient(to bottom, transparent, black 12%, black 88%, transparent)',
+          pointerEvents: 'none'
+        }
       }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ position: 'relative' }}>
           <Box 
             sx={{ 
-              textAlign: 'center', 
-              mb: 8,
+              textAlign: { xs: 'left', md: 'center' },
+              mb: { xs: 6, md: 8 },
               opacity: isVisible ? 1 : 0,
               transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
               transition: 'all 1s ease-in-out'
@@ -730,22 +805,19 @@ function App() {
                 letterSpacing: 2
               }}
             >
-              My Work
             </Typography>
             
             <Typography 
               variant="h2" 
               gutterBottom 
               sx={{ 
+                color: theme.text,
                 fontWeight: 800,
-                fontSize: { xs: '2rem', md: '3rem' },
-                background: `linear-gradient(45deg, ${theme.primary}, ${theme.secondary})`,
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
+                fontSize: { xs: '2.35rem', md: '3.4rem' },
                 mb: 2
               }}
             >
-              Featured Projects
+              Featured work
             </Typography>
             
             <Typography 
@@ -753,193 +825,43 @@ function App() {
               sx={{ 
                 color: theme.textSecondary,
                 fontSize: '1.1rem',
-                maxWidth: 600,
-                mx: 'auto'
+                maxWidth: 680,
+                mx: { xs: 0, md: 'auto' }
               }}
             >
-              Selected work across agent evaluation, multimodal AI, full-stack products, benchmarking, and distributed systems
+              Projects where I worked on agentic evals, distirbuted systems and post-training.
             </Typography>
           </Box>
           
-          <Grid container spacing={4}>
-            {projects.map((project, index) => (
+          <Grid container spacing={3}>
+            {featuredProjects.map((project, index) => (
               <Grid item xs={12} md={6} lg={4} key={project.id}>
                 <Box
                   sx={{
                     opacity: isVisible ? 1 : 0,
-                    transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(30px) scale(0.95)',
-                    transition: `all 0.6s ease-in-out ${index * 0.1}s`,
+                    transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+                    transition: `all 0.55s ease-in-out ${index * 0.08}s`,
                     height: '100%'
                   }}
                 >
-                  <Card 
-                    className="project-card"
-                    sx={{ 
-                      height: '100%',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      bgcolor: theme.cardBg,
-                      border: `1px solid ${theme.border}`,
-                      borderRadius: 3,
-                      position: 'relative',
-                      overflow: 'hidden',
-                      '&::before': {
-                        content: '""',
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        width: '100%',
-                        height: 4,
-                        background: `linear-gradient(45deg, ${theme.primary}, ${theme.secondary})`,
-                        zIndex: 1
-                      }
-                    }}
-                  >
-                    <CardContent sx={{ flex: 1, p: 3 }}>
-                      {/* Project Header */}
-                      <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 3 }}>
-                        <Avatar 
-                          sx={{ 
-                            bgcolor: `${theme.primary}20`,
-                            color: theme.primary,
-                            width: 50,
-                            height: 50
-                          }}
-                        >
-                          <Code />
-                        </Avatar>
-                        <Box>
-                          <Typography 
-                            variant="h6" 
-                            sx={{ 
-                              color: theme.text,
-                              fontWeight: 700,
-                              fontSize: '1.1rem'
-                            }}
-                          >
-                            {project.title}
-                          </Typography>
-                          <ProjectChips project={project} theme={theme} />
-                        </Box>
-                      </Box>
-                      
-                      {/* Project Description */}
-                      <Typography 
-                        variant="body2" 
-                        sx={{ 
-                          color: theme.textSecondary,
-                          fontSize: '0.95rem',
-                          lineHeight: 1.6,
-                          mb: 3
-                        }}
-                      >
-                        {project.description}
-                      </Typography>
-                      
-                      {/* Technologies */}
-                      <Box sx={{ mb: 3 }}>
-                        <Typography 
-                          variant="subtitle2" 
-                          sx={{ 
-                            color: theme.text,
-                            fontWeight: 600,
-                            mb: 1.5,
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: 1
-                          }}
-                        >
-                          <Rocket sx={{ fontSize: 16 }} />
-                          Technologies
-                        </Typography>
-                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                          {project.technologies.slice(0, 6).map((tech) => (
-                            <Chip 
-                              key={tech} 
-                              label={tech} 
-                              size="small"
-                              sx={{ 
-                                bgcolor: `${theme.primary}10`,
-                                color: theme.primary,
-                                fontWeight: 500,
-                                fontSize: '0.75rem',
-                                height: 24,
-                                '&:hover': { 
-                                  bgcolor: `${theme.primary}20`,
-                                  transform: 'scale(1.05)'
-                                }
-                              }}
-                            />
-                          ))}
-                          {project.technologies.length > 6 && (
-                            <Chip 
-                              label={`+${project.technologies.length - 6} more`}
-                              size="small"
-                              sx={{ 
-                                bgcolor: `${theme.textSecondary}20`,
-                                color: theme.textSecondary,
-                                fontWeight: 500,
-                                fontSize: '0.75rem',
-                                height: 24
-                              }}
-                            />
-                          )}
-                        </Box>
-                      </Box>
-                      
-                      {/* Key Highlights */}
-                      <Box sx={{ mb: 3 }}>
-                        <Typography 
-                          variant="subtitle2" 
-                          sx={{ 
-                            color: theme.text,
-                            fontWeight: 600,
-                            mb: 1.5,
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: 1
-                          }}
-                        >
-                          <Star sx={{ fontSize: 16 }} />
-                          Key Highlights
-                        </Typography>
-                        <Box sx={{ pl: 2 }}>
-                          {project.highlights.slice(0, 3).map((highlight, highlightIndex) => (
-                            <Typography 
-                              key={highlightIndex}
-                              component="div"
-                              variant="body2" 
-                              sx={{ 
-                                color: theme.textSecondary,
-                                fontSize: '0.85rem',
-                                lineHeight: 1.5,
-                                mb: 1,
-                                display: 'flex',
-                                alignItems: 'flex-start',
-                                gap: 1
-                              }}
-                            >
-                              <Box sx={{ 
-                                width: 4,
-                                height: 4,
-                                borderRadius: '50%',
-                                bgcolor: theme.primary,
-                                mt: 0.75,
-                                flexShrink: 0
-                              }} />
-                              {highlight}
-                            </Typography>
-                          ))}
-                        </Box>
-                      </Box>
-                    </CardContent>
-                    
-                    <ProjectActions project={project} theme={theme} />
-                  </Card>
+                  <FeaturedProjectCard
+                    project={project}
+                    details={featuredProjectDetails[project.id]}
+                    category={projectCategoryById[project.id]}
+                    index={index}
+                    theme={theme}
+                  />
                 </Box>
               </Grid>
             ))}
           </Grid>
+
+          <ProjectArchive
+            projects={archivedProjects}
+            categories={projectCategories}
+            categoryById={projectCategoryById}
+            theme={theme}
+          />
         </Container>
       </Box>
 
@@ -1014,29 +936,15 @@ function App() {
             I'd love to hear from you!
           </Typography>
 
-          <Grid container spacing={6} alignItems="flex-start">
-            {/* Left side - Contact Info */}
-            <Grid item xs={12} lg={6}>
-              <Box
-                sx={{
-                  opacity: isVisible ? 1 : 0,
-                  transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
-                  transition: 'all 1s ease-in-out'
-                }}
-              >
-                {/* Contact Information Cards */}
-                <ContactInfo contacts={contactInfo} theme={theme} isVisible={isVisible} />
-              </Box>
-            </Grid>
-            {/* Right side - Social Links */}
-            <Grid item xs={12} lg={6}>
+          <Grid container>
+            <Grid item xs={12}>
               <Box
                 sx={{
                   opacity: isVisible ? 1 : 0,
                   transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
                   transition: 'all 1s ease-in-out',
                   display: 'flex',
-                  justifyContent: { xs: 'flex-start', lg: 'flex-end' }
+                  justifyContent: 'flex-start'
                 }}
               >
                 <SocialLinks links={socialLinks} theme={theme} isVisible={isVisible} />
