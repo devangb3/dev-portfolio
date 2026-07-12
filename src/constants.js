@@ -4,10 +4,10 @@ import LeetCodeIcon from './components/LeetCodeIcon';
 export const projects = [
   {
     id: "pilotcrew-gen-eval",
-    title: "Agent Optimizer - Evaluation Platform for LLM Agents",
+    title: "Agent Optimizer - Evaluation Platform",
     description:
-      "Built an evaluation platform for testing and improving LLM and agent reliability across structured tasks, coding agents, RAG workflows, tool use, and iterative prompt-optimization loops.",
-    technologies: ["Python", "MongoDB", "LLM Evaluations", "Prompt Optimization", "OpenRouter", "Observability"],
+      "Built an evaluation platform for testing and improving LLM agent reliability across coding agents, RAG workflows, tool use, and iterative prompt-optimization loops.",
+    technologies: ["Python", "MongoDB", "LLM Evaluations", "Prompt Optimization", "OpenRouter", "Synthetic Environments", "Agentic Workflows"],
     highlights: [
       "Built repeatable evaluation infrastructure with structured run tracking, artifact export, and failure-mode reporting across agent runs.",
       "Added runner support across duel, RAG, interactive tool-use, BrowseComp, MultiChallenge, tau2, coding-agent, and SWE-bench style workflows.",
@@ -78,7 +78,7 @@ export const projects = [
   },
   {
     id: "gemini-hardwarebench",
-    title: "Gemini HardwareBench - Harbor EDA Benchmark",
+    title: "HardwareBench - Harbor EDA Benchmark",
     description:
       "Built a Harbor-compatible hardware benchmark for agent evaluation across digital design and EDA workflows, using deterministic verifiers, real toolchains, and pass@k style trials to measure model capability.",
     technologies: ["Python", "Benchmarking", "Harbor", "Docker", "EDA", "Agent Evaluation"],
