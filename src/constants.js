@@ -212,6 +212,21 @@ export const projects = [
     isOpenSource: true
   },
   {
+    id: "transit-dispatch",
+    title: "Transit Dispatch - Multi-Agency Arrival Alerts",
+    description:
+      "Built an invite-only transit arrival notification service for DART, Unitrans, and Yolobus that plans one-time or recurring trips and monitors selected boarding legs for predicted-arrival changes.",
+    technologies: ["Python", "FastAPI", "Google Maps Platform", "SQLite", "Telegram", "Resend", "Docker", "Caddy"],
+    highlights: [
+      "Integrated Google Places and Routes through one transit provider, with agency-local timezone handling and demo itineraries that work without API keys.",
+      "Built an async worker for milestone, ETA-change, cancellation, stale-feed, and recovery alerts, with persisted alert state and idempotent Telegram/email delivery.",
+      "Implemented single-use invitations with signed sessions, single-use Telegram pairing, and a responsive dashboard that lazy-loads paused and past trips."
+    ],
+    demoUrl: "#",
+    githubUrl: "https://github.com/devangb3/Travel-Notifs",
+    isOpenSource: true
+  },
+  {
     id: "algotrade",
     title: "HammerTrade - Algorithmic Strategy Execution Platform",
     description:
@@ -261,10 +276,10 @@ export const projects = [
     title: "ResShare - Decentralized File Sharing System",
     description:
       "Built a decentralized file-sharing platform on top of ResilientDB and IPFS, with secure document storage, sharing workflows, and a RAG-powered assistant for uploaded files.",
-    technologies: ["Python", "Flask", "IPFS", "ResilientDB", "React", "Distributed Systems", "RAG"],
+    technologies: ["Python", "Flask", "IPFS", "ResilientDB", "Qdrant", "React", "Distributed Systems", "RAG"],
     highlights: [
       "Integrated IPFS-backed storage and sharing workflows for secure distributed file management.",
-      "Built a document assistant that answers questions over uploaded files using source-attributed RAG and per-user retrieval.",
+      "Moved the source-attributed document assistant to persistent Qdrant with stable chunk IDs and per-user retrieval filters, plus rollback handling when ResilientDB metadata persistence fails.",
       "Added MCP tooling around login, upload, share, and chat workflows so external agents can operate on ResShare through a structured tool surface."
     ],
     demoUrl: "https://res-share.resilientdb.com/",
@@ -514,6 +529,7 @@ export const projectCategoryById = {
   "prm-on-device": "Research",
   "gemini-event-creator": "Full-Stack Products",
   "cover-letter-generator": "Full-Stack Products",
+  "transit-dispatch": "Full-Stack Products",
   algotrade: "Backend & Distributed Systems",
   "synthetic-data-generator": "Full-Stack Products",
   "recipe-agent": "AI Systems",
@@ -589,7 +605,7 @@ export const featuredProjectDetails = {
     problem: "Document sharing and retrieval need access isolation, provenance, and durable storage across user workflows.",
     ownership: "File and sharing APIs, document ingestion, per-user retrieval, source-attributed RAG, and agent tooling.",
     proofPoints: [
-      "Combined ResilientDB/IPFS-backed sharing with document parsing, embeddings, FAISS retrieval, and cited answers.",
+      "Combined ResilientDB/IPFS-backed sharing with document parsing, Gemini embeddings, persistent Qdrant retrieval, and cited answers.",
       "Added structured MCP tools for authentication, upload, sharing, and document chat workflows."
     ],
     caseStudyUrl: "",
