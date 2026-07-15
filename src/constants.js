@@ -215,10 +215,10 @@ export const projects = [
     id: "transit-dispatch",
     title: "Transit Dispatch - Multi-Agency Arrival Alerts",
     description:
-      "Built an invite-only transit arrival notification service for DART, Unitrans, and Yolobus that plans one-time or recurring trips and monitors selected boarding legs for predicted-arrival changes.",
+      "Built a transit arrival notification service for regional transit agencies that plans one-time or recurring trips and monitors selected boarding legs for predicted-arrival changes.",
     technologies: ["Python", "FastAPI", "Google Maps Platform", "SQLite", "Telegram", "Resend", "Docker", "Caddy"],
     highlights: [
-      "Integrated Google Places and Routes through one transit provider, with agency-local timezone handling and demo itineraries that work without API keys.",
+      "Integrated Google Places and Routes through with agency-local timezone handling and demo itineraries that work without API keys.",
       "Built an async worker for milestone, ETA-change, cancellation, stale-feed, and recovery alerts, with persisted alert state and idempotent Telegram/email delivery.",
       "Implemented single-use invitations with signed sessions, single-use Telegram pairing, and a responsive dashboard that lazy-loads paused and past trips."
     ],
@@ -298,7 +298,7 @@ export const projects = [
       "Combined systems-level performance work in C++ with AI application logic in Python."
     ],
     demoUrl: "#",
-    githubUrl: "https://github.com/ResilientApp/ResChat",
+    githubUrl: "https://github.com/ExpoLab-App/ResChat",
     isOpenSource: true
   },
   {
