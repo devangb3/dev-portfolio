@@ -279,7 +279,7 @@ export const projects = [
     technologies: ["Python", "Flask", "IPFS", "ResilientDB", "Qdrant", "React", "Distributed Systems", "RAG"],
     highlights: [
       "Integrated IPFS-backed storage and sharing workflows for secure distributed file management.",
-      "Moved the source-attributed document assistant to persistent Qdrant with stable chunk IDs and per-user retrieval filters, plus rollback handling when ResilientDB metadata persistence fails.",
+      "Built a RAG-based chatbot assistant that answers user queries based on uploaded documents.",
       "Added MCP tooling around login, upload, share, and chat workflows so external agents can operate on ResShare through a structured tool surface."
     ],
     demoUrl: "https://res-share.resilientdb.com/",
@@ -605,7 +605,7 @@ export const featuredProjectDetails = {
     problem: "Document sharing and retrieval need access isolation, provenance, and durable storage across user workflows.",
     ownership: "File and sharing APIs, document ingestion, per-user retrieval, source-attributed RAG, and agent tooling.",
     proofPoints: [
-      "Combined ResilientDB/IPFS-backed sharing with document parsing, Gemini embeddings, persistent Qdrant retrieval, and cited answers.",
+      "Integrated multiple data stores and added key features like document parsing, RAG embedding generation, retrieval, and cited answers.",
       "Added structured MCP tools for authentication, upload, sharing, and document chat workflows."
     ],
     caseStudyUrl: "",
