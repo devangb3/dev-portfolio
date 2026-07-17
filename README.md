@@ -6,6 +6,29 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+## Publishing a blog post
+
+Blog posts live in `content/blogs` as Markdown files. Add one `.md` file with this frontmatter:
+
+```md
+---
+id: unique-post-id
+title: Your article title
+publishedAt: 2026-07-16
+kicker: Short editorial label
+readTime: 6 min read
+excerpt: "The preview shown on the portfolio."
+topics: Agents, Evaluation, Infrastructure
+sourceUrl: https://x.com/your-original-post
+---
+
+Write the article in Markdown here.
+```
+
+`npm start`, `npm test`, and `npm run build` automatically run `npm run sync-blogs`. The sync step validates the frontmatter, orders posts newest-first, and bundles the article content into `src/blogs.generated.js`. Do not edit that generated file directly.
+
+Standard Markdown images are supported. External URLs work directly. For local images, keep the image inside `content/blogs` and reference it relatively from the article, for example `![Trace comparison](./images/trace.png "Trace comparison")`. The sync step publishes those image files under `public/blog-assets`; the Markdown files themselves remain only in `content/blogs`.
+
 ### `npm start`
 
 Runs the app in the development mode.\

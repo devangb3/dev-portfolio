@@ -25,6 +25,9 @@ import HeroSocialLinks from "./components/HeroSocialLinks";
 import Footer from "./components/Footer";
 import FeaturedProjectCard from "./components/FeaturedProjectCard";
 import ProjectArchive from "./components/ProjectArchive";
+import BlogSection from "./components/BlogSection";
+import BlogArticlePage from "./components/BlogArticlePage";
+import { blogs } from "./blogs.generated";
 import {
   projects,
   skills,
@@ -99,6 +102,8 @@ function ExperienceLogo({ experience, theme }) {
 }
 
 function App() {
+  const currentPath = typeof window === "undefined" ? "/" : window.location.pathname;
+  const currentHash = typeof window === "undefined" ? "" : window.location.hash;
   const [isVisible, setIsVisible] = useState(false);
   const [showScroll, setShowScroll] = useState(true);
   const [darkMode, setDarkMode] = useState(true);
@@ -106,10 +111,30 @@ function App() {
   const heroRef = useRef(null);
   const theme = useMemo(() => getThemeTokens(darkMode ? "dark" : "light"), [darkMode]);
   const muiTheme = useMemo(() => getMuiTheme(theme), [theme]);
+  const articleMatch = currentPath.match(/^\/blog\/([^/]+)\/?$/);
+  const selectedBlog = articleMatch
+    ? blogs.find((blog) => blog.slug === decodeURIComponent(articleMatch[1]))
+    : null;
 
   useEffect(() => {
     applyThemeToCssVars(theme);
   }, [theme]);
+
+  useEffect(() => {
+    if (currentPath !== "/" || !currentHash) return undefined;
+
+    let secondFrame;
+    const firstFrame = window.requestAnimationFrame(() => {
+      secondFrame = window.requestAnimationFrame(() => {
+        document.querySelector(currentHash)?.scrollIntoView();
+      });
+    });
+
+    return () => {
+      window.cancelAnimationFrame(firstFrame);
+      if (secondFrame) window.cancelAnimationFrame(secondFrame);
+    };
+  }, [currentPath, currentHash]);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 120);
@@ -119,7 +144,7 @@ function App() {
 
       setShowScroll(window.scrollY < 120);
 
-      const sections = ["home", "about", "projects", "contact"];
+      const sections = ["home", "about", "projects", "blogs", "contact"];
       const scrollPosition = window.scrollY + 120;
 
       for (const section of sections) {
@@ -186,6 +211,20 @@ function App() {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  if (articleMatch) {
+    return (
+      <ThemeProvider theme={muiTheme}>
+        <CssBaseline />
+        <BlogArticlePage
+          blog={selectedBlog}
+          theme={theme}
+          darkMode={darkMode}
+          onToggleTheme={() => setDarkMode((currentMode) => !currentMode)}
+        />
+      </ThemeProvider>
+    );
+  }
   
   return (
     <ThemeProvider theme={muiTheme}>
@@ -225,16 +264,19 @@ function App() {
             DB
           </Typography>
           
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-            {['Home', 'About', 'Projects', 'Contact'].map((section) => (
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: { xs: 0.25, sm: 1.25 } }}>
+            {['Home', 'About', 'Projects', 'Blogs', 'Contact'].map((section) => (
               <Button 
                 key={section}
                 onClick={() => scrollToSection(section.toLowerCase())}
                 aria-current={activeSection === section.toLowerCase() ? 'location' : undefined}
                 sx={{ 
+                  display: { xs: ['Home', 'About'].includes(section) ? 'none' : 'inline-flex', md: 'inline-flex' },
                   color: activeSection === section.toLowerCase() ? theme.primary : theme.text,
                   fontWeight: activeSection === section.toLowerCase() ? 600 : 400,
                   position: 'relative',
+                  minWidth: 0,
+                  px: { xs: 0.75, sm: 1.25 },
                   '&:hover': {
                     color: theme.primary,
                     transform: 'translateY(-2px)',
@@ -278,6 +320,7 @@ function App() {
             variant="outlined" 
             startIcon={<Description />}
             sx={{ 
+              display: { xs: 'none', sm: 'inline-flex' },
               color: theme.primary,
               borderColor: theme.primary,
               fontWeight: 600,
@@ -864,6 +907,8 @@ function App() {
           />
         </Container>
       </Box>
+
+      <BlogSection blogs={blogs} theme={theme} isVisible={isVisible} />
 
       {/* Interactive Contact Section */}
       <Box id="contact" sx={{ 
