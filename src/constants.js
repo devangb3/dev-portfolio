@@ -37,7 +37,7 @@ export const projects = [
     title: "CausalFlow - Causal Attribution and Repair for LLM Agents",
     description:
       "Built an interpretable agentic debugging framework that improved long-horizon reasoning performance by 40% over baseline and grounded agent behavior in deterministic, verifiable environments.",
-    technologies: ["Python", "LLMs", "Agentic Frameworks", "Debugging", "Synthetic Environments", "Ablation Studies"],
+    technologies: ["Python", "LLMs", "Agentic Frameworks", "Synthetic Environments"],
     highlights: [
       "Built an interpretable framework to localize and repair failure modes in multi-step reasoning chains for long-horizon tasks.",
       "Evaluated across 3,000+ math, code generation, web QA, and medical browsing tasks; repaired 42.7% of failed traces and improved post-repair accuracy by a median +16.9% over baseline.",
@@ -276,7 +276,7 @@ export const projects = [
     title: "ResShare - Decentralized File Sharing System",
     description:
       "Built a decentralized file-sharing platform on top of ResilientDB and IPFS, with secure document storage, sharing workflows, and a RAG-powered assistant for uploaded files.",
-    technologies: ["Python", "Flask", "IPFS", "ResilientDB", "Qdrant", "React", "Distributed Systems", "RAG"],
+    technologies: ["Python", "Flask", "IPFS", "KV Store", "Qdrant", "React", "Distributed Systems", "RAG"],
     highlights: [
       "Integrated IPFS-backed storage and sharing workflows for secure distributed file management.",
       "Built a RAG-based chatbot assistant that answers user queries based on uploaded documents.",
@@ -552,63 +552,57 @@ export const projectCategoryById = {
 
 export const featuredProjectDetails = {
   "pilotcrew-gen-eval": {
-    problem: "Agent changes are difficult to compare when tasks, graders, traces, and run artifacts live in separate workflows.",
-    ownership: "Evaluation infrastructure, agent runners, deterministic gates, trace analysis, and prompt-optimization workflows.",
-    proofPoints: [
+    work: [
+      "Built evaluation infrastructure, agent runners, deterministic gates, trace analysis, and prompt-optimization workflows.",
       "Unified coding, RAG, tool-use, deep-research, conversational, and goal-state evaluation paths.",
       "Made regressions inspectable through structured runs, prompt/version tracking, gates, costs, and failure artifacts."
     ],
-    caseStudyUrl: "",
+    blogUrl: "",
     videoUrl: ""
   },
   "pilotcrew-observability": {
-    problem: "Production agent failures are hard to diagnose when telemetry arrives as vendor-specific, disconnected spans.",
-    ownership: "OTLP/OpenInference ingestion, span normalization, cost aggregation, scoped query APIs, and product integration.",
-    proofPoints: [
+    work: [
+      "Built OTLP/OpenInference ingestion, span normalization, cost aggregation, scoped query APIs, and product integration.",
       "Normalized traces into span, session, cost, feedback, and agent-level records.",
       "Connected external application ingest to owner-scoped trace and fleet dashboards."
     ],
-    caseStudyUrl: "",
+    blogUrl: "",
     videoUrl: ""
   },
   causalflow: {
-    problem: "A failed agent answer does not reveal which reasoning or tool step actually caused the outcome.",
-    ownership: "Causal attribution framework, counterfactual repair pipeline, benchmark experiments, and result auditing.",
-    proofPoints: [
+    work: [
+      "Built the causal attribution framework, counterfactual repair pipeline, benchmark experiments, and result-auditing workflow.",
       "Models execution as a dependency DAG and tests candidate causes through downstream re-execution or outcome prediction.",
       "Generates localized, minimal repair pairs and evaluates them across math, code, and browsing tasks."
     ],
-    caseStudyUrl: "",
+    blogUrl: "",
     videoUrl: ""
   },
   "prm-on-device": {
-    problem: "Self-consistency spends many generations without directly scoring whether intermediate reasoning steps are sound.",
-    ownership: "LoRA fine-tuning, step-verifier evaluation, weak-to-strong inference, and GSM8K efficiency experiments.",
-    proofPoints: [
+    work: [
+      "Built the LoRA fine-tuning, step-verifier evaluation, weak-to-strong inference, and GSM8K efficiency workflows.",
       "Fine-tuned Qwen3-8B on 563,181 labeled reasoning steps with 94.54% step-verification accuracy.",
       "At N=5, reached 60.0% GSM8K accuracy and matched N=64 self-consistency with 12.8x fewer generations."
     ],
-    caseStudyUrl: "",
+    blogUrl: "",
     videoUrl: ""
   },
   algotrade: {
-    problem: "Strategy teams need to manage, sweep, and execute user-authored trading code without coupling every run to one process.",
-    ownership: "MongoEngine domain models, strategy-file workflows, parameter sweeps, execution workers, and live monitoring.",
-    proofPoints: [
+    work: [
+      "Built MongoEngine domain models, strategy-file workflows, parameter sweeps, execution workers, and live monitoring.",
       "Built historical-data ingestion and isolated Docker/subprocess execution for parameterized strategy variants.",
       "Prototyped Kafka and threaded parallel execution with WebSocket updates for live run inspection."
     ],
-    caseStudyUrl: "",
+    blogUrl: "",
     videoUrl: ""
   },
   resshare: {
-    problem: "Document sharing and retrieval need access isolation, provenance, and durable storage across user workflows.",
-    ownership: "File and sharing APIs, document ingestion, per-user retrieval, source-attributed RAG, and agent tooling.",
-    proofPoints: [
+    work: [
+      "Built file and sharing APIs, document ingestion, per-user retrieval, source-attributed RAG, and agent tooling.",
       "Integrated multiple data stores and added key features like document parsing, RAG embedding generation, retrieval, and cited answers.",
       "Added structured MCP tools for authentication, upload, sharing, and document chat workflows."
     ],
-    caseStudyUrl: "",
+    blogUrl: "",
     videoUrl: "https://www.youtube.com/watch?v=DPMwRavPYkQ"
   }
 };
@@ -778,6 +772,5 @@ export const heroSocialLinks = [
   { icon: <img src="/hf-logo.png" alt="Hugging Face" width="24" height="24" />, url: 'https://huggingface.co/devangb4', label: 'Hugging Face' },
   { icon: <LinkedIn />, url: 'https://linkedin.com/in/devang-borkar-710b49201', label: 'LinkedIn' },
   { icon: <Twitter />, url: 'https://x.com/DevangBorkar', label: 'X' },
-  { icon: <Email />, url: 'mailto:devangborkar3@gmail.com', label: 'Email' },
   { icon: <LeetCodeIcon />, url: 'https://leetcode.com/u/devangborkar3/', label: 'LeetCode' }
 ];

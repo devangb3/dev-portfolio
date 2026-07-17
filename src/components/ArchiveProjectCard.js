@@ -1,6 +1,5 @@
 import { Box, Card, CardContent, Chip, Typography } from "@mui/material";
 import ProjectActions from "./ProjectActions";
-import ProjectChips from "./ProjectChips";
 
 const ArchiveProjectCard = ({ project, category, theme }) => (
   <Card
@@ -35,7 +34,6 @@ const ArchiveProjectCard = ({ project, category, theme }) => (
       <Typography variant="h6" sx={{ color: theme.text, fontWeight: 740, lineHeight: 1.2, mb: 0.75 }}>
         {project.title}
       </Typography>
-      <ProjectChips project={project} theme={theme} />
       <Typography
         sx={{
           color: theme.textSecondary,

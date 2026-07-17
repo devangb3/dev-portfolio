@@ -15,7 +15,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import {
   Download,
   ArrowDownward,
-  Description,
+  ContactPageOutlined,
   Brightness4,
   Brightness7,
 } from '@mui/icons-material';
@@ -249,22 +249,20 @@ function App() {
         boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
         transition: 'all 0.3s ease'
       }}>
-        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Typography 
-            variant="h6" 
-            sx={{ 
-              fontWeight: 800,
-              background: `linear-gradient(45deg, ${theme.primary}, ${theme.secondary})`,
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              cursor: 'pointer'
+        <Toolbar
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: 'minmax(0, 1fr) auto minmax(0, 1fr)',
+          }}
+        >
+          <Box
+            sx={{
+              gridColumn: 2,
+              display: 'flex',
+              alignItems: 'center',
+              gap: { xs: 0.25, sm: 1.25 },
             }}
-            onClick={() => scrollToSection('home')}
           >
-            DB
-          </Typography>
-          
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: { xs: 0.25, sm: 1.25 } }}>
             {['Home', 'About', 'Projects', 'Blogs', 'Contact'].map((section) => (
               <Button 
                 key={section}
@@ -318,8 +316,10 @@ function App() {
           </Box>
           <Button 
             variant="outlined" 
-            startIcon={<Description />}
+            startIcon={<ContactPageOutlined sx={{ fontSize: 20 }} />}
             sx={{ 
+              gridColumn: 3,
+              justifySelf: 'end',
               display: { xs: 'none', sm: 'inline-flex' },
               color: theme.primary,
               borderColor: theme.primary,
@@ -456,8 +456,7 @@ function App() {
                       maxWidth: 600
                     }}
                   >
-                    I build agentic evals, multimodal AI systems, full-stack products,
-                    and scalable backend infrastructure across Python, JS and use cloud-native tooling.
+                    Working on LLM evals, agent harnesses, full-stack products and scalable backend infrastructure.
                   </Typography>
               </Box>
             </Grid>
@@ -976,7 +975,7 @@ function App() {
               maxWidth: '100%'
             }}
           >
-            I'm currently open to new opportunities in the Bay Area and remote positions. 
+            I'm currently open to new opportunities across the U.S. and remote positions. 
             Whether you have a project in mind, want to collaborate, or just want to say hi, 
             I'd love to hear from you!
           </Typography>

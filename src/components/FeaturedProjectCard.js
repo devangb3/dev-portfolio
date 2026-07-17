@@ -12,9 +12,8 @@ import {
   GitHub,
   Launch,
   MenuBookOutlined,
-  PlayCircleOutline,
+  YouTube,
 } from "@mui/icons-material";
-import ProjectChips from "./ProjectChips";
 
 const MediaSlot = ({ icon, label, url, theme }) => {
   const available = Boolean(url);
@@ -117,7 +116,6 @@ const FeaturedProjectCard = ({ project, details, category, index, theme }) => (
           <Typography variant="h5" sx={{ color: theme.text, fontWeight: 760, lineHeight: 1.15 }}>
             {project.title}
           </Typography>
-          <ProjectChips project={project} theme={theme} />
         </Box>
         <Typography
           aria-hidden="true"
@@ -133,33 +131,21 @@ const FeaturedProjectCard = ({ project, details, category, index, theme }) => (
         </Typography>
       </Box>
 
-      <Box sx={{ mb: 2.5 }}>
-        <Typography sx={{ color: theme.textSecondary, fontSize: "0.66rem", letterSpacing: "0.14em", textTransform: "uppercase", mb: 0.7 }}>
-          The problem
-        </Typography>
-        <Typography sx={{ color: theme.text, fontSize: "0.98rem", lineHeight: 1.55 }}>
-          {details.problem}
-        </Typography>
-      </Box>
-
-      <Box sx={{ p: 1.75, mb: 2.5, bgcolor: `${theme.primary}08`, borderLeft: `2px solid ${theme.primary}` }}>
-        <Typography sx={{ color: theme.primary, fontSize: "0.64rem", fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase", mb: 0.6 }}>
-          My lane
-        </Typography>
-        <Typography sx={{ color: theme.textSecondary, fontSize: "0.86rem", lineHeight: 1.5 }}>
-          {details.ownership}
-        </Typography>
-      </Box>
-
-      <Box sx={{ mb: 2.5 }}>
-        <Typography sx={{ color: theme.textSecondary, fontSize: "0.66rem", letterSpacing: "0.14em", textTransform: "uppercase", mb: 1 }}>
-          Proof of work
-        </Typography>
-        {details.proofPoints.map((point) => (
-          <Box key={point} sx={{ display: "flex", gap: 1.25, alignItems: "flex-start", mb: 1 }}>
-            <Box sx={{ width: 6, height: 6, bgcolor: theme.secondary, mt: 0.75, flexShrink: 0 }} />
-            <Typography sx={{ color: theme.textSecondary, fontSize: "0.84rem", lineHeight: 1.48 }}>
-              {point}
+      <Box component="ul" sx={{ m: 0, mb: 2.5, p: 0, display: "grid", gap: 1.1, listStyle: "none" }}>
+        {details.work.map((item) => (
+          <Box component="li" key={item} sx={{ display: "flex", alignItems: "flex-start", gap: 1.25 }}>
+            <Box
+              aria-hidden="true"
+              sx={{
+                width: 5,
+                height: 5,
+                mt: 0.85,
+                flexShrink: 0,
+                bgcolor: index % 2 === 0 ? theme.primary : theme.secondary,
+              }}
+            />
+            <Typography sx={{ color: theme.textSecondary, fontSize: "0.88rem", lineHeight: 1.55 }}>
+              {item}
             </Typography>
           </Box>
         ))}
@@ -185,12 +171,12 @@ const FeaturedProjectCard = ({ project, details, category, index, theme }) => (
       <Box sx={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 1 }}>
         <MediaSlot
           icon={<MenuBookOutlined sx={{ fontSize: 19 }} />}
-          label="Case study"
-          url={details.caseStudyUrl}
+          label="Blog"
+          url={details.blogUrl}
           theme={theme}
         />
         <MediaSlot
-          icon={<PlayCircleOutline sx={{ fontSize: 20 }} />}
+          icon={<YouTube sx={{ fontSize: 23 }} />}
           label="Walkthrough video"
           url={details.videoUrl}
           theme={theme}
