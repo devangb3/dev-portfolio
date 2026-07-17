@@ -9,8 +9,6 @@ topics: Coding Agents, Context, Grok Build
 sourceUrl: https://x.com/DevangBorkar/status/2077924752573018167
 ---
 
-Context management is one of the hardest parts of building reliable coding agents. I went through some of the techniques [Grok Build](https://github.com/xai-org/grok-build) uses for context management and wrote down what I found interesting:
-
 This analysis is pinned to Grok Build's [first public commit](https://github.com/xai-org/grok-build/commit/c1b5909ec707c069f1d21a93917af044e71da0d7).
 
 ## 1) Keeping the Prompt Stable for Better KV Cache Reuse
