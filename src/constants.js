@@ -93,18 +93,33 @@ export const projects = [
   },
   {
     id: "cyber-bench",
-    title: "Cyber-Bench - Web CTF and Memory Vulnerability Benchmark",
+    title: "Cyber-Bench - Versioned Cybersecurity Agent Benchmark",
     description:
-      "Built a cybersecurity benchmark suite for evaluating agents on multi-service web CTF environments and memory-vulnerability patch resilience with deterministic scoring and inspectable run artifacts.",
-    technologies: ["Python", "Docker", "OpenRouter", "OpenCode", "Cybersecurity", "Benchmarking"],
+      "Contributed to and expanded a Harbor-compatible cybersecurity benchmark suite for evaluating agents across web exploitation, authentication and protocol flaws, forensics, and memory-safety challenges using self-contained task packages and deterministic verification.",
+    technologies: ["Python", "Harbor", "Docker", "OpenRouter", "Cybersecurity", "Benchmarking"],
     highlights: [
-      "Implemented a CyberExplorer-style runner with fixed curated bundles, isolated Docker target networks, shell execution inside attacker containers, and structured flag submission.",
-      "Added OpenCode backend support with isolated workspaces, guarded helper commands, transcript export, and a browser-based transcript viewer for run inspection.",
-      "Built a memory-vuln-bench pipeline over ARVO/CyberGym-style tasks that records SQLite runs, verifies ground-truth PoCs, and scores whether patched binaries resist generated exploits."
+      "Added and hardened task packages with task-specific instructions, containerized environments, reference solutions, and deterministic graders across multiple cybersecurity challenge families.",
+      "Helped organize the repository into versioned V1, V2, and V3 tasksets with explicit package-ownership boundaries and separate run paths.",
+      "Standardized task authorization guidance and CTF time limits, and added maintainer instructions for repeatable task authoring and validation."
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/PilotcrewAI/Cyber-Bench",
     isOpenSource: false
+  },
+  {
+    id: "registry-lens",
+    title: "Registry Lens - ClinicalTrials.gov Visualization",
+    description:
+      "Built a full-stack research application that converts natural-language clinical-trial questions into typed visualizations grounded in live ClinicalTrials.gov records.",
+    technologies: ["Python", "FastAPI", "Pydantic", "React", "OpenAI", "ClinicalTrials.gov", "Docker", "GCP Cloud Run"],
+    highlights: [
+      "Constrained the LLM to structured query planning while deterministic Python performs source retrieval, filtering, aggregation, citation construction, and response validation.",
+      "Implemented six typed visualization contracts with provenance, bounded study citations, explicit filter overrides, and clearly marked partial results.",
+      "Built and tested the React interface, packaged the frontend and API in one production container, and deployed the application on Google Cloud Run."
+    ],
+    demoUrl: "https://registry-lens-424176252593.us-central1.run.app",
+    githubUrl: "https://github.com/devangb3/Trials-Visualization",
+    isOpenSource: true
   },
   {
     id: "data-science-bench",
@@ -522,6 +537,7 @@ export const projectCategoryById = {
   "gitartha-engine": "Backend & Distributed Systems",
   "gemini-hardwarebench": "Evaluation & Benchmarks",
   "cyber-bench": "Evaluation & Benchmarks",
+  "registry-lens": "Full-Stack Products",
   "data-science-bench": "Evaluation & Benchmarks",
   "notebook-agent-eval": "Evaluation & Benchmarks",
   "open-agent-loop": "AI Systems",
