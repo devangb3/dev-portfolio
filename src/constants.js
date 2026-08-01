@@ -93,7 +93,7 @@ export const projects = [
   },
   {
     id: "cyber-bench",
-    title: "Cyber-Bench - Versioned Cybersecurity Agent Benchmark",
+    title: "Cyber-Bench - Web CTF and Memory Vulnerability Benchmark",
     description:
       "Contributed to and expanded a Harbor-compatible cybersecurity benchmark suite for evaluating agents across web exploitation, authentication and protocol flaws, forensics, and memory-safety challenges using self-contained task packages and deterministic verification.",
     technologies: ["Python", "Harbor", "Docker", "OpenRouter", "Cybersecurity", "Benchmarking"],
