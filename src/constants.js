@@ -99,7 +99,7 @@ export const projects = [
     technologies: ["Python", "Harbor", "Docker", "OpenRouter", "Cybersecurity", "Benchmarking"],
     highlights: [
       "Added and hardened task packages with task-specific instructions, containerized environments, reference solutions, and deterministic graders across multiple cybersecurity challenge families.",
-      "Standardized task authorization guidance and CTF time limits, and added maintainer instructions for repeatable task authoring and validation."
+      "Designed an internal Docker network with a gateway sidecar that exposes stable challenge URLs to agents while keeping the benchmark environment off the public internet."
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/PilotcrewAI/Cyber-Bench",
