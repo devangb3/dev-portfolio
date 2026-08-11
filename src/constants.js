@@ -34,7 +34,7 @@ export const projects = [
   },
   {
     id: "causalflow",
-    title: "CausalFlow - Causal Attribution and Repair for LLM Agents",
+    title: "CausalFlow - Causal Attribution and Counterfactual Repair for LLM Agent Failures",
     description:
       "Built an interpretable agentic debugging framework that improved long-horizon reasoning performance by 40% over baseline and grounded agent behavior in deterministic, verifiable environments.",
     technologies: ["Python", "LLMs", "Agentic Frameworks", "Synthetic Environments"],
@@ -44,6 +44,7 @@ export const projects = [
       "Generated localized repair pairs from failure-inducing reasoning and tool steps that can be used as DPO post-training data."
     ],
     demoUrl: "#",
+    paperUrl: "https://arxiv.org/abs/2605.25338",
     githubUrl: "https://github.com/devangb3/CausalFlow",
     isOpenSource: true
   },

@@ -1,11 +1,12 @@
 import { Button, CardActions } from "@mui/material";
-import { GitHub, Launch } from '@mui/icons-material';
+import { GitHub, Launch, MenuBookOutlined } from '@mui/icons-material';
 
 const ProjectActions = ({ project, theme, compact = false }) => {
   const hasCode = project.isOpenSource && project.githubUrl !== "#";
+  const hasPaper = Boolean(project.paperUrl && project.paperUrl !== "#");
   const hasDemo = project.demoUrl !== "#";
 
-  if (!hasCode && !hasDemo) return null;
+  if (!hasCode && !hasPaper && !hasDemo) return null;
 
   return (
     <CardActions sx={{ p: compact ? 2.5 : 3, pt: 0, gap: 1 }}>
@@ -29,6 +30,28 @@ const ProjectActions = ({ project, theme, compact = false }) => {
           }}
         >
           Code
+        </Button>
+      )}
+      {hasPaper && (
+        <Button
+          variant="outlined"
+          href={project.paperUrl}
+          target="_blank"
+          rel="noreferrer"
+          startIcon={<MenuBookOutlined />}
+          sx={{
+            color: theme.primary,
+            borderColor: theme.primary,
+            fontWeight: 600,
+            flex: 1,
+            '&:hover': {
+              borderColor: theme.primary,
+              bgcolor: `${theme.primary}10`,
+              transform: 'translateY(-2px)'
+            }
+          }}
+        >
+          Paper
         </Button>
       )}
       {hasDemo && (
