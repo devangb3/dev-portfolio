@@ -95,16 +95,29 @@ export const projects = [
     id: "cyber-bench",
     title: "Cyber-Bench - Web CTF and Memory Vulnerability Benchmark",
     description:
-      "Built a cybersecurity benchmark suite for evaluating agents on multi-service web CTF environments and memory-vulnerability patch resilience with deterministic scoring and inspectable run artifacts.",
-    technologies: ["Python", "Docker", "OpenRouter", "OpenCode", "Cybersecurity", "Benchmarking"],
+      "Contributed to and expanded a Harbor-compatible cybersecurity benchmark suite using self-contained task packages, deterministic verification, and evidence-gated calibration across web, defensive, forensic, and supply-chain scenarios.",
+    technologies: ["Python", "Harbor", "Docker", "OpenRouter", "Cybersecurity", "Benchmarking"],
     highlights: [
-      "Implemented a CyberExplorer-style runner with fixed curated bundles, isolated Docker target networks, shell execution inside attacker containers, and structured flag submission.",
-      "Added OpenCode backend support with isolated workspaces, guarded helper commands, transcript export, and a browser-based transcript viewer for run inspection.",
-      "Built a memory-vuln-bench pipeline over ARVO/CyberGym-style tasks that records SQLite runs, verifies ground-truth PoCs, and scores whether patched binaries resist generated exploits."
+      "Added and hardened Harbor task packages with task-specific instructions, containerized environments, reference solutions, and deterministic graders across multiple cybersecurity challenge families.",
+      "Designed an internal Docker network with a gateway sidecar that exposes stable challenge URLs to agents while keeping the benchmark environment off the public internet.",
+      "Developed a reusable workflow for synthetic agent benchmark creation—from capability brief to validated task, oracle verification, fairness review, shortcut hardening, and same-revision model calibration."
     ],
-    demoUrl: "#",
+    demoUrl: "https://youtu.be/QzPliKHhVV0",
     githubUrl: "https://github.com/PilotcrewAI/Cyber-Bench",
     isOpenSource: false
+  },
+  {
+    id: "dprime-agent",
+    title: "DPrime Agent - Prime Agent Fork",
+    description:
+      "Maintained a small fork of Prime Intellect's Prime Agent with a continuously published Linux x86_64 main build for personal use.",
+    technologies: ["Shell", "GitHub Actions", "Linux"],
+    highlights: [
+      "Added CI and a checksum-verifying launcher with automatic updates, cached-build fallback, and working-directory preservation."
+    ],
+    demoUrl: "#",
+    githubUrl: "https://github.com/devangb3/prime-agent",
+    isOpenSource: true
   },
   {
     id: "data-science-bench",
@@ -522,6 +535,7 @@ export const projectCategoryById = {
   "gitartha-engine": "Backend & Distributed Systems",
   "gemini-hardwarebench": "Evaluation & Benchmarks",
   "cyber-bench": "Evaluation & Benchmarks",
+  "dprime-agent": "AI Systems",
   "data-science-bench": "Evaluation & Benchmarks",
   "notebook-agent-eval": "Evaluation & Benchmarks",
   "open-agent-loop": "AI Systems",
