@@ -34,7 +34,7 @@ export const projects = [
   },
   {
     id: "causalflow",
-    title: "CausalFlow - Causal Attribution and Repair for LLM Agents",
+    title: "CausalFlow - Causal Attribution and Counterfactual Repair for LLM Agent Failures",
     description:
       "Built an interpretable agentic debugging framework that improved long-horizon reasoning performance by 40% over baseline and grounded agent behavior in deterministic, verifiable environments.",
     technologies: ["Python", "LLMs", "Agentic Frameworks", "Synthetic Environments"],
@@ -44,6 +44,7 @@ export const projects = [
       "Generated localized repair pairs from failure-inducing reasoning and tool steps that can be used as DPO post-training data."
     ],
     demoUrl: "#",
+    paperUrl: "https://arxiv.org/abs/2605.25338",
     githubUrl: "https://github.com/devangb3/CausalFlow",
     isOpenSource: true
   },
@@ -95,17 +96,33 @@ export const projects = [
     id: "cyber-bench",
     title: "Cyber-Bench - Web CTF and Memory Vulnerability Benchmark",
     description:
+      "Contributed to and expanded a Harbor-compatible cybersecurity benchmark suite using self-contained task packages, deterministic verification, and evidence-gated calibration across web, defensive, forensic, and supply-chain scenarios.",
+    technologies: ["Python", "Harbor", "Docker", "OpenRouter", "Cybersecurity", "Benchmarking"],
+    highlights: [
+      "Added and hardened Harbor task packages with task-specific instructions, containerized environments, reference solutions, and deterministic graders across multiple cybersecurity challenge families.",
+      "Designed an internal Docker network with a gateway sidecar that exposes stable challenge URLs to agents while keeping the benchmark environment off the public internet.",
+      "Developed a reusable workflow for synthetic agent benchmark creation—from capability brief to validated task, oracle verification, fairness review, shortcut hardening, and same-revision model calibration."
       "Contributed to and expanded a Harbor-compatible cybersecurity benchmark suite for evaluating agents across web exploitation, authentication and protocol flaws, forensics, and memory-safety challenges using self-contained task packages and deterministic verification.",
     technologies: ["Python", "Harbor", "Docker", "OpenRouter", "Cybersecurity", "Benchmarking"],
     highlights: [
       "Added and hardened task packages with task-specific instructions, containerized environments, reference solutions, and deterministic graders across multiple cybersecurity challenge families.",
       "Standardized task authorization guidance and CTF time limits, and added maintainer instructions for repeatable task authoring and validation."
     ],
-    demoUrl: "#",
+    demoUrl: "https://youtu.be/QzPliKHhVV0",
     githubUrl: "https://github.com/PilotcrewAI/Cyber-Bench",
     isOpenSource: false
   },
   {
+    id: "dprime-agent",
+    title: "DPrime Agent - Prime Agent Fork",
+    description:
+      "Maintained a small fork of Prime Intellect's Prime Agent with a continuously published Linux x86_64 main build for personal use.",
+    technologies: ["Shell", "GitHub Actions", "Linux"],
+    highlights: [
+      "Added CI and a checksum-verifying launcher with automatic updates, cached-build fallback, and working-directory preservation."
+    ],
+    demoUrl: "#",
+    githubUrl: "https://github.com/devangb3/prime-agent",
     id: "registry-lens",
     title: "Registry Lens - ClinicalTrials.gov Visualization",
     description:
@@ -536,6 +553,7 @@ export const projectCategoryById = {
   "gitartha-engine": "Backend & Distributed Systems",
   "gemini-hardwarebench": "Evaluation & Benchmarks",
   "cyber-bench": "Evaluation & Benchmarks",
+  "dprime-agent": "AI Systems",
   "registry-lens": "Full-Stack Products",
   "data-science-bench": "Evaluation & Benchmarks",
   "notebook-agent-eval": "Evaluation & Benchmarks",

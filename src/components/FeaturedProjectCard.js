@@ -184,7 +184,7 @@ const FeaturedProjectCard = ({ project, details, category, index, theme }) => (
       </Box>
     </CardContent>
 
-    {(project.isOpenSource || project.demoUrl !== "#") && (
+    {(project.isOpenSource || (project.paperUrl && project.paperUrl !== "#") || project.demoUrl !== "#") && (
       <CardActions sx={{ px: { xs: 2.5, md: 3.25 }, pb: 3, pt: 0, gap: 1 }}>
         {project.isOpenSource && project.githubUrl !== "#" && (
           <Button
@@ -196,6 +196,18 @@ const FeaturedProjectCard = ({ project, details, category, index, theme }) => (
             sx={{ color: theme.primary, border: `1px solid ${theme.border}`, px: 1.5 }}
           >
             Code
+          </Button>
+        )}
+        {project.paperUrl && project.paperUrl !== "#" && (
+          <Button
+            href={project.paperUrl}
+            target="_blank"
+            rel="noreferrer"
+            startIcon={<MenuBookOutlined />}
+            endIcon={<ArrowOutward sx={{ fontSize: 15 }} />}
+            sx={{ color: theme.text, border: `1px solid ${theme.border}`, px: 1.5 }}
+          >
+            Paper
           </Button>
         )}
         {project.demoUrl !== "#" && (
