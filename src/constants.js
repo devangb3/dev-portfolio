@@ -102,6 +102,11 @@ export const projects = [
       "Added and hardened Harbor task packages with task-specific instructions, containerized environments, reference solutions, and deterministic graders across multiple cybersecurity challenge families.",
       "Designed an internal Docker network with a gateway sidecar that exposes stable challenge URLs to agents while keeping the benchmark environment off the public internet.",
       "Developed a reusable workflow for synthetic agent benchmark creation—from capability brief to validated task, oracle verification, fairness review, shortcut hardening, and same-revision model calibration."
+      "Contributed to and expanded a Harbor-compatible cybersecurity benchmark suite for evaluating agents across web exploitation, authentication and protocol flaws, forensics, and memory-safety challenges using self-contained task packages and deterministic verification.",
+    technologies: ["Python", "Harbor", "Docker", "OpenRouter", "Cybersecurity", "Benchmarking"],
+    highlights: [
+      "Added and hardened task packages with task-specific instructions, containerized environments, reference solutions, and deterministic graders across multiple cybersecurity challenge families.",
+      "Standardized task authorization guidance and CTF time limits, and added maintainer instructions for repeatable task authoring and validation."
     ],
     demoUrl: "https://youtu.be/QzPliKHhVV0",
     githubUrl: "https://github.com/PilotcrewAI/Cyber-Bench",
@@ -118,6 +123,18 @@ export const projects = [
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/devangb3/prime-agent",
+    id: "registry-lens",
+    title: "Registry Lens - ClinicalTrials.gov Visualization",
+    description:
+      "Built a full-stack research application that converts natural-language clinical-trial questions into typed visualizations grounded in live ClinicalTrials.gov records.",
+    technologies: ["Python", "FastAPI", "Pydantic", "React", "OpenAI", "ClinicalTrials.gov", "Docker", "GCP Cloud Run"],
+    highlights: [
+      "Constrained the LLM to structured query planning while deterministic Python performs source retrieval, filtering, aggregation, citation construction, and response validation.",
+      "Implemented six typed visualization contracts with provenance, bounded study citations, explicit filter overrides, and clearly marked partial results.",
+      "Built and tested the React interface, packaged the frontend and API in one production container, and deployed the application on Google Cloud Run."
+    ],
+    demoUrl: "https://registry-lens-424176252593.us-central1.run.app",
+    githubUrl: "https://github.com/devangb3/Trials-Visualization",
     isOpenSource: true
   },
   {
@@ -537,6 +554,7 @@ export const projectCategoryById = {
   "gemini-hardwarebench": "Evaluation & Benchmarks",
   "cyber-bench": "Evaluation & Benchmarks",
   "dprime-agent": "AI Systems",
+  "registry-lens": "Full-Stack Products",
   "data-science-bench": "Evaluation & Benchmarks",
   "notebook-agent-eval": "Evaluation & Benchmarks",
   "open-agent-loop": "AI Systems",
