@@ -14,10 +14,6 @@ export const projects = [
       "Implemented deterministic gates, tool traces, prompt acceptance checks, and diagnostics that make model-quality regressions inspectable."
     ],
     demoUrl: "https://pilotcrew.ai/agent-optimizer",
-    links: [
-      { label: "Docs", url: "https://pilotcrew.ai/docs/agent-optimizer", type: "docs" },
-      { label: "Demo Video", url: "https://drive.google.com/file/d/1UR-XMf8N4GDllyhZUSGUWAFqMLDs3BiK/view?usp=sharing", type: "video" }
-    ],
     githubUrl: "#",
     isOpenSource: false
   },
@@ -593,8 +589,8 @@ export const featuredProjectDetails = {
       "Unified coding, RAG, tool-use, deep-research, conversational, and goal-state evaluation paths.",
       "Made regressions inspectable through structured runs, prompt/version tracking, gates, costs, and failure artifacts."
     ],
-    blogUrl: "",
-    videoUrl: ""
+    blogUrl: "https://pilotcrew.ai/docs/agent-optimizer",
+    videoUrl: "https://drive.google.com/file/d/1UR-XMf8N4GDllyhZUSGUWAFqMLDs3BiK/view?usp=sharing"
   },
   "pilotcrew-observability": {
     work: [

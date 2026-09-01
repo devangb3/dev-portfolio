@@ -1,16 +1,15 @@
 import { Button, CardActions } from "@mui/material";
-import { GitHub, Launch, MenuBookOutlined, YouTube } from '@mui/icons-material';
+import { GitHub, Launch, MenuBookOutlined } from '@mui/icons-material';
 
 const ProjectActions = ({ project, theme, compact = false }) => {
   const hasCode = project.isOpenSource && project.githubUrl !== "#";
   const hasPaper = Boolean(project.paperUrl && project.paperUrl !== "#");
   const hasDemo = project.demoUrl !== "#";
-  const links = project.links || [];
 
-  if (!hasCode && !hasPaper && !hasDemo && links.length === 0) return null;
+  if (!hasCode && !hasPaper && !hasDemo) return null;
 
   return (
-    <CardActions sx={{ p: compact ? 2.5 : 3, pt: 0, gap: 1, flexWrap: "wrap" }}>
+    <CardActions sx={{ p: compact ? 2.5 : 3, pt: 0, gap: 1 }}>
       {hasCode && (
         <Button
           variant="outlined"
@@ -77,29 +76,6 @@ const ProjectActions = ({ project, theme, compact = false }) => {
           Demo
         </Button>
       )}
-      {links.map((link) => (
-        <Button
-          key={link.url}
-          variant="outlined"
-          href={link.url}
-          target="_blank"
-          rel="noreferrer"
-          startIcon={link.type === "video" ? <YouTube /> : <MenuBookOutlined />}
-          sx={{
-            color: theme.primary,
-            borderColor: theme.primary,
-            fontWeight: 600,
-            flex: 1,
-            '&:hover': {
-              borderColor: theme.primary,
-              bgcolor: `${theme.primary}10`,
-              transform: 'translateY(-2px)'
-            }
-          }}
-        >
-          {link.label}
-        </Button>
-      ))}
     </CardActions>
   );
 };

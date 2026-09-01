@@ -171,7 +171,7 @@ const FeaturedProjectCard = ({ project, details, category, index, theme }) => (
       <Box sx={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 1 }}>
         <MediaSlot
           icon={<MenuBookOutlined sx={{ fontSize: 19 }} />}
-          label="Blog"
+          label="Paper"
           url={details.blogUrl}
           theme={theme}
         />
@@ -184,8 +184,8 @@ const FeaturedProjectCard = ({ project, details, category, index, theme }) => (
       </Box>
     </CardContent>
 
-    {(project.isOpenSource || (project.paperUrl && project.paperUrl !== "#") || project.demoUrl !== "#" || project.links?.length > 0) && (
-      <CardActions sx={{ px: { xs: 2.5, md: 3.25 }, pb: 3, pt: 0, gap: 1, flexWrap: "wrap" }}>
+    {(project.isOpenSource || (project.paperUrl && project.paperUrl !== "#") || project.demoUrl !== "#") && (
+      <CardActions sx={{ px: { xs: 2.5, md: 3.25 }, pb: 3, pt: 0, gap: 1 }}>
         {project.isOpenSource && project.githubUrl !== "#" && (
           <Button
             href={project.githubUrl}
@@ -222,19 +222,6 @@ const FeaturedProjectCard = ({ project, details, category, index, theme }) => (
             Live
           </Button>
         )}
-        {project.links?.map((link) => (
-          <Button
-            key={link.url}
-            href={link.url}
-            target="_blank"
-            rel="noreferrer"
-            startIcon={link.type === "video" ? <YouTube /> : <MenuBookOutlined />}
-            endIcon={<ArrowOutward sx={{ fontSize: 15 }} />}
-            sx={{ color: theme.text, border: `1px solid ${theme.border}`, px: 1.5 }}
-          >
-            {link.label}
-          </Button>
-        ))}
       </CardActions>
     )}
   </Card>
