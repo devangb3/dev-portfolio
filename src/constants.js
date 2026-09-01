@@ -101,12 +101,8 @@ export const projects = [
     highlights: [
       "Added and hardened Harbor task packages with task-specific instructions, containerized environments, reference solutions, and deterministic graders across multiple cybersecurity challenge families.",
       "Designed an internal Docker network with a gateway sidecar that exposes stable challenge URLs to agents while keeping the benchmark environment off the public internet.",
-      "Developed a reusable workflow for synthetic agent benchmark creation—from capability brief to validated task, oracle verification, fairness review, shortcut hardening, and same-revision model calibration."
-      "Contributed to and expanded a Harbor-compatible cybersecurity benchmark suite for evaluating agents across web exploitation, authentication and protocol flaws, forensics, and memory-safety challenges using self-contained task packages and deterministic verification.",
-    technologies: ["Python", "Harbor", "Docker", "OpenRouter", "Cybersecurity", "Benchmarking"],
-    highlights: [
-      "Added and hardened task packages with task-specific instructions, containerized environments, reference solutions, and deterministic graders across multiple cybersecurity challenge families.",
-      "Standardized task authorization guidance and CTF time limits, and added maintainer instructions for repeatable task authoring and validation."
+      "Developed a reusable workflow for synthetic agent benchmark creation—from capability brief to validated task, oracle verification, fairness review, shortcut hardening, and same-revision model calibration.",
+      "Contributed to and expanded a Harbor-compatible cybersecurity benchmark suite for evaluating agents across web exploitation, authentication and protocol flaws, forensics, and memory-safety challenges using self-contained task packages and deterministic verification."
     ],
     demoUrl: "https://youtu.be/QzPliKHhVV0",
     githubUrl: "https://github.com/PilotcrewAI/Cyber-Bench",
