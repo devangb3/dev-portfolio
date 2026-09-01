@@ -123,6 +123,9 @@ export const projects = [
     ],
     demoUrl: "#",
     githubUrl: "https://github.com/devangb3/prime-agent",
+    isOpenSource: true
+  },
+  {
     id: "registry-lens",
     title: "Registry Lens - ClinicalTrials.gov Visualization",
     description:
