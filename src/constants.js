@@ -589,6 +589,7 @@ export const featuredProjectDetails = {
       "Unified coding, RAG, tool-use, deep-research, conversational, and goal-state evaluation paths.",
       "Made regressions inspectable through structured runs, prompt/version tracking, gates, costs, and failure artifacts."
     ],
+    resourceLabel: "Usage",
     blogUrl: "https://pilotcrew.ai/docs/agent-optimizer",
     videoUrl: "https://drive.google.com/file/d/1UR-XMf8N4GDllyhZUSGUWAFqMLDs3BiK/view?usp=sharing"
   },
@@ -607,6 +608,7 @@ export const featuredProjectDetails = {
       "Models execution as a dependency DAG and tests candidate causes through downstream re-execution or outcome prediction.",
       "Generates localized, minimal repair pairs and evaluates them across math, code, and browsing tasks."
     ],
+    resourceLabel: "Paper",
     blogUrl: "",
     videoUrl: ""
   },

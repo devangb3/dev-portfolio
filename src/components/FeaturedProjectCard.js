@@ -171,7 +171,7 @@ const FeaturedProjectCard = ({ project, details, category, index, theme }) => (
       <Box sx={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 1 }}>
         <MediaSlot
           icon={<MenuBookOutlined sx={{ fontSize: 19 }} />}
-          label="Paper"
+          label={details.resourceLabel || "Blog"}
           url={details.blogUrl}
           theme={theme}
         />
