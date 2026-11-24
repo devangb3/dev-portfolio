@@ -36,12 +36,12 @@ export const projects = [
     id: "causalflow",
     title: "CausalFlow - Causal Attribution and Counterfactual Repair for LLM Agent Failures",
     description:
-      "Built an interventional framework that attributes and repairs failures in multi-step LLM-agent traces by modeling execution as a dependency graph and scoring steps on whether an intervention flips the outcome.",
-    technologies: ["Python", "OpenRouter", "MongoDB", "LLMs", "Agentic Frameworks", "Docker"],
+      "Built an interpretable agentic debugging framework that improved long-horizon reasoning performance by 40% over baseline and grounded agent behavior in deterministic, verifiable environments.",
+    technologies: ["Python", "LLMs", "Agentic Frameworks", "Synthetic Environments"],
     highlights: [
-      "Intervenes on candidate steps, re-executes only downstream work when an executor exists, and otherwise asks a model to predict whether the intervened trace would succeed.",
-      "On the audited primary runs, aggregate effective success moved from 61.6% to 78.1% across GSM8K, MBPP, SealQA Hard, and MedBrowseComp.",
-      "467 of 1,088 baseline-failing traces had a repair accepted by that benchmark's evaluator, a 42.9% failure repair rate, and those contrasts are sketched for DPO-style training."
+      "Built an interpretable framework to localize and repair failure modes in multi-step reasoning chains for long-horizon tasks.",
+      "Evaluated across 3,000+ math, code generation, web QA, and medical browsing tasks; repaired 42.7% of failed traces and improved post-repair accuracy by a median +16.9% over baseline.",
+      "Generated localized repair pairs from failure-inducing reasoning and tool steps that can be used as DPO post-training data."
     ],
     demoUrl: "#",
     paperUrl: "https://arxiv.org/abs/2605.25338",
@@ -303,9 +303,9 @@ export const projects = [
   },
   {
     id: "open-agent-loop",
-    title: "OpenLoop - Local Prompt Compiler for Coding Agents",
+    title: "OpenAgentLoop - Local Prompt and Work-Order CLI",
     description:
-      "Built a local-first CLI that compiles issues, logs, diffs, repo instructions, and previous attempts into target-specific prompts, work orders, lint reports, and trace artifacts for Codex, Claude Code, and OpenCode.",
+      "Built a local-first CLI that turns messy issue notes, diffs, and failure logs into structured work orders, prompt bundles, repair prompts, review prompts, lint reports, and trace artifacts for coding agents.",
     technologies: ["Python", "Typer", "CLI Tools", "Prompt Engineering", "Agent Workflows", "pytest"],
     highlights: [
       "Implemented draft, lint, repair, and review commands that compile target-specific prompts for Codex, Claude Code, and OpenCode.",
@@ -365,12 +365,12 @@ export const projects = [
     id: "cover-letter-generator",
     title: "Cover Letter Generator",
     description:
-      "Built a local application that writes cover letters, screening-question answers, recruiting emails, and tailored resume PDFs from a saved profile and a job description, using a bring-your-own OpenRouter key.",
-    technologies: ["Python", "Flask", "React", "OpenRouter", "SQLite", "PDF Generation", "Docker"],
+      "Built a full-stack application that generates tailored cover letters, answers application questions, performs company-aware research, and renders editable PDF/resume outputs from a resume plus job description workflow.",
+    technologies: ["Python", "Flask", "React", "Vite", "OpenRouter", "Web Search", "PDF Generation", "Docker"],
     highlights: [
-      "Extracts a text-based resume PDF or accepts manual entry, then stores the reviewed profile in SQLite for later edits and JSON backup.",
-      "Generates cover letters, application answers, recruiting emails, and resume PDFs. LaTeX or Tectonic is required only for resume compilation.",
-      "Serves the React build and Flask API on loopback, and limits model choices to the allowlist in config/model.yaml."
+      "Implemented OpenRouter-based generation with a YAML-driven model allowlist enforced in both backend validation and frontend selection.",
+      "Added application-question answering and prompt rules that ground responses in resume, project, and company evidence.",
+      "Built editable cover-letter text before PDF download plus tailored resume PDF generation from structured resume YAML."
     ],
     demoUrl: "https://cover-letter-generator-424176252593.us-central1.run.app",
     githubUrl: "https://github.com/devangb3/Cover-Letter-Generator",
@@ -380,7 +380,7 @@ export const projects = [
     id: "transit-dispatch",
     title: "Transit Dispatch - Multi-Agency Arrival Alerts",
     description:
-      "Built an invite-only arrival notification service for DART, Unitrans, and Yolobus that plans one-time or recurring trips and monitors selected boarding legs for predicted-arrival changes.",
+      "Built a transit arrival notification service for regional transit agencies that plans one-time or recurring trips and monitors selected boarding legs for predicted-arrival changes.",
     technologies: ["Python", "FastAPI", "Google Maps Platform", "SQLite", "Telegram", "Resend", "Docker", "Caddy"],
     highlights: [
       "Integrated Google Places and Routes through with agency-local timezone handling and demo itineraries that work without API keys.",
@@ -388,7 +388,7 @@ export const projects = [
       "Implemented single-use invitations with signed sessions, single-use Telegram pairing, and a responsive dashboard that lazy-loads paused and past trips."
     ],
     demoUrl: "#",
-    githubUrl: "https://github.com/devangb3/Transit-Dispatch",
+    githubUrl: "https://github.com/devangb3/Travel-Notifs",
     isOpenSource: true
   },
   {
@@ -597,7 +597,7 @@ export const projects = [
       "Built real-time filtering for dietary restrictions and nutritional constraints."
     ],
     demoUrl: "#",
-    githubUrl: "https://github.com/devangb3/DC-Restrictions",
+    githubUrl: "https://github.com/devangb3/DC-Menu-Analyzer",
     isOpenSource: true
   },
   {
@@ -750,7 +750,7 @@ export const featuredProjectDetails = {
     work: [
       "Built the causal attribution framework, counterfactual repair pipeline, benchmark experiments, and result-auditing workflow.",
       "Models execution as a dependency DAG and tests candidate causes through downstream re-execution or outcome prediction.",
-      "On the audited primary runs, aggregate effective success moved from 61.6% to 78.1%, with 467 of 1,088 baseline failures repaired under each benchmark's evaluator."
+      "Generates localized, minimal repair pairs and evaluates them across math, code, and browsing tasks."
     ],
     resourceLabel: "Paper",
     blogUrl: "",
