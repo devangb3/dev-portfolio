@@ -49,6 +49,141 @@ export const projects = [
     isOpenSource: true
   },
   {
+    id: "sub-gateway",
+    title: "Sub-Gateway - Local Chat Completions Gateway",
+    description:
+      "Built a local, single-account gateway that accepts OpenRouter-style Chat Completions requests and serves them through an authorized ChatGPT plan on OpenAI's public Responses API.",
+    technologies: ["Python", "FastAPI", "OpenAI API", "OAuth 2.0", "Pydantic", "Server-Sent Events"],
+    highlights: [
+      "Translates text history, function calls, JSON responses, and server-sent events, and leaves tool execution to the client.",
+      "Signs in with ChatGPT for open-source and local apps using dynamic client registration, PKCE, and JWKS-checked ID tokens.",
+      "Stores credentials locally with POSIX file locking, binds only to loopback, and rejects unsupported Chat Completions fields."
+    ],
+    demoUrl: "#",
+    githubUrl: "https://github.com/devangb3/Sub-Gateway",
+    isOpenSource: true
+  },
+  {
+    id: "codex-discuss-mode",
+    title: "Codex Discuss Mode",
+    description:
+      "Built a public Codex plugin that treats a prompt containing /discuss as a read-only brainstorming turn and blocks apply_patch until the next turn.",
+    technologies: ["Python", "Codex", "Plugins"],
+    highlights: [
+      "Uses UserPromptSubmit to inject read-only guidance and write a marker keyed by session and turn.",
+      "Uses PreToolUse to deny apply_patch on the marked turn while leaving shell commands unblocked.",
+      "Publishes the hook bundle as an installable plugin marketplace, with script tests for marker matching and turn scope."
+    ],
+    demoUrl: "#",
+    githubUrl: "https://github.com/devangb3/codex-discuss-mode",
+    isOpenSource: true
+  },
+  {
+    id: "prompt-experiments",
+    title: "Prompt Experiments - Cross-Provider Evaluation Harness",
+    description:
+      "Built a provider-agnostic harness that sends one prompt to OpenAI, Anthropic, and Gemini, then records responses, latency, token usage, errors, and structured judgments from a different provider.",
+    technologies: ["Python", "OpenAI API", "Anthropic API", "Gemini API", "Pydantic", "MongoDB"],
+    highlights: [
+      "Routes judging so OpenAI responses are graded by Anthropic, Anthropic by Gemini, and Gemini by OpenAI.",
+      "Requires a 1-5 score and a written reason for clarity, specificity, relevance, actionability, and approachability, validated by a Pydantic schema.",
+      "Persists conversation-shaped records in MongoDB or Xano. The bundled judge prompt is specialized for BrainWorkout feedback."
+    ],
+    demoUrl: "#",
+    githubUrl: "https://github.com/devangb3/Prompt-Experiments",
+    isOpenSource: true
+  },
+  {
+    id: "relocation-rag",
+    title: "Relocation RAG - Policy Q&A Assistant",
+    description:
+      "Built during Forward Deployed Engineer training at Coforge: a Q&A assistant over a relocation reimbursement policy that mixes local vector and keyword search and answers through Microsoft Foundry with policy citations.",
+    technologies: ["Python", "Chroma", "Microsoft Foundry", "BM25", "sentence-transformers", "Docker"],
+    highlights: [
+      "Chunks the bundled policies locally with sentence-transformers/all-MiniLM-L6-v2 and stores text, embeddings, filename, section, and effective date in Chroma.",
+      "Combines vector search with in-memory BM25, reranks with a local cross-encoder, and lets Foundry call the same retrieval path up to three times before answering.",
+      "Validates cited chunk IDs and shows the indexed section, filename, and effective date beside each claim. A separate pytest suite grades answers with a yes/no rubric judge."
+    ],
+    demoUrl: "#",
+    githubUrl: "https://github.com/devangb3/Relocation-RAG",
+    isOpenSource: true
+  },
+  {
+    id: "mission-control-console",
+    title: "Mission Control - Launch Anomaly Console",
+    description:
+      "Built during Forward Deployed Engineer training at Coforge: a console for Meridian Launch Services that sorts an anomaly report, checks launch limits in code, drafts a briefing, and waits for a person to approve it.",
+    technologies: ["Python", "FastAPI", "Microsoft Foundry", "SQLite"],
+    highlights: [
+      "Checks wind, temperature, and fuel limits in code. The filed note cannot change a no-go verdict.",
+      "Runs model checks for hidden instructions, missing details, and tone, then drafts and reviews a briefing for up to three rounds.",
+      "Shows one trace row per step with token counts and estimated cost, and stores reports in SQLite. Tests use a fake model client and need no API key."
+    ],
+    demoUrl: "#",
+    githubUrl: "https://github.com/devangb3/Mission-Control-Console",
+    isOpenSource: true
+  },
+  {
+    id: "recall-campaign-tracker",
+    title: "Recall Campaign Tracker",
+    description:
+      "Built during Forward Deployed Engineer training at Coforge: a Python and SQLite tracker that loads synthetic vehicle-recall files, flags late or mismatched repairs, and records coordinator decisions.",
+    technologies: ["Python", "SQLite", "HTML", "JavaScript"],
+    highlights: [
+      "Ingests vehicles, campaigns, notices, repairs, and affected-vehicle files, quarantines bad rows, and keeps every earlier ingest.",
+      "Flags repairs outside the campaign model or build-date range and measures repair timeliness from the earliest usable notice, with a default 60-day limit.",
+      "Serves a same-origin coordinator UI for findings, vehicle detail, decision history, and a print-to-PDF export."
+    ],
+    demoUrl: "#",
+    githubUrl: "https://github.com/devangb3/Recall-Campaign-Tracker",
+    isOpenSource: true
+  },
+  {
+    id: "orbit-air-baggage-desk",
+    title: "Orbit Air Baggage Desk",
+    description:
+      "Built during Forward Deployed Engineer training at Coforge: a Python command-line baggage-claims desk for Orbit Air, with SQLite storage, tier deadlines, assignment, and overdue escalation.",
+    technologies: ["Python", "SQLite", "Docker", "GitHub Actions"],
+    highlights: [
+      "Files, lists, assigns, resolves, closes, and escalates claims, and keeps a history row for every change.",
+      "Imports a UTF-8 CSV in one transaction and prints a per-tier report of open claims and overdue open or assigned claims.",
+      "Ships a Docker image. GitHub Actions runs the tests and linter on Python 3.12 and 3.13, then runs the tests inside the image."
+    ],
+    demoUrl: "#",
+    githubUrl: "https://github.com/devangb3/orbit-air-baggage-desk",
+    isOpenSource: true
+  },
+  {
+    id: "inventory-management-system",
+    title: "Hardware Store Inventory CLI",
+    description:
+      "Built during Forward Deployed Engineer training at Coforge: a Python terminal app for hardware-store products, stock changes, sales, reports, and SQLite backup.",
+    technologies: ["Python", "SQLite", "Docker", "uv"],
+    highlights: [
+      "Records stock changes and sales in SQLite transactions, and rolls a whole sale back when any line is out of stock.",
+      "Prints stock value by supplier, low stock, products never sold, and sales by product from the seeded catalog.",
+      "Backs up the database through SQLite's backup API and runs the same menu in Docker with a persistent volume."
+    ],
+    demoUrl: "#",
+    githubUrl: "https://github.com/devb-coforge/Inventory-Management-System",
+    isOpenSource: true
+  },
+  {
+    id: "continual-harness",
+    title: "Continual Harness - Strategy Prompt Optimizer",
+    description:
+      "Built during Forward Deployed Engineer training at Coforge: a Python CLI that optimizes one strategy prompt against a fixed 100-task renters-insurance benchmark for Harborlight Renters.",
+    technologies: ["Python", "OpenRouter", "SQLite", "Benchmarking"],
+    highlights: [
+      "Runs an execute, evaluate, diagnose, compare, and promote loop while the handbook, task inputs, and scoring stay fixed.",
+      "Splits the benchmark into 50 optimization, 20 validation, and 30 held-out tasks, and can require retrieval through read-only memory tools.",
+      "Saves prompt lineage and call artifacts in SQLite. The offline demo uses scripted judgments and does not report live model improvement."
+    ],
+    demoUrl: "#",
+    githubUrl: "https://github.com/devb-coforge/Continual-Harness",
+    isOpenSource: true
+  },
+  {
     id: "lh-multimodal-svc",
     title: "Emotion-Aware Feedback System for Public Speaking",
     description:
@@ -548,6 +683,15 @@ export const projectCategoryById = {
   "pilotcrew-gen-eval": "Evaluation & Benchmarks",
   "pilotcrew-observability": "AI Systems",
   causalflow: "Research",
+  "sub-gateway": "AI Systems",
+  "codex-discuss-mode": "AI Systems",
+  "prompt-experiments": "Evaluation & Benchmarks",
+  "relocation-rag": "AI Systems",
+  "mission-control-console": "AI Systems",
+  "recall-campaign-tracker": "Full-Stack Products",
+  "orbit-air-baggage-desk": "Backend & Distributed Systems",
+  "inventory-management-system": "Backend & Distributed Systems",
+  "continual-harness": "Evaluation & Benchmarks",
   "lh-multimodal-svc": "AI Systems",
   "gitartha-engine": "Backend & Distributed Systems",
   "gemini-hardwarebench": "Evaluation & Benchmarks",
